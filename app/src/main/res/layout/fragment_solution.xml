@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".SolutionApproachFragment">
+    <ScrollView
+        android:scrollbarSize="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#9C27B0"
+            android:fontFamily="@font/crt"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            android:text="Java"
+            />
+        <TextView
+            android:id="@+id/java"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="8dp"
+            android:padding="7dp"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is the same question as longest increase sub sequance.
+The only problem is how to trasnform this problem to it.
+We just sort the envelopes by width, but when there are even case( two envelope with the same width) we should put the height in reverse order.
+like (5,6), (5,8), we should put (5,8) before (5,6).
+
+Now the problem reduces to finding the longest increasing subsequence." />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#9C27B0"
+            android:fontFamily="@font/crt"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            android:text="Python"
+            />
+        <TextView
+            android:id="@+id/python"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="8dp"
+            android:padding="7dp"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is the same question as longest increase sub sequance.
+The only problem is how to trasnform this problem to it.
+We just sort the envelopes by width, but when there are even case( two envelope with the same width) we should put the height in reverse order.
+like (5,6), (5,8), we should put (5,8) before (5,6).
+
+Now the problem reduces to finding the longest increasing subsequence." />
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>

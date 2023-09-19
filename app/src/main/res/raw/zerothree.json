@@ -1,0 +1,24 @@
+{
+  "problem_statement": {
+    "title": "Q1.Two Sum",
+    "problemdescription": "Given an array of integers, return indices of the two numbers such that they add up to a specific target.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.",
+    "problemconstraint": "Constraints:\n- The solution must be a unique pair of indices.\n- You can't use the same element twice.\n- The input array is not sorted.",
+    "inputformat": "Input:\n- An array of integers (nums).\n- A target integer (target).",
+    "outputformat": "Output:\n- An array of two integers, representing the indices of the two numbers from the input array that add up to the target.",
+    "example": "Example:\n\nInput: nums = [2, 7, 11, 15], target = 9\nOutput: [0, 1]\nExplanation: nums[0] + nums[1] = 2 + 7 = 9, so the output is [0, 1]."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem, you can use a HashMap to store the elements of the array as keys and their corresponding indices as values. Then, for each element in the array, you can check if the complement (target - current element) is already in the HashMap. If it is, you have found a pair that sums to the target. Return the indices of the current element and its complement.",
+    "hint": "To solve this problem, you can use a HashMap to store the elements of the array as keys and their corresponding indices as values. Then, for each element in the array, you can check if the complement (target - current element) is already in the HashMap. If it is, you have found a pair that sums to the target. Return the indices of the current element and its complement."
+
+  },
+  "solution": {
+    "java": "Here's a Java solution for the Two Sum problem:\n\n```java\npublic int[] twoSum(int[] nums, int target) {\n    Map<Integer, Integer> map = new HashMap<>();\n    for (int i = 0; i < nums.length; i++) {\n        int complement = target - nums[i];\n        if (map.containsKey(complement)) {\n            return new int[] { map.get(complement), i };\n        }\n        map.put(nums[i], i);\n    }\n    throw new IllegalArgumentException(\"No two sum solution\");\n}\n```\nThis code efficiently finds the indices of the two numbers that add up to the target value.",
+    "python": "And here's a Python solution for the Two Sum problem:\n\n```python\ndef two_sum(nums, target):\n    num_to_index = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_to_index:\n            return [num_to_index[complement], i]\n        num_to_index[num] = i\n    return []\n```\nThis Python code works similarly to the Java solution and returns the indices of the two numbers that sum to the target."
+  },
+  "extras": {
+    "asked": "The Two Sum problem is a frequently asked coding interview question. It tests your ability to efficiently search for elements in an array and is a fundamental problem in computer science.",
+    "sdesheet": "The Two Sum problem is commonly included in coding practice sheets and is used to teach the basics of hash tables and efficient searching algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Two Sum Problem](https://leetcode.com/problems/two-sum/)\n- [Wikipedia - Two Sum Problem](https://en.wikipedia.org/wiki/Two-sum_problem)"
+  }
+}

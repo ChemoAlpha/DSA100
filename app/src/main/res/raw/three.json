@@ -1,0 +1,27 @@
+[
+  {
+    "problemStatement": "This is Third Json file",
+    "difficultyLevel": "Easy",
+    "thirdString": "This is the first problem."
+  },
+  {
+    "problemStatement": "Problem 2",
+    "difficultyLevel": "Medium",
+    "thirdString": "This is the second problem."
+  },
+  {
+    "problemStatement": "Problem 3",
+    "difficultyLevel": "Hard",
+    "thirdString": "This is the third problem."
+  },
+  {
+    "problemStatement": "Problem 4",
+    "difficultyLevel": "Easy",
+    "thirdString": "This is the fourth problem."
+  },
+  {
+    "problemStatement": "Problem 5",
+    "difficultyLevel": "Medium",
+    "thirdString": "This is the fifth problem."
+  }
+]

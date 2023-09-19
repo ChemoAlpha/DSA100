@@ -1,0 +1,27 @@
+[
+  {
+    "problemStatement": "Problem 1",
+    "difficultyLevel": "Easy",
+    "thirdString": "Two Sum"
+  },
+  {
+    "problemStatement": "Problem 2",
+    "difficultyLevel": "Medium",
+    "thirdString": "BackGammon"
+  },
+  {
+    "problemStatement": "Problem 3",
+    "difficultyLevel": "Hard",
+    "thirdString": "2-ptrs"
+  },
+  {
+    "problemStatement": "Problem 4",
+    "difficultyLevel": "Easy",
+    "thirdString": "Maidan"
+  },
+  {
+    "problemStatement": "Problem 5",
+    "difficultyLevel": "Medium",
+    "thirdString": "Yellur"
+  }
+]

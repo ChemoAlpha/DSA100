@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProblemFragment">
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:scrollbarSize="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/problemtitle"
+                android:padding="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#00FF00"
+                android:fontFamily="@font/crt"
+                android:drawablePadding="10dp"
+                android:drawableEnd="@drawable/ic_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Q1.Russian Doll Envelopes" />
+            </LinearLayout>
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="2dp"
+                     android:background="@color/black"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="#9C27B0"
+                        android:fontFamily="@font/crt"
+                        android:text="Problem Description"
+                        />
+                    <TextView
+                        android:id="@+id/problemdescription"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="8dp"
+                        android:padding="7dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/rounded_grey_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Given a matrix of  integers A of size N x 2 describing dimensions of N envelopes, where A[i][0] denotes the height of the ith envelope and A[i][1] denotes the width of the ith envelope.
+One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope.
+Find the maximum number of envelopes you can put one inside other." />
+                </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#9C27B0"
+                    android:fontFamily="@font/crt"
+                    android:layout_marginLeft="8dp"
+                    android:text="Problem Constraints"
+                    />
+                <TextView
+                    android:id="@+id/problemdeconst"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="8dp"
+                    android:padding="7dp"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_grey_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1 &gt;= N &lt;= 1000
+1 &gt;= A[i][0], A[i][1] &gt;= 109" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#9C27B0"
+                    android:fontFamily="@font/crt"
+                    android:layout_marginLeft="8dp"
+                    android:text="Input Format"
+                    />
+                <TextView
+                    android:id="@+id/inputFormat"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="8dp"
+                    android:padding="7dp"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_grey_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="The only argument given is the integer matrix A." />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#9C27B0"
+                    android:fontFamily="@font/crt"
+                    android:layout_marginLeft="8dp"
+                    android:text="Output Format"
+                    />
+                <TextView
+                    android:id="@+id/outputformat"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="8dp"
+                    android:padding="7dp"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_grey_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Return an integer denoting the maximum number of envelopes you can put one inside other." />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#9C27B0"
+                    android:fontFamily="@font/crt"
+                    android:layout_marginLeft="8dp"
+                    android:text="Example 1:"
+                    />
+                <TextView
+                    android:id="@+id/example1"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="8dp"
+                    android:padding="7dp"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_grey_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Input :
+ A = [ [5, 4][6, 4][6, 7][2, 3] ]\nOutput : 3" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>
