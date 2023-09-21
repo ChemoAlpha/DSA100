@@ -1,0 +1,47 @@
+[
+  {
+    "problemStatement": "Q92. Depth-First Search (DFS) on a Graph",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Graph Traversal, DFS"
+  },
+  {
+    "problemStatement": "Q93. Breadth-First Search (BFS) on a Graph",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Graph Traversal, BFS"
+  },
+  {
+    "problemStatement": "Q94. Detect a Cycle in an Undirected Graph",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Graph, Cycle Detection"
+  },
+  {
+    "problemStatement": "Q95. Shortest Path in an Unweighted Graph",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Graph, Shortest Path"
+  },
+  {
+    "problemStatement": "Q96. Kruskal's Minimum Spanning Tree Algorithm",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Graph, Minimum Spanning Tree"
+  },
+  {
+    "problemStatement": "Q97. Topological Sort of a Directed Acyclic Graph (DAG)",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Graph, Topological Sort"
+  },
+  {
+    "problemStatement": "Q98. Dijkstra's Shortest Path Algorithm",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Graph, Shortest Path, Dijkstra"
+  },
+  {
+    "problemStatement": "Q99. Bellman-Ford Algorithm",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Graph, Shortest Path, Bellman-Ford"
+  },
+  {
+    "problemStatement": "Q100. Floyd-Warshall Algorithm",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Graph, Shortest Path, Floyd-Warshall"
+  }
+]

@@ -1,27 +1,32 @@
 [
   {
-    "problemStatement": "Problem 1",
-    "difficultyLevel": "Easy",
-    "thirdString": "Two Sum"
-  },
-  {
-    "problemStatement": "Problem 2",
+    "problemStatement": "Q11. Implement a Stack with Push, Pop, and Min operations in O(1) time.",
     "difficultyLevel": "Medium",
-    "thirdString": "BackGammon"
+    "thirdString": "Topic: Stack"
   },
   {
-    "problemStatement": "Problem 3",
+    "problemStatement": "Q12. Check for balanced parentheses in an expression.",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Stack"
+  },
+  {
+    "problemStatement": "Q13. Implement a Queue using two Stacks.",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Stack, Queue"
+  },
+  {
+    "problemStatement": "Q14. Design a Stack that supports push, pop, top, and retrieving the minimum element in constant time.",
     "difficultyLevel": "Hard",
-    "thirdString": "2-ptrs"
+    "thirdString": "Topic: Stack"
   },
   {
-    "problemStatement": "Problem 4",
-    "difficultyLevel": "Easy",
-    "thirdString": "Maidan"
-  },
-  {
-    "problemStatement": "Problem 5",
+    "problemStatement": "Q15. Evaluate an expression given in Reverse Polish Notation.",
     "difficultyLevel": "Medium",
-    "thirdString": "Yellur"
+    "thirdString": "Topic: Stack"
+  },
+  {
+    "problemStatement": "Q16. Implement a Max Stack that supports push, pop, top, peekMax, and popMax operations.",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Stack"
   }
 ]

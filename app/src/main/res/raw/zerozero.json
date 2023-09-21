@@ -1,7 +1,7 @@
 {
   "problem_statement": {
-    "title": "Q1.Two Sum",
-    "problemdescription": "Given an array of integers, return indices of the two numbers such that they add up to a specific target.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.",
+    "title": "Q0. Two Sum",
+    "problemdescription": "Given an array of integers, return the indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.",
     "problemconstraint": "Constraints:\n- The solution must be a unique pair of indices.\n- You can't use the same element twice.\n- The input array is not sorted.",
     "inputformat": "Input:\n- An array of integers (nums).\n- A target integer (target).",
     "outputformat": "Output:\n- An array of two integers, representing the indices of the two numbers from the input array that add up to the target.",
@@ -9,16 +9,15 @@
   },
   "solution_approach": {
     "solution": "To solve this problem, you can use a HashMap to store the elements of the array as keys and their corresponding indices as values. Then, for each element in the array, you can check if the complement (target - current element) is already in the HashMap. If it is, you have found a pair that sums to the target. Return the indices of the current element and its complement.",
-    "hint": "To solve this problem, you can use a HashMap to store the elements of the array as keys and their corresponding indices as values. Then, for each element in the array, you can check if the complement (target - current element) is already in the HashMap. If it is, you have found a pair that sums to the target. Return the indices of the current element and its complement."
-
+    "hint": "One approach to solve this problem efficiently is to use a HashMap to keep track of the elements you've seen so far and their indices. As you iterate through the array, calculate the complement (target - current element) and check if it's in the HashMap. If it is, you've found the pair. If not, add the current element to the HashMap for future reference."
   },
   "solution": {
     "java": "Here's a Java solution for the Two Sum problem:\n\n```java\npublic int[] twoSum(int[] nums, int target) {\n    Map<Integer, Integer> map = new HashMap<>();\n    for (int i = 0; i < nums.length; i++) {\n        int complement = target - nums[i];\n        if (map.containsKey(complement)) {\n            return new int[] { map.get(complement), i };\n        }\n        map.put(nums[i], i);\n    }\n    throw new IllegalArgumentException(\"No two sum solution\");\n}\n```\nThis code efficiently finds the indices of the two numbers that add up to the target value.",
     "python": "And here's a Python solution for the Two Sum problem:\n\n```python\ndef two_sum(nums, target):\n    num_to_index = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_to_index:\n            return [num_to_index[complement], i]\n        num_to_index[num] = i\n    return []\n```\nThis Python code works similarly to the Java solution and returns the indices of the two numbers that sum to the target."
   },
   "extras": {
-    "asked": "The Two Sum problem is a frequently asked coding interview question. It tests your ability to efficiently search for elements in an array and is a fundamental problem in computer science.",
-    "sdesheet": "The Two Sum problem is commonly included in coding practice sheets and is used to teach the basics of hash tables and efficient searching algorithms.",
-    "relatedlinks": "Related Links:\n- [LeetCode Two Sum Problem](https://leetcode.com/problems/two-sum/)\n- [Wikipedia - Two Sum Problem](https://en.wikipedia.org/wiki/Two-sum_problem)"
+    "asked": "The Two Sum problem is a frequently asked coding interview question and is commonly encountered in technical interviews at top tech companies such as Google, Amazon, Facebook, and Microsoft.",
+    "sdesheet": "The Two Sum problem is a fundamental problem included in coding practice sheets. It's used to teach the basics of hash tables and efficient searching algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Two Sum Problem](https://leetcode.com/problems/two-sum/)\n- [GeeksforGeeks Two Sum Article](https://www.geeksforgeeks.org/two-sum-problem/)\n- [HackerRank Two Sum Challenge](https://www.hackerrank.com/challenges/ctci-array-left-rotation)"
   }
 }

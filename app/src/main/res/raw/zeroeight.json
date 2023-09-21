@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q8. Product of Array Except Self",
+    "problemdescription": "Given an array `nums` of n integers, return an array `output` such that `output[i]` is equal to the product of all the elements of `nums` except `nums[i]`.",
+    "problemconstraint": "Constraints:\n- The product array `output` must not use the division operation.\n- Solve it in O(n) time complexity without using division.\n",
+    "inputformat": "Input:\n- An array of integers `nums` (where 1 <= n <= 10^5).\n",
+    "outputformat": "Output:\n- An array of integers `output` of the same length as `nums`.",
+    "example": "Example:\n\nInput: nums = [1, 2, 3, 4]\nOutput: [24, 12, 8, 6]\nExplanation: The product array `output` is calculated as [2*3*4, 1*3*4, 1*2*4, 1*2*3] = [24, 12, 8, 6]."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem efficiently without using division, you can first calculate the products of all elements to the left of each element and store them in a separate array. Then, calculate the products of all elements to the right of each element and multiply them with the corresponding left product. This approach ensures O(n) time complexity.",
+    "hint": "To efficiently calculate the product of all elements except the current element, consider calculating the products to the left and right of each element separately. Use two separate arrays to store these products and then combine them to get the final product array."
+  },
+  "solution": {
+    "java": "Here's a Java solution for calculating the product of all elements except self:\n\n```java\npublic int[] productExceptSelf(int[] nums) {\n    int n = nums.length;\n    int[] leftProduct = new int[n];\n    int[] rightProduct = new int[n];\n    int[] output = new int[n];\n\n    leftProduct[0] = 1;\n    for (int i = 1; i < n; i++) {\n        leftProduct[i] = leftProduct[i - 1] * nums[i - 1];\n    }\n\n    int right = 1;\n    for (int i = n - 1; i >= 0; i--) {\n        output[i] = leftProduct[i] * right;\n        right *= nums[i];\n    }\n\n    return output;\n}\n```\nThis Java code efficiently calculates the product of all elements except self in an array.",
+    "python": "And here's a Python solution for calculating the product of all elements except self:\n\n```python\ndef productExceptSelf(nums):\n    n = len(nums)\n    left_product = [1] * n\n    right_product = [1] * n\n    output = [1] * n\n\n    for i in range(1, n):\n        left_product[i] = left_product[i - 1] * nums[i - 1]\n\n    right = 1\n    for i in range(n - 1, -1, -1):\n        output[i] = left_product[i] * right\n        right *= nums[i]\n\n    return output\n```\nThis Python code efficiently calculates the product of all elements except self in an array."
+  },
+  "extras": {
+    "asked": "The Product of Array Except Self problem is commonly asked in coding interviews and is used to assess a candidate's understanding of array manipulation and efficient algorithms.",
+    "sdesheet": "The Product of Array Except Self problem is often included in coding practice sheets and is used to teach the technique of calculating products of elements to the left and right of each element.",
+    "relatedlinks": "Related Links:\n- [LeetCode Product of Array Except Self Problem](https://leetcode.com/problems/product-of-array-except-self/)\n- [GeeksforGeeks Product of Array Except Self Article](https://www.geeksforgeeks.org/product-array-except-self/)\n- [HackerRank Product of Array Except Self Challenge](https://www.hackerrank.com/challenges/product-of-array-except-self)"
+  }
+}

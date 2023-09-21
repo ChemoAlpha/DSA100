@@ -1,27 +1,22 @@
 [
   {
-    "problemStatement": "This is Third Json file",
+    "problemStatement": "Q21. Single Number (XOR Operation)",
     "difficultyLevel": "Easy",
-    "thirdString": "This is the first problem."
+    "thirdString": "Topic: Bit Manipulation"
   },
   {
-    "problemStatement": "Problem 2",
-    "difficultyLevel": "Medium",
-    "thirdString": "This is the second problem."
-  },
-  {
-    "problemStatement": "Problem 3",
-    "difficultyLevel": "Hard",
-    "thirdString": "This is the third problem."
-  },
-  {
-    "problemStatement": "Problem 4",
+    "problemStatement": "Q22. Reverse Bits",
     "difficultyLevel": "Easy",
-    "thirdString": "This is the fourth problem."
+    "thirdString": "Topic: Bit Manipulation"
   },
   {
-    "problemStatement": "Problem 5",
+    "problemStatement": "Q23. Counting Bits (Dynamic Programming)",
     "difficultyLevel": "Medium",
-    "thirdString": "This is the fifth problem."
+    "thirdString": "Topic: Bit Manipulation, Dynamic Programming"
+  },
+  {
+    "problemStatement": "Q24. Bitwise AND of Numbers Range",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Bit Manipulation"
   }
 ]

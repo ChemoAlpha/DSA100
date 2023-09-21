@@ -1,0 +1,22 @@
+[
+  {
+    "problemStatement": "Q17. Two Sum (Two Pointers Approach)",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Two Pointers"
+  },
+  {
+    "problemStatement": "Q18. Container With Most Water",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Two Pointers"
+  },
+  {
+    "problemStatement": "Q19. Reverse String in Place",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Two Pointers"
+  },
+  {
+    "problemStatement": "Q20. Find Pair with Given Sum in Sorted Array",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Two Pointers"
+  }
+]

@@ -32,7 +32,8 @@ class ExtrasFragment : Fragment() {
 
         if (data != null) {
 
-            val jsonData = parseJsonResource(requireContext(), R.raw.data)
+            val resourceId = resources.getIdentifier(data, "raw", requireContext().packageName)
+            val jsonData = parseJsonResource(requireContext(), resourceId)
             val extra = jsonData.getJSONObject("extras")
             val companytext = extra.getString("asked")
             val LinkText = extra.getString("relatedlinks")

@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q11. Implement a Stack with Push, Pop, and Min operations in O(1) time",
+    "problemdescription": "Design a stack data structure that supports the standard push and pop operations, along with a getMin operation that returns the minimum element in the stack in O(1) time. Implement this stack efficiently.",
+    "problemconstraint": "Constraints:\n- All operations (push, pop, getMin) must be done in constant O(1) time.\n",
+    "inputformat": "Input:\n- The input consists of a sequence of operations, where each operation is either push, pop, or getMin.",
+    "outputformat": "Output:\n- For getMin operation, return the minimum element in the stack.",
+    "example": "Example:\n\nInput: push(3), push(1), push(4), getMin(), pop(), getMin()\nOutput: [3, 1]"
+  },
+  "solution_approach": {
+    "solution": "To implement a stack with O(1) time complexity for all operations, you can use an auxiliary stack to keep track of the minimum elements at each level. When pushing elements onto the main stack, compare them with the top element of the auxiliary stack to determine the new minimum. Similarly, when popping elements, update the auxiliary stack accordingly.",
+    "hint": "To achieve O(1) time complexity for getMin operation, consider using an auxiliary stack to keep track of the minimum elements. When pushing elements, compare them with the current minimum (top of the auxiliary stack) and update if necessary. When popping elements, ensure the auxiliary stack stays synchronized with the main stack."
+  },
+  "solution": {
+    "java": "Here's a Java solution for implementing a stack with O(1) time complexity for push, pop, and getMin operations:\n\n```java\nclass MinStack {\n    Stack<Integer> mainStack;\n    Stack<Integer> minStack;\n\n    public MinStack() {\n        mainStack = new Stack<>();\n        minStack = new Stack<>();\n    }\n\n    public void push(int val) {\n        mainStack.push(val);\n        if (minStack.isEmpty() || val <= minStack.peek()) {\n            minStack.push(val);\n        }\n    }\n\n    public void pop() {\n        if (!mainStack.isEmpty()) {\n            if (mainStack.peek().equals(minStack.peek())) {\n                minStack.pop();\n            }\n            mainStack.pop();\n        }\n    }\n\n    public int getMin() {\n        return minStack.peek();\n    }\n}\n```\nThis Java code efficiently implements a stack with O(1) time complexity for push, pop, and getMin operations.",
+    "python": "And here's a Python solution for implementing a stack with O(1) time complexity for push, pop, and getMin operations:\n\n```python\nclass MinStack:\n    def __init__(self):\n        self.mainStack = []\n        self.minStack = []\n\n    def push(self, val: int) -> None:\n        self.mainStack.append(val)\n        if not self.minStack or val <= self.minStack[-1]:\n            self.minStack.append(val)\n\n    def pop(self) -> None:\n        if self.mainStack:\n            if self.mainStack[-1] == self.minStack[-1]:\n                self.minStack.pop()\n            self.mainStack.pop()\n\n    def getMin(self) -> int:\n        return self.minStack[-1]\n```\nThis Python code efficiently implements a stack with O(1) time complexity for push, pop, and getMin operations."
+  },
+  "extras": {
+    "asked": "The problem of implementing a stack with push, pop, and getMin operations in O(1) time complexity is a frequently asked coding interview question and tests a candidate's understanding of stack data structures and time complexity.",
+    "sdesheet": "This problem is commonly included in coding practice sheets, particularly those focused on stack-related problems and data structures.",
+    "relatedlinks": "Related Links:\n- [LeetCode Min Stack Problem](https://leetcode.com/problems/min-stack/)\n- [GeeksforGeeks Special Stack Article](https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/)\n- [HackerRank Minimum Element in a Stack Challenge](https://www.hackerrank.com/challenges/maximum-element)"
+  }
+}

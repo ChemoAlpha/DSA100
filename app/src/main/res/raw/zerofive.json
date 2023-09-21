@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q5. Rotate Array",
+    "problemdescription": "Given an array, rotate the array to the right by `k` steps, where `k` is a non-negative integer.",
+    "problemconstraint": "Constraints:\n- Try to come up with an in-place solution with O(1) extra space.\n- You can assume that the input array is non-empty and the value of `k` will not exceed the length of the array.",
+    "inputformat": "Input:\n- An integer array `nums`.\n- An integer `k` representing the number of steps to rotate the array.",
+    "outputformat": "Output:\n- Modify the input array in-place and do not return anything.",
+    "example": "Example:\n\nInput: nums = [1, 2, 3, 4, 5, 6, 7], k = 3\nOutput: [5, 6, 7, 1, 2, 3, 4]\nExplanation: After rotating the array to the right by 3 steps, the modified array becomes [5, 6, 7, 1, 2, 3, 4]."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem, you can use the cyclic rotation approach. Reverse the entire array. Then, reverse the first `k` elements and reverse the remaining `n - k` elements, where `n` is the length of the array. This approach effectively rotates the array to the right by `k` steps in-place.",
+    "hint": "To efficiently rotate an array to the right by `k` steps in-place, consider using the cyclic rotation approach. Reverse the entire array, then reverse the first `k` elements and reverse the remaining `n - k` elements. This will effectively rotate the array to the right by `k` steps."
+  },
+  "solution": {
+    "java": "Here's a Java solution for rotating an array to the right by `k` steps:\n\n```java\npublic void rotate(int[] nums, int k) {\n    int n = nums.length;\n    k = k % n; // Handle cases where k is larger than the array size\n    reverse(nums, 0, n - 1); // Reverse the entire array\n    reverse(nums, 0, k - 1); // Reverse the first k elements\n    reverse(nums, k, n - 1); // Reverse the remaining elements\n}\n\nprivate void reverse(int[] nums, int start, int end) {\n    while (start < end) {\n        int temp = nums[start];\n        nums[start] = nums[end];\n        nums[end] = temp;\n        start++;\n        end--;\n    }\n}\n```\nThis code efficiently rotates the array to the right by `k` steps in-place.",
+    "python": "And here's a Python solution for rotating an array to the right by `k` steps:\n\n```python\ndef rotate(nums, k):\n    n = len(nums)\n    k = k % n # Handle cases where k is larger than the array size\n    nums.reverse() # Reverse the entire array\n    reverse(nums, 0, k - 1) # Reverse the first k elements\n    reverse(nums, k, n - 1) # Reverse the remaining elements\n\ndef reverse(nums, start, end):\n    while start < end:\n        nums[start], nums[end] = nums[end], nums[start]\n        start += 1\n        end -= 1\n```\nThis Python code efficiently rotates the array to the right by `k` steps in-place."
+  },
+  "extras": {
+    "asked": "The Rotate Array problem is commonly asked in coding interviews and is used to assess a candidate's ability to manipulate arrays efficiently in-place.",
+    "sdesheet": "The Rotate Array problem is a frequently encountered topic in coding practice sheets and is used to teach array manipulation techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode Rotate Array Problem](https://leetcode.com/problems/rotate-array/)\n- [GeeksforGeeks Rotate Array Article](https://www.geeksforgeeks.org/array-rotation/)\n- [HackerRank Array Left Rotation Challenge](https://www.hackerrank.com/challenges/ctci-array-left-rotation)"
+  }
+}

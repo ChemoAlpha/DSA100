@@ -1,0 +1,17 @@
+[
+  {
+    "problemStatement": "Q71. Implement a Min Heap",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Heap, Min Heap Implementation"
+  },
+  {
+    "problemStatement": "Q72. Merge K Sorted Lists using Min Heap",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Heap, Merge, Linked List"
+  },
+  {
+    "problemStatement": "Q73. Find the Kth Smallest Element in a Matrix using Min Heap",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Heap, Matrix, Kth Smallest"
+  }
+]

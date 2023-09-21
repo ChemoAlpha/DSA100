@@ -1,0 +1,32 @@
+[
+  {
+    "problemStatement": "Q50. Reverse a Linked List",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Linked List, Reversal"
+  },
+  {
+    "problemStatement": "Q51. Detect a Cycle in a Linked List",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Linked List, Cycle Detection"
+  },
+  {
+    "problemStatement": "Q52. Merge Two Sorted Linked Lists",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Linked List, Merge"
+  },
+  {
+    "problemStatement": "Q53. Intersection of Two Linked Lists",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Linked List, Intersection"
+  },
+  {
+    "problemStatement": "Q54. Palindrome Linked List",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Linked List, Palindrome"
+  },
+  {
+    "problemStatement": "Q55. Flatten a Multilevel Doubly Linked List",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Linked List, Multilevel"
+  }
+]

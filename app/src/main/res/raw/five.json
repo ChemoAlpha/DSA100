@@ -1,0 +1,27 @@
+[
+  {
+    "problemStatement": "Q31. Find GCD of Two Numbers",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Euclidean Algorithm"
+  },
+  {
+    "problemStatement": "Q32. Calculate Power Modulo M",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Modulus"
+  },
+  {
+    "problemStatement": "Q33. Check if a Number is Prime (Using MOD)",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Prime Numbers, Fermat's Little Theorem"
+  },
+  {
+    "problemStatement": "Q34. Extended Euclidean Algorithm",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Modulus"
+  },
+  {
+    "problemStatement": "Q35. Modular Inverse",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Extended Euclidean Algorithm"
+  }
+]

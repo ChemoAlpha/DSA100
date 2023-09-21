@@ -1,24 +1,23 @@
 {
   "problem_statement": {
-    "title": "Q1.Two Sum",
-    "problemdescription": "Given an array of integers, return indices of the two numbers such that they add up to a specific target.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.",
-    "problemconstraint": "Constraints:\n- The solution must be a unique pair of indices.\n- You can't use the same element twice.\n- The input array is not sorted.",
-    "inputformat": "Input:\n- An array of integers (nums).\n- A target integer (target).",
-    "outputformat": "Output:\n- An array of two integers, representing the indices of the two numbers from the input array that add up to the target.",
-    "example": "Example:\n\nInput: nums = [2, 7, 11, 15], target = 9\nOutput: [0, 1]\nExplanation: nums[0] + nums[1] = 2 + 7 = 9, so the output is [0, 1]."
+    "title": "Q3. Remove Duplicates from Sorted Array",
+    "problemdescription": "Given a sorted array `nums`, remove the duplicates in-place such that each element appears only once and returns the new length. Do not allocate extra space for another array; you must do this by modifying the input array in-place.",
+    "problemconstraint": "Constraints:\n- You must modify the input array `nums` in-place with O(1) extra memory.",
+    "inputformat": "Input:\n- A sorted integer array `nums`.",
+    "outputformat": "Output:\n- An integer, representing the new length of the array after removing duplicates. The modified array should contain unique elements at the beginning.",
+    "example": "Example:\n\nInput: nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]\nOutput: 5\nExplanation: The modified array should be [0, 1, 2, 3, 4], and the new length is 5."
   },
   "solution_approach": {
-    "solution": "To solve this problem, you can use a HashMap to store the elements of the array as keys and their corresponding indices as values. Then, for each element in the array, you can check if the complement (target - current element) is already in the HashMap. If it is, you have found a pair that sums to the target. Return the indices of the current element and its complement.",
-    "hint": "To solve this problem, you can use a HashMap to store the elements of the array as keys and their corresponding indices as values. Then, for each element in the array, you can check if the complement (target - current element) is already in the HashMap. If it is, you have found a pair that sums to the target. Return the indices of the current element and its complement."
-
+    "solution": "To solve this problem, you can use a two-pointer approach. Initialize two pointers, `slow` and `fast`, both initially set to 0. Iterate through the array with the `fast` pointer. If `nums[fast]` is not equal to `nums[slow]`, increment `slow` and set `nums[slow]` to `nums[fast]`. This way, as you iterate through the array, duplicates are replaced by unique elements, and the unique elements are placed at the beginning of the array. The new length is the value of `slow` plus 1.",
+    "hint": "To efficiently remove duplicates from a sorted array in-place, consider using a two-pointer approach. Initialize two pointers, one for the unique elements (`slow`) and one for iterating through the array (`fast`). Compare elements at the `fast` pointer with the `slow` pointer. If they are different, update the `slow` pointer and replace `nums[slow]` with the unique element."
   },
   "solution": {
-    "java": "Here's a Java solution for the Two Sum problem:\n\n```java\npublic int[] twoSum(int[] nums, int target) {\n    Map<Integer, Integer> map = new HashMap<>();\n    for (int i = 0; i < nums.length; i++) {\n        int complement = target - nums[i];\n        if (map.containsKey(complement)) {\n            return new int[] { map.get(complement), i };\n        }\n        map.put(nums[i], i);\n    }\n    throw new IllegalArgumentException(\"No two sum solution\");\n}\n```\nThis code efficiently finds the indices of the two numbers that add up to the target value.",
-    "python": "And here's a Python solution for the Two Sum problem:\n\n```python\ndef two_sum(nums, target):\n    num_to_index = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_to_index:\n            return [num_to_index[complement], i]\n        num_to_index[num] = i\n    return []\n```\nThis Python code works similarly to the Java solution and returns the indices of the two numbers that sum to the target."
+    "java": "Here's a Java solution for removing duplicates from a sorted array in-place:\n\n```java\npublic int removeDuplicates(int[] nums) {\n    if (nums.length == 0) return 0;\n    int slow = 0;\n    for (int fast = 1; fast < nums.length; fast++) {\n        if (nums[fast] != nums[slow]) {\n            slow++;\n            nums[slow] = nums[fast];\n        }\n    }\n    return slow + 1;\n}\n```\nThis code efficiently removes duplicates from the sorted array `nums` in-place and returns the new length.",
+    "python": "And here's a Python solution for removing duplicates from a sorted array in-place:\n\n```python\ndef removeDuplicates(nums):\n    if not nums:\n        return 0\n    slow = 0\n    for fast in range(1, len(nums)):\n        if nums[fast] != nums[slow]:\n            slow += 1\n            nums[slow] = nums[fast]\n    return slow + 1\n```\nThis Python code efficiently removes duplicates and returns the new length."
   },
   "extras": {
-    "asked": "The Two Sum problem is a frequently asked coding interview question. It tests your ability to efficiently search for elements in an array and is a fundamental problem in computer science.",
-    "sdesheet": "The Two Sum problem is commonly included in coding practice sheets and is used to teach the basics of hash tables and efficient searching algorithms.",
-    "relatedlinks": "Related Links:\n- [LeetCode Two Sum Problem](https://leetcode.com/problems/two-sum/)\n- [Wikipedia - Two Sum Problem](https://en.wikipedia.org/wiki/Two-sum_problem)"
+    "asked": "The Remove Duplicates from Sorted Array problem is frequently asked in coding interviews and is used to assess a candidate's ability to manipulate arrays efficiently in-place.",
+    "sdesheet": "The Remove Duplicates from Sorted Array problem is commonly included in coding practice sheets and is used to teach two-pointer techniques for array manipulation.",
+    "relatedlinks": "Related Links:\n- [LeetCode Remove Duplicates from Sorted Array Problem](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)\n- [GeeksforGeeks Remove Duplicates from Sorted Array Article](https://www.geeksforgeeks.org/remove-duplicates-sorted-array/)\n- [HackerRank Remove Duplicates from Sorted Array Challenge](https://www.hackerrank.com/challenges/remove-duplicates)"
   }
 }

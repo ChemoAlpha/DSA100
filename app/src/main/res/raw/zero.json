@@ -1,27 +1,57 @@
 [
   {
-    "problemStatement": "Problem 1",
+    "problemStatement": "Q0. Two Sum",
     "difficultyLevel": "Easy",
-    "thirdString": "Two Sum"
+    "thirdString": "Topic: Arrays, HashMap"
   },
   {
-    "problemStatement": "Problem 2",
+    "problemStatement": "Q1. Merge Two Sorted Arrays",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Arrays"
+  },
+  {
+    "problemStatement": "Q2. Maximum Subarray",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Arrays, Dynamic Programming"
+  },
+  {
+    "problemStatement": "Q3. Remove Duplicates from Sorted Array",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Arrays, Two Pointers"
+  },
+  {
+    "problemStatement": "Q4. Best Time to Buy and Sell Stock",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Arrays, Dynamic Programming"
+  },
+  {
+    "problemStatement": "Q5. Rotate Array",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Arrays"
+  },
+  {
+    "problemStatement": "Q6. Valid Sudoku",
     "difficultyLevel": "Medium",
-    "thirdString": "BackGammon"
+    "thirdString": "Topic: Arrays, Hashing"
   },
   {
-    "problemStatement": "Problem 3",
+    "problemStatement": "Q7. 3Sum",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Arrays, Two Pointers"
+  },
+  {
+    "problemStatement": "Q8. Product of Array Except Self",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Arrays"
+  },
+  {
+    "problemStatement": "Q9. Trapping Rain Water",
     "difficultyLevel": "Hard",
-    "thirdString": "2-ptrs"
+    "thirdString": "Topic: Arrays, Two Pointers, Stack"
   },
   {
-    "problemStatement": "Problem 4",
-    "difficultyLevel": "Easy",
-    "thirdString": "Maidan"
-  },
-  {
-    "problemStatement": "Problem 5",
-    "difficultyLevel": "Medium",
-    "thirdString": "Yellur"
+    "problemStatement": "Q10. Find Missing Integer in Array",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Arrays"
   }
 ]

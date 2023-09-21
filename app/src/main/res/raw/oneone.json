@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q12. Check for Balanced Parentheses in an Expression",
+    "problemdescription": "Given an expression as a string containing only parentheses ('(' and ')'), determine if the parentheses are balanced. An expression is considered balanced if it has an equal number of opening and closing parentheses, and they are properly nested.",
+    "problemconstraint": "Constraints:\n- The input expression consists of only parentheses ('(' and ')').\n",
+    "inputformat": "Input:\n- A string containing only parentheses.",
+    "outputformat": "Output:\n- A boolean value indicating whether the parentheses are balanced (true) or not (false).",
+    "example": "Example:\n\nInput: \"((()))\"\nOutput: true\nExplanation: In this example, the parentheses are balanced and properly nested."
+  },
+  "solution_approach": {
+    "solution": "To check for balanced parentheses, you can use a stack data structure. Iterate through the characters in the expression, and whenever you encounter an opening parenthesis ('('), push it onto the stack. When you encounter a closing parenthesis (')'), pop from the stack and check if it matches the current closing parenthesis. If there are unmatched parentheses or if the stack is not empty at the end, the expression is not balanced.",
+    "hint": "To check for balanced parentheses, consider using a stack data structure. Iterate through the characters in the expression. When you encounter an opening parenthesis ('('), push it onto the stack. When you encounter a closing parenthesis (')'), pop from the stack and check if it matches the current closing parenthesis. Ensure that the stack is empty at the end to confirm balance."
+  },
+  "solution": {
+    "java": "Here's a Java solution for checking balanced parentheses in an expression:\n\n```java\npublic boolean isBalanced(String expression) {\n    Stack<Character> stack = new Stack<>();\n\n    for (char ch : expression.toCharArray()) {\n        if (ch == '(') {\n            stack.push(ch);\n        } else if (ch == ')') {\n            if (stack.isEmpty() || stack.pop() != '(') {\n                return false;\n            }\n        }\n    }\n\n    return stack.isEmpty();\n}\n```\nThis Java code efficiently checks whether the given expression has balanced parentheses.",
+    "python": "And here's a Python solution for checking balanced parentheses in an expression:\n\n```python\ndef is_balanced(expression):\n    stack = []\n\n    for ch in expression:\n        if ch == '(': # Push opening parenthesis onto the stack\n            stack.append(ch)\n        elif ch == ')': # Check for a closing parenthesis\n            if not stack or stack.pop() != '(': # If not matched or empty stack, return False\n                return False\n\n    return not stack # If the stack is empty, the expression is balanced\n```\nThis Python code efficiently checks whether the given expression has balanced parentheses."
+  },
+  "extras": {
+    "asked": "Checking for balanced parentheses in an expression is a commonly asked coding interview question, especially in technical interviews for software development roles.",
+    "sdesheet": "This problem is often included in coding practice sheets to reinforce the understanding of stack data structures and string manipulation.",
+    "relatedlinks": "Related Links:\n- [LeetCode Valid Parentheses Problem](https://leetcode.com/problems/valid-parentheses/)\n- [GeeksforGeeks Balanced Parentheses Article](https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/)\n- [HackerRank Balanced Parentheses Challenge](https://www.hackerrank.com/challenges/balanced-parentheses)"
+  }
+}

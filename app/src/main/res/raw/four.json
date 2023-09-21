@@ -1,0 +1,32 @@
+[
+  {
+    "problemStatement": "Q25. Two Sum (Hash Map Approach)",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Hashing"
+  },
+  {
+    "problemStatement": "Q26. Longest Substring Without Repeating Characters",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Hashing, Sliding Window"
+  },
+  {
+    "problemStatement": "Q27. Group Anagrams",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Hashing, Sorting"
+  },
+  {
+    "problemStatement": "Q28. Intersection of Two Arrays",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Hashing"
+  },
+  {
+    "problemStatement": "Q29. Design a Hash Set",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Hashing"
+  },
+  {
+    "problemStatement": "Q30. Minimum Window Substring",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Hashing, Sliding Window"
+  }
+]

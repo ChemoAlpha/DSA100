@@ -21,12 +21,11 @@
             <TextView
                 android:id="@+id/problemtitle"
                 android:padding="5dp"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#00FF00"
                 android:fontFamily="@font/crt"
                 android:drawablePadding="10dp"
-                android:drawableEnd="@drawable/ic_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Q1.Russian Doll Envelopes" />
@@ -45,7 +44,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:layout_marginLeft="8dp"
                         android:textColor="#9C27B0"
                         android:fontFamily="@font/crt"
@@ -73,7 +72,7 @@ Find the maximum number of envelopes you can put one inside other." />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:textSize="15sp"
                     android:textColor="#9C27B0"
                     android:fontFamily="@font/crt"
                     android:layout_marginLeft="8dp"
@@ -100,7 +99,7 @@ Find the maximum number of envelopes you can put one inside other." />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:textSize="15sp"
                     android:textColor="#9C27B0"
                     android:fontFamily="@font/crt"
                     android:layout_marginLeft="8dp"
@@ -126,7 +125,7 @@ Find the maximum number of envelopes you can put one inside other." />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:textSize="15sp"
                     android:textColor="#9C27B0"
                     android:fontFamily="@font/crt"
                     android:layout_marginLeft="8dp"
@@ -153,7 +152,7 @@ Find the maximum number of envelopes you can put one inside other." />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:textSize="15sp"
                     android:textColor="#9C27B0"
                     android:fontFamily="@font/crt"
                     android:layout_marginLeft="8dp"

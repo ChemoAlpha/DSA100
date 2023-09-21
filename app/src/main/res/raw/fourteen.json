@@ -1,0 +1,57 @@
+[
+  {
+    "problemStatement": "Q81. Fibonacci Sequence using Dynamic Programming (Bottom-Up)",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Dynamic Programming, Fibonacci"
+  },
+  {
+    "problemStatement": "Q82. Longest Increasing Subsequence using Dynamic Programming",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Dynamic Programming, Subsequence"
+  },
+  {
+    "problemStatement": "Q83. 0/1 Knapsack Problem using Dynamic Programming",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Dynamic Programming, Knapsack"
+  },
+  {
+    "problemStatement": "Q84. Sudoku Solver using Backtracking",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Backtracking, Sudoku"
+  },
+  {
+    "problemStatement": "Q85. Regular Expression Matching using Dynamic Programming",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Dynamic Programming, Regex"
+  },
+  {
+    "problemStatement": "Q86. N-Queens Problem using Backtracking",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Backtracking, N-Queens"
+  },
+  {
+    "problemStatement": "Q87. Edit Distance between Two Strings using Dynamic Programming",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Dynamic Programming, Edit Distance"
+  },
+  {
+    "problemStatement": "Q88. Combination Sum using Backtracking",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Backtracking, Combinations"
+  },
+  {
+    "problemStatement": "Q89. Rod Cutting Problem using Dynamic Programming",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Dynamic Programming, Rod Cutting"
+  },
+  {
+    "problemStatement": "Q90. Word Search using Backtracking",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Backtracking, Word Search"
+  },
+  {
+    "problemStatement": "Q91. Longest Common Subsequence using Dynamic Programming",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Dynamic Programming, Subsequence"
+  }
+]

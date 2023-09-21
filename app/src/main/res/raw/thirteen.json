@@ -1,0 +1,37 @@
+[
+  {
+    "problemStatement": "Q74. Calculate Factorial of a Number using Recursion",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Recursion, Factorial"
+  },
+  {
+    "problemStatement": "Q75. Fibonacci Sequence using Recursion",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Recursion, Fibonacci"
+  },
+  {
+    "problemStatement": "Q76. Tower of Hanoi using Recursion",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Recursion, Tower of Hanoi"
+  },
+  {
+    "problemStatement": "Q77. Generate All Permutations of a String using Recursion",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Recursion, Permutations"
+  },
+  {
+    "problemStatement": "Q78. Subset Sum Problem using Recursion",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Recursion, Subset Sum"
+  },
+  {
+    "problemStatement": "Q79. Palindrome Check using Recursion",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Recursion, Palindrome"
+  },
+  {
+    "problemStatement": "Q80. Find All Paths in a Grid using Recursion",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Recursion, Grid, Paths"
+  }
+]

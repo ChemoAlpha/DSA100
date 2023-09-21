@@ -29,7 +29,8 @@ class SolutionApproachFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (data != null) {
-          val jsonData = parseJsonResource(requireContext(), R.raw.data)
+            val resourceId = resources.getIdentifier(data, "raw", requireContext().packageName)
+            val jsonData = parseJsonResource(requireContext(), resourceId)
           val soultionA = jsonData.getJSONObject("solution_approach")
           val soultiontext = soultionA.getString("solution")
             val hinttext = soultionA.getString("hint")

@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q10. Find Missing Integer in Array",
+    "problemdescription": "Given an array of integers from 1 to N, where N is the length of the array, one integer is missing. Find and return the missing integer.",
+    "problemconstraint": "Constraints:\n- The input array contains distinct integers from 1 to N.\n- The input array has a length of N-1 (one integer is missing).\n",
+    "inputformat": "Input:\n- An array of integers containing distinct values from 1 to N-1 (length N-1).\n",
+    "outputformat": "Output:\n- An integer representing the missing integer from the range 1 to N.",
+    "example": "Example:\n\nInput: nums = [3, 7, 1, 2, 8, 4, 5]\nOutput: 6\nExplanation: In this example, the missing integer from the range 1 to 8 is 6."
+  },
+  "solution_approach": {
+    "solution": "To find the missing integer efficiently, you can use the formula for the sum of integers from 1 to N. Calculate the expected sum of the complete range, subtract the sum of the given array, and the result will be the missing integer.",
+    "hint": "To find the missing integer efficiently, consider using the formula for the sum of integers from 1 to N. Calculate the expected sum of the complete range, subtract the sum of the given array, and the result will be the missing integer."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding the missing integer in the array:\n\n```java\npublic int findMissingInteger(int[] nums) {\n    int n = nums.length + 1; // Expected range is from 1 to N\n    int expectedSum = (n * (n + 1)) / 2; // Sum of integers from 1 to N\n    int actualSum = 0;\n\n    for (int num : nums) {\n        actualSum += num;\n    }\n\n    return expectedSum - actualSum;\n}\n```\nThis Java code efficiently finds and returns the missing integer.",
+    "python": "And here's a Python solution for finding the missing integer in the array:\n\n```python\ndef find_missing_integer(nums):\n    n = len(nums) + 1  # Expected range is from 1 to N\n    expected_sum = (n * (n + 1)) // 2  # Sum of integers from 1 to N\n    actual_sum = sum(nums)\n\n    return expected_sum - actual_sum\n```\nThis Python code efficiently finds and returns the missing integer."
+  },
+  "extras": {
+    "asked": "The Find Missing Integer in Array problem is a challenging coding interview question and is used to assess a candidate's understanding of arithmetic and mathematical concepts in problem-solving.",
+    "sdesheet": "The Find Missing Integer in Array problem is often included in coding practice sheets and is used to teach techniques for finding missing elements in arrays.",
+    "relatedlinks": "Related Links:\n- [LeetCode Missing Number Problem](https://leetcode.com/problems/missing-number/)\n- [GeeksforGeeks Missing Number Article](https://www.geeksforgeeks.org/find-the-missing-number/)\n- [HackerRank Missing Number Challenge](https://www.hackerrank.com/challenges/missing-numbers)"
+  }
+}

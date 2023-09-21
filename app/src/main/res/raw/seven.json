@@ -1,0 +1,27 @@
+[
+  {
+    "problemStatement": "Q40. Implement Binary Search",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Binary Search"
+  },
+  {
+    "problemStatement": "Q41. Search in a Rotated Sorted Array",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Binary Search, Rotated Array"
+  },
+  {
+    "problemStatement": "Q42. Find First and Last Position of Element in Sorted Array",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Binary Search"
+  },
+  {
+    "problemStatement": "Q43. Search in a Sorted Array of Unknown Size",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Binary Search"
+  },
+  {
+    "problemStatement": "Q44. Searching in a 2D Matrix",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Binary Search, Matrix"
+  }
+]

@@ -23,7 +23,7 @@
             android:fontFamily="@font/crt"
             android:text="Arrays"
             android:textColor="#00FF00"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
             android:layout_marginTop="56dp"
             android:text="10 Problems"
             android:textColor="#9C27B0"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:fontFamily="@font/crt"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,12 +44,12 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="36dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="300dp"
-            android:layout_marginTop="28dp"
+            android:layout_width="79dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="272dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            app:srcCompat="@drawable/array" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

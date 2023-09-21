@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q6. Valid Sudoku",
+    "problemdescription": "Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:\n\n1. Each row must contain the digits `1-9` without repetition.\n2. Each column must contain the digits `1-9` without repetition.\n3. Each of the 9 `3x3` sub-boxes of the grid must contain the digits `1-9` without repetition.",
+    "problemconstraint": "Constraints:\n- A Sudoku board (partially filled) could be valid, but it's not necessarily solvable.\n- Only the filled cells need to be validated.",
+    "inputformat": "Input:\n- A 9x9 2D array board representing a Sudoku board. The given board may contain digits `'1'-'9'` and the character `'.'` representing empty cells.",
+    "outputformat": "Output:\n- Return `true` if the Sudoku board is valid; otherwise, return `false`.",
+    "example": "Example:\n\nInput:\n[['5','3','.','.','7','.','.','.','.'],\n ['6','.','.','1','9','5','.','.','.'],\n ['.','9','8','.','.','.','.','6','.'],\n ['8','.','.','.','6','.','.','.','3'],\n ['4','.','.','8','.','3','.','.','1'],\n ['7','.','.','.','2','.','.','.','6'],\n ['.','6','.','.','.','.','2','8','.'],\n ['.','.','.','4','1','9','.','.','5'],\n ['.','.','.','.','8','.','.','7','9']]\nOutput: true\nExplanation: The Sudoku board is valid because all cells are filled following the rules, and there are no violations."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem, you can use a HashSet to keep track of the digits in each row, column, and 3x3 sub-box. Iterate through the Sudoku board, and for each cell, check if its digit is already in the corresponding row, column, and sub-box HashSet. If not, add it to the HashSets. If you encounter a digit that is already in one of the HashSets, the Sudoku board is invalid.",
+    "hint": "To validate a Sudoku board efficiently, consider using HashSets to keep track of digits in each row, column, and sub-box. While iterating through the board, check if the current digit is already in the corresponding HashSets for the row, column, and sub-box. If not, add it to the HashSets. If you encounter a duplicate, the board is invalid."
+  },
+  "solution": {
+    "java": "Here's a Java solution for validating a Sudoku board:\n\n```java\npublic boolean isValidSudoku(char[][] board) {\n    Set<String> seen = new HashSet<>();\n    for (int i = 0; i < 9; i++) {\n        for (int j = 0; j < 9; j++) {\n            char current = board[i][j];\n            if (current != '.') {\n                if (!seen.add(current + \" in row \" + i) ||\n                    !seen.add(current + \" in col \" + j) ||\n                    !seen.add(current + \" in box \" + i/3 + \"-\" + j/3)) {\n                    return false;\n                }\n            }\n        }\n    }\n    return true;\n}\n```\nThis code efficiently validates a Sudoku board according to the given rules.",
+    "python": "And here's a Python solution for validating a Sudoku board:\n\n```python\ndef isValidSudoku(board):\n    seen = set()\n    for i in range(9):\n        for j in range(9):\n            current = board[i][j]\n            if current != '.':\n                if (current + ' in row ' + str(i)) in seen or \\\n                   (current + ' in col ' + str(j)) in seen or \\\n                   (current + ' in box ' + str(i//3) + '-' + str(j//3)) in seen:\n                    return False\n                seen.add(current + ' in row ' + str(i))\n                seen.add(current + ' in col ' + str(j))\n                seen.add(current + ' in box ' + str(i//3) + '-' + str(j//3))\n    return True\n```\nThis Python code efficiently validates a Sudoku board."
+  },
+  "extras": {
+    "asked": "The Valid Sudoku problem is a common coding interview question and is used to evaluate a candidate's ability to implement efficient algorithms and data structures for validating constraints.",
+    "sdesheet": "The Valid Sudoku problem is often included in coding practice sheets and is used to teach techniques for checking constraints in a Sudoku board.",
+    "relatedlinks": "Related Links:\n- [LeetCode Valid Sudoku Problem](https://leetcode.com/problems/valid-sudoku/)\n- [GeeksforGeeks Sudoku Solving Article](https://www.geeksforgeeks.org/sudoku-backtracking-7/)\n- [HackerRank Valid Sudoku Challenge](https://www.hackerrank.com/challenges/is-valid-sudoku)"
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "problemStatement": "Q45. Reverse a String",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: String Manipulation"
+  },
+  {
+    "problemStatement": "Q46. Longest Palindromic Substring",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: String, Dynamic Programming"
+  },
+  {
+    "problemStatement": "Q47. Implement strStr() (Substring Search)",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: String, Substring"
+  },
+  {
+    "problemStatement": "Q48. Group Anagrams",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: String, Hashing"
+  },
+  {
+    "problemStatement": "Q49. Valid Palindrome",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: String Manipulation, Palindrome"
+  }
+]

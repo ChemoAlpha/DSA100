@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q4. Best Time to Buy and Sell Stock",
+    "problemdescription": "You are given an array `prices` where `prices[i]` is the price of a given stock on the `i-th` day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.",
+    "problemconstraint": "Constraints:\n- You cannot sell a stock before you buy one.",
+    "inputformat": "Input:\n- An integer array `prices` where `prices[i]` represents the price of the stock on the `i-th` day.",
+    "outputformat": "Output:\n- An integer, representing the maximum profit achievable by buying and selling a stock from the given prices.",
+    "example": "Example:\n\nInput: prices = [7, 1, 5, 3, 6, 4]\nOutput: 5\nExplanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6 - 1 = 5. Note that buying on day 2 and selling on day 3 (price = 5) is not allowed because you must buy before you sell."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem, you can use a simple one-pass approach. Initialize two variables, `minPrice` and `maxProfit`, both initially set to the first element of the `prices` array. Then, iterate through the array from the second element onwards. For each element, update `minPrice` to be the minimum of the current element and `minPrice`. Update `maxProfit` to be the maximum of `maxProfit` and the difference between the current element and `minPrice`. After iterating through the array, `maxProfit` will hold the maximum profit achievable from buying and selling the stock.",
+    "hint": "To maximize profit from buying and selling a stock, consider using a one-pass approach. Initialize variables to keep track of the minimum stock price (`minPrice`) and the maximum profit (`maxProfit`). Iterate through the array, updating `minPrice` with the minimum of the current stock price and `maxProfit` with the maximum of `maxProfit` and the difference between the current stock price and `minPrice`."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding the maximum profit from buying and selling a stock:\n\n```java\npublic int maxProfit(int[] prices) {\n    if (prices.length == 0) return 0;\n    int minPrice = prices[0];\n    int maxProfit = 0;\n    for (int i = 1; i < prices.length; i++) {\n        minPrice = Math.min(minPrice, prices[i]);\n        maxProfit = Math.max(maxProfit, prices[i] - minPrice);\n    }\n    return maxProfit;\n}\n```\nThis code efficiently calculates the maximum profit achievable from the given `prices` array.",
+    "python": "And here's a Python solution for finding the maximum profit from buying and selling a stock:\n\n```python\ndef maxProfit(prices):\n    if not prices:\n        return 0\n    minPrice = prices[0]\n    maxProfit = 0\n    for price in prices[1:]:\n        minPrice = min(minPrice, price)\n        maxProfit = max(maxProfit, price - minPrice)\n    return maxProfit\n```\nThis Python code efficiently calculates the maximum profit."
+  },
+  "extras": {
+    "asked": "The Best Time to Buy and Sell Stock problem is frequently asked in coding interviews, especially for assessing a candidate's understanding of dynamic programming and efficient algorithms.",
+    "sdesheet": "The Best Time to Buy and Sell Stock problem is commonly included in coding practice sheets and is used to teach efficient stock trading strategies.",
+    "relatedlinks": "Related Links:\n- [LeetCode Best Time to Buy and Sell Stock Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)\n- [GeeksforGeeks Stock Buy Sell to Maximize Profit Article](https://www.geeksforgeeks.org/stock-buy-sell/)\n- [HackerRank Stock Buy and Sell Challenge](https://www.hackerrank.com/challenges/stockmax)"
+  }
+}

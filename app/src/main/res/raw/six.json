@@ -1,0 +1,22 @@
+[
+  {
+    "problemStatement": "Q36. Implement Quicksort Algorithm",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Quicksort"
+  },
+  {
+    "problemStatement": "Q37. Merge Sort a Linked List",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Merge Sort, Linked List"
+  },
+  {
+    "problemStatement": "Q38. Find Kth Largest Element in an Array",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Quickselect"
+  },
+  {
+    "problemStatement": "Q39. Sort Colors (Dutch National Flag Problem)",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Dutch National Flag Algorithm"
+  }
+]

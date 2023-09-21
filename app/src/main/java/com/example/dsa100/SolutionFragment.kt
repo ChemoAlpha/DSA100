@@ -29,7 +29,8 @@ class SolutionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (data != null) {
-            val jsonData = parseJsonResource(requireContext(), R.raw.data)
+            val resourceId = resources.getIdentifier(data, "raw", requireContext().packageName)
+            val jsonData = parseJsonResource(requireContext(), resourceId)
             val soultion = jsonData.getJSONObject("solution")
             val javatext = soultion.getString("java")
             val pythontext = soultion.getString("python")

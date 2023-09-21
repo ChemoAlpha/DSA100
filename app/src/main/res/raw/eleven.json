@@ -1,0 +1,32 @@
+[
+  {
+    "problemStatement": "Q65. Implement Queue using Arrays",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Queue, Array Implementation"
+  },
+  {
+    "problemStatement": "Q66. Design Circular Queue",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Queue, Circular Queue"
+  },
+  {
+    "problemStatement": "Q67. Implement Stack using Queues",
+    "difficultyLevel": "Easy",
+    "thirdString": "Topic: Queue, Stack Implementation"
+  },
+  {
+    "problemStatement": "Q68. Binary Tree Level Order Traversal",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Queue, Tree Traversal"
+  },
+  {
+    "problemStatement": "Q69. Implement Priority Queue",
+    "difficultyLevel": "Medium",
+    "thirdString": "Topic: Queue, Priority Queue"
+  },
+  {
+    "problemStatement": "Q70. Shortest Path in Binary Matrix",
+    "difficultyLevel": "Hard",
+    "thirdString": "Topic: Queue, Shortest Path"
+  }
+]

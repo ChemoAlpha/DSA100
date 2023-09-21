@@ -10,9 +10,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-          val iconID = intArrayOf(R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon,R.drawable.ic_icon)
-          val Title  = arrayOf("Array","Hash","List","Map","Heap","Tree","Array","Hash","List","Map","Heap","Tree")
-          val no_problem= arrayOf("10 Problems","7 Problems","4 Problems","5 Problems","9 Problems","10 Problmes","10 Problems","7 Problems","4 Problems","5 Problems","9 Problems","10 Problmes")
+          val iconID = intArrayOf(R.drawable.array,R.drawable.stack,R.drawable.ptrs,R.drawable.bit,R.drawable.hashing,R.drawable.gcdmod,R.drawable.sorting,R.drawable.searching,R.drawable.string,R.drawable.linklist,R.drawable.tree,R.drawable.queue,R.drawable.heap,R.drawable.recursion,R.drawable.dyanamic,R.drawable.graph)
+          val Title  = arrayOf("Arrays","Stack","2-Ptrs","Bit Manuplation","Hashing","GCD & MOD ","Sorting","Searching Algo","String & Algo","Link List","Tree & Trie's","Queue's","Heap","Recursion","DP & BackTracking","Graph")
+          val no_problem= arrayOf("11 Problems","6 Problems","4 Problems","4 Problems","6 Problems","5 Problmes","4 Problems","5 Problems","5 Problems","6 Problems","9 Problems","6 Problmes","3 Problems","7 Problems","11 Problems","9 Problmes")
         val mainModelArray = ArrayList<MainModel>()
         for (i in iconID.indices) {
             val mainModel = MainModel( Title[i], no_problem[i],iconID[i])

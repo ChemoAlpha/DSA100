@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q1. Merge Two Sorted Arrays",
+    "problemdescription": "Given two sorted arrays `nums1` and `nums2`, merge them into a single sorted array. The resulting sorted array should contain all elements from both input arrays.",
+    "problemconstraint": "Constraints:\n- You may assume that `nums1` and `nums2` are sorted in non-decreasing order.\n- The final sorted array should not use extra space; it should be modified in-place in `nums1`.\n- You may assume that `nums1` has enough space (size that is greater or equal to `m + n`) to hold additional elements from `nums2` where `m` is the number of elements in `nums1`, and `n` is the number of elements in `nums2`.",
+    "inputformat": "Input:\n- Two sorted arrays `nums1` and `nums2`, where `nums1` has enough space to accommodate all elements.\n- The integers `m` and `n` represent the number of elements in `nums1` and `nums2`, respectively.",
+    "outputformat": "Output:\n- Modify `nums1` in-place to contain the merged sorted array.",
+    "example": "Example:\n\nInput: nums1 = [1, 2, 3, 0, 0, 0], m = 3, nums2 = [2, 5, 6], n = 3\nOutput: [1, 2, 2, 3, 5, 6]\nExplanation: The merged sorted array should be stored in nums1, and it should look like [1, 2, 2, 3, 5, 6]."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem, you can start merging the two arrays from the end to avoid overwriting elements in `nums1`. Initialize two pointers, `p1` and `p2`, at the ends of `nums1` and `nums2`, respectively. Compare the elements at `p1` and `p2`, and place the larger element at the end of `nums1`. Continue this process until all elements are merged.",
+    "hint": "To merge two sorted arrays efficiently, consider starting from the end of both arrays. This way, you won't need to shift elements in `nums1`, and you can simply overwrite the elements from the end to the beginning. Use two pointers to keep track of the current positions in `nums1` and `nums2` while comparing and merging elements."
+  },
+  "solution": {
+    "java": "Here's a Java solution for merging two sorted arrays in-place:\n\n```java\npublic void merge(int[] nums1, int m, int[] nums2, int n) {\n    int p1 = m - 1; // Pointer for nums1\n    int p2 = n - 1; // Pointer for nums2\n    int p = m + n - 1; // Pointer for merged array\n    while (p1 >= 0 && p2 >= 0) {\n        if (nums1[p1] > nums2[p2]) {\n            nums1[p--] = nums1[p1--];\n        } else {\n            nums1[p--] = nums2[p2--];\n        }\n    }\n    // Copy any remaining elements from nums2 to nums1\n    System.arraycopy(nums2, 0, nums1, 0, p2 + 1);\n}\n```\nThis code efficiently merges two sorted arrays `nums1` and `nums2` in-place.",
+    "python": "And here's a Python solution for merging two sorted arrays in-place:\n\n```python\ndef merge(nums1, m, nums2, n):\n    p1 = m - 1 # Pointer for nums1\n    p2 = n - 1 # Pointer for nums2\n    p = m + n - 1 # Pointer for merged array\n    while p1 >= 0 and p2 >= 0:\n        if nums1[p1] > nums2[p2]:\n            nums1[p] = nums1[p1]\n            p -= 1\n            p1 -= 1\n        else:\n            nums1[p] = nums2[p2]\n            p -= 1\n            p2 -= 1\n    # Copy any remaining elements from nums2 to nums1\n    nums1[:p2 + 1] = nums2[:p2 + 1]\n```\nThis Python code performs an in-place merge of two sorted arrays `nums1` and `nums2`."
+  },
+  "extras": {
+    "asked": "The Merge Two Sorted Arrays problem is commonly encountered in coding interviews and is used to assess a candidate's ability to merge and manipulate arrays efficiently.",
+    "sdesheet": "The Merge Two Sorted Arrays problem is a common topic in coding practice sheets. It helps individuals practice array manipulation and merging techniques efficiently.",
+    "relatedlinks": "Related Links:\n- [LeetCode Merge Sorted Arrays Problem](https://leetcode.com/problems/merge-sorted-array/)\n- [GeeksforGeeks Merge Two Sorted Arrays Article](https://www.geeksforgeeks.org/merge-two-sorted-arrays/)\n- [HackerRank Merge Arrays Challenge](https://www.hackerrank.com/challenges/merge-two-sorted-arrays)"
+  }
+}
