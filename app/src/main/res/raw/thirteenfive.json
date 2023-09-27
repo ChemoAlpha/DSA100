@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q79. Palindrome Check using Recursion",
+    "problemdescription": "Write a recursive function to check if a given string is a palindrome. A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.",
+    "problemconstraint": "Constraints:\n- The input string contains only printable ASCII characters (including spaces) and has a length not exceeding 10^5.",
+    "inputformat": "Input:\n- A string containing printable ASCII characters (including spaces).",
+    "outputformat": "Output:\n- Return `true` if the input string is a palindrome; otherwise, return `false`.",
+    "example": "Example:\n\n```python\nInput: 'A man, a plan, a canal, Panama'\nOutput: true\nExplanation: The input string, when ignoring spaces and capitalization, reads the same forward and backward ('amanaplanacanalpanama').\n```"
+  },
+  "solution_approach": {
+    "solution": "To check if a string is a palindrome using recursion, you can define a recursive function that compares characters from the start and end of the string while ignoring spaces, punctuation, and capitalization. If the characters at the current positions match, continue checking the next pair of characters. If any pair of characters does not match, return `false`. Otherwise, when you reach the middle of the string, return `true`.",
+    "hint": "In the recursive solution, consider how to compare characters from the start and end of the string while ignoring spaces, punctuation, and capitalization."
+  },
+  "solution": {
+    "java": "Here's a Java solution to check if a string is a palindrome using recursion:\n\n```java\nclass Solution {\n    public boolean isPalindrome(String s) {\n        s = s.replaceAll(\"[^A-Za-z0-9]\", \"\").toLowerCase();\n        return checkPalindrome(s, 0, s.length() - 1);\n    }\n\n    private boolean checkPalindrome(String s, int start, int end) {\n        if (start >= end) {\n            return true;\n        }\n        if (s.charAt(start) != s.charAt(end)) {\n            return false;\n        }\n        return checkPalindrome(s, start + 1, end - 1);\n    }\n}\n```",
+    "python": "And here's a Python solution to check if a string is a palindrome using recursion:\n\n```python\ndef is_palindrome(s):\n    s = ''.join(filter(str.isalnum, s)).lower()\n    def check_palindrome(start, end):\n        if start >= end:\n            return True\n        if s[start] != s[end]:\n            return False\n        return check_palindrome(start + 1, end - 1)\n\n    return check_palindrome(0, len(s) - 1)\n```\nThis Python code checks if a given string is a palindrome using recursion."
+  },
+  "extras": {
+    "asked": "Checking if a string is a palindrome using recursion is a common interview question that assesses your understanding of recursive algorithms and string manipulation.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice recursion and string processing.",
+    "relatedlinks": "Related Links:\n- [GeeksforGeeks Palindrome Check Article](https://www.geeksforgeeks.org/c-program-check-given-string-palindrome/)\n- [HackerRank Recursive Palindrome Check Challenge](https://www.hackerrank.com/challenges/palindrome-check/problem)"
+  }
+}

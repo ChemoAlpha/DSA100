@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q56. Binary Tree Maximum Path Sum",
+    "problemdescription": "Given a binary tree, find the maximum path sum. The path may start and end at any node in the tree.",
+    "problemconstraint": "Constraints:\n- The number of nodes in the tree is in the range [-1000, 1000].\n- -10^4 <= Node.val <= 10^4.",
+    "inputformat": "Input:\n- The root of a binary tree where each node has an integer value.",
+    "outputformat": "Output:\n- Return the maximum path sum in the binary tree.",
+    "example": "Example:\n\nInput: [10,5,-3,3,2,null,11,3,-2,null,1]\nOutput: 21\nExplanation: The maximum path sum goes from node 5 to node 11."
+  },
+  "solution_approach": {
+    "solution": "To find the maximum path sum in a binary tree, you can use a recursive approach that computes the maximum path sum for each subtree while keeping track of the global maximum. At each node, consider two possibilities: including the current node in the path or excluding it. Return the maximum of these two options as the result for the current subtree.",
+    "hint": "To find the maximum path sum in a binary tree, use a recursive approach. At each node, consider two possibilities: including the current node in the path or excluding it. Return the maximum of these two options as the result for the current subtree."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the maximum path sum in a binary tree:\n\n```java\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode() {}\n    TreeNode(int val) { this.val = val; }\n    TreeNode(int val, TreeNode left, TreeNode right) {\n        this.val = val;\n        this.left = left;\n        this.right = right;\n    }\n}\n\npublic class BinaryTreeMaximumPathSum {\n    private int maxPathSum = Integer.MIN_VALUE;\n\n    public int maxPathSum(TreeNode root) {\n        findMaxPathSum(root);\n        return maxPathSum;\n    }\n\n    private int findMaxPathSum(TreeNode node) {\n        if (node == null) {\n            return 0;\n        }\n        int leftMax = Math.max(findMaxPathSum(node.left), 0);\n        int rightMax = Math.max(findMaxPathSum(node.right), 0);\n        int currentPathSum = node.val + leftMax + rightMax;\n        maxPathSum = Math.max(maxPathSum, currentPathSum);\n        return node.val + Math.max(leftMax, rightMax);\n    }\n}\n```\nThis Java code efficiently finds the maximum path sum in a binary tree.",
+    "python": "And here's a Python solution to find the maximum path sum in a binary tree:\n\n```python\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\nclass Solution:\n    def maxPathSum(self, root: TreeNode) -> int:\n        self.max_sum = float('-inf')\n        self.findMaxPathSum(root)\n        return self.max_sum\n\n    def findMaxPathSum(self, node: TreeNode) -> int:\n        if not node:\n            return 0\n        left_max = max(self.findMaxPathSum(node.left), 0)\n        right_max = max(self.findMaxPathSum(node.right), 0)\n        current_path_sum = node.val + left_max + right_max\n        self.max_sum = max(self.max_sum, current_path_sum)\n        return node.val + max(left_max, right_max)\n```\nThis Python code effectively finds the maximum path sum in a binary tree."
+  },
+  "extras": {
+    "asked": "Finding the maximum path sum in a binary tree is a commonly asked coding interview question, often seen in technical interviews at top tech companies.",
+    "sdesheet": "This problem is frequently included in coding practice sheets to help candidates practice binary tree traversal and dynamic programming.",
+    "relatedlinks": "Related Links:\n- [LeetCode Binary Tree Maximum Path Sum Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/)\n- [GeeksforGeeks Binary Tree Maximum Path Sum Article](https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/)\n- [HackerRank Binary Tree Maximum Path Sum Challenge](https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor)"
+  }
+}

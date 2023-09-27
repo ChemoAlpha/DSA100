@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q68. Binary Tree Level Order Traversal",
+    "problemdescription": "Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).",
+    "problemconstraint": "Constraints:\n- The number of nodes in the tree is in the range [0, 2000].\n- -1000 <= Node.val <= 1000",
+    "inputformat": "Input:\n- The root of a binary tree.",
+    "outputformat": "Output:\n- Return the level order traversal of the tree as a list of lists. Each list represents the values of nodes at a particular level.",
+    "example": "Example:\n\nInput: root = [3,9,20,null,null,15,7]\nOutput: [[3],[9,20],[15,7]]"
+  },
+  "solution_approach": {
+    "solution": "To perform level order traversal of a binary tree, you can use a queue to keep track of nodes at each level. Start with the root node, add it to the queue, and then repeatedly dequeue nodes, adding their children to the queue until the queue is empty. At each level, create a list of node values and append it to the result.",
+    "hint": "Use a queue to perform a level order traversal and maintain a list for each level."
+  },
+  "solution": {
+    "java": "Here's a Java solution to perform a level order traversal of a binary tree:\n\n```java\nimport java.util.ArrayList;\nimport java.util.LinkedList;\nimport java.util.List;\nimport java.util.Queue;\n\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode() {}\n    TreeNode(int val) { this.val = val; }\n    TreeNode(int val, TreeNode left, TreeNode right) {\n        this.val = val;\n        this.left = left;\n        this.right = right;\n    }\n}\n\nclass Solution {\n    public List<List<Integer>> levelOrder(TreeNode root) {\n        List<List<Integer>> result = new ArrayList<>();\n        if (root == null) {\n            return result;\n        }\n        Queue<TreeNode> queue = new LinkedList<>();\n        queue.offer(root);\n        while (!queue.isEmpty()) {\n            int levelSize = queue.size();\n            List<Integer> currentLevel = new ArrayList<>();\n            for (int i = 0; i < levelSize; i++) {\n                TreeNode node = queue.poll();\n                currentLevel.add(node.val);\n                if (node.left != null) {\n                    queue.offer(node.left);\n                }\n                if (node.right != null) {\n                    queue.offer(node.right);\n                }\n            }\n            result.add(currentLevel);\n        }\n        return result;\n    }\n}\n```",
+    "python": "And here's a Python solution to perform a level order traversal of a binary tree:\n\n```python\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\nclass Solution:\n    def levelOrder(self, root: TreeNode) -> List[List[int]]:\n        result = []\n        if not root:\n            return result\n        queue = deque([root])\n        while queue:\n            level_size = len(queue)\n            current_level = []\n            for i in range(level_size):\n                node = queue.popleft()\n                current_level.append(node.val)\n                if node.left:\n                    queue.append(node.left)\n                if node.right:\n                    queue.append(node.right)\n            result.append(current_level)\n        return result\n```\nThis Python code performs level order traversal of a binary tree."
+  },
+  "extras": {
+    "asked": "Performing a level order traversal of a binary tree is a common interview question that assesses your understanding of tree traversal and queue data structures.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice binary tree traversal algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Binary Tree Level Order Traversal Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/)\n- [GeeksforGeeks Level Order Traversal Article](https://www.geeksforgeeks.org/level-order-tree-traversal/)"
+  }
+}

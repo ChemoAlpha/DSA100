@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q69. Implement Priority Queue",
+    "problemdescription": "Design a priority queue that supports the following operations:\n\n1. `MyPriorityQueue()`: Initializes an empty priority queue.\n2. `push(x)`: Inserts an element `x` into the priority queue.\n3. `pop()`: Removes and returns the element with the highest priority (maximum element).\n4. `top()`: Returns the element with the highest priority without removing it.\n5. `empty()`: Returns `true` if the priority queue is empty, `false` otherwise.",
+    "problemconstraint": "Constraints:\n- -10^5 <= `x` <= 10^5\n- At most `3 * 10^4` calls will be made to `push`, `pop`, `top`, and `empty`.",
+    "inputformat": "Input:\n- The operations will be given as a list of strings, where each string is one of the supported operations.",
+    "outputformat": "Output:\n- For each `pop()` and `top()` operation, return the highest priority element or -1 if the priority queue is empty.",
+    "example": "Example:\n\nInput:\n[\"MyPriorityQueue\",\"push\",\"push\",\"top\",\"pop\",\"push\",\"push\",\"pop\",\"pop\",\"pop\",\"top\"]\n[[],[1],[2],[],[],[3],[4],[],[],[],[]]\nOutput:\n[null,null,null,2,2,null,null,3,4,1,-1]\nExplanation:\nMyPriorityQueue myPriorityQueue = new MyPriorityQueue();\nmyPriorityQueue.push(1); // queue is [1]\nmyPriorityQueue.push(2); // queue is [2,1]\nmyPriorityQueue.top();   // return 2\nmyPriorityQueue.pop();   // return 2, queue is [1]\nmyPriorityQueue.push(3); // queue is [3,1]\nmyPriorityQueue.push(4); // queue is [4,3,1]\nmyPriorityQueue.pop();   // return 3, queue is [4,1]\nmyPriorityQueue.pop();   // return 4, queue is [1]\nmyPriorityQueue.pop();   // return 1, queue is []\nmyPriorityQueue.top();   // return -1"
+  },
+  "solution_approach": {
+    "solution": "To implement a priority queue, you can use a max-heap data structure. When an element is inserted, it is added to the heap, and the heap property is maintained. The element with the highest priority (maximum value) will always be at the root of the heap. Implement the required operations accordingly.",
+    "hint": "Use a max-heap data structure to efficiently implement a priority queue."
+  },
+  "solution": {
+    "java": "Here's a Java solution to implement a priority queue:\n\n```java\nimport java.util.PriorityQueue;\n\nclass MyPriorityQueue {\n    private PriorityQueue<Integer> maxHeap;\n\n    public MyPriorityQueue() {\n        maxHeap = new PriorityQueue<>((a, b) -> b - a);\n    }\n\n    public void push(int x) {\n        maxHeap.offer(x);\n    }\n\n    public int pop() {\n        return maxHeap.poll();\n    }\n\n    public int top() {\n        return maxHeap.peek();\n    }\n\n    public boolean empty() {\n        return maxHeap.isEmpty();\n    }\n}\n```",
+    "python": "And here's a Python solution to implement a priority queue:\n\n```python\nclass MyPriorityQueue:\n    def __init__(self):\n        self.max_heap = []\n\n    def push(self, x: int) -> None:\n        heapq.heappush(self.max_heap, -x)\n\n    def pop(self) -> int:\n        return -heapq.heappop(self.max_heap)\n\n    def top(self) -> int:\n        return -self.max_heap[0]\n\n    def empty(self) -> bool:\n        return not self.max_heap\n```"
+  },
+  "extras": {
+    "asked": "Implementing a priority queue is a common interview question that assesses your understanding of data structures and heap operations.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice priority queue implementation.",
+    "relatedlinks": "Related Links:\n- [LeetCode Design Priority Queue Problem](https://leetcode.com/problems/design-priority-queue/)\n- [GeeksforGeeks Priority Queue Article](https://www.geeksforgeeks.org/priority-queue-set-1-introduction/)"
+  }
+}

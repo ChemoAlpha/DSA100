@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q76. Tower of Hanoi using Recursion",
+    "problemdescription": "Solve the Tower of Hanoi puzzle using recursion. The Tower of Hanoi is a classic problem that involves moving a stack of `n` disks from one peg to another, subject to the constraint that only one disk can be moved at a time, and no disk can be placed on top of a smaller disk.",
+    "problemconstraint": "Constraints:\n- `1 <= n <= 10`",
+    "inputformat": "Input:\n- An integer `n` where `1 <= n <= 10` representing the number of disks.",
+    "outputformat": "Output:\n- Return a sequence of moves that solves the Tower of Hanoi puzzle. Each move should be represented as a string, e.g., 'Move disk 1 from A to C'.",
+    "example": "Example:\n\n```python\nInput: n = 3\nOutput: ['Move disk 1 from A to C', 'Move disk 2 from A to B', 'Move disk 1 from C to B', 'Move disk 3 from A to C', 'Move disk 1 from B to A', 'Move disk 2 from B to C', 'Move disk 1 from A to C']\n```"
+  },
+  "solution_approach": {
+    "solution": "To solve the Tower of Hanoi puzzle using recursion, you can define a recursive function that moves `n` disks from the source peg to the destination peg with the help of an auxiliary peg. The key is to break down the problem into subproblems of moving `n-1` disks and then moving the remaining disk. The base case is when `n` is 1, in which case you simply move the disk directly.",
+    "hint": "In the recursive solution, think about how to move `n-1` disks first to the auxiliary peg, then move the remaining disk to the destination peg, and finally move the `n-1` disks from the auxiliary peg to the destination peg."
+  },
+  "solution": {
+    "java": "Here's a Java solution to solve the Tower of Hanoi puzzle using recursion:\n\n```java\nimport java.util.ArrayList;\nimport java.util.List;\n\nclass Solution {\n    public List<String> towerOfHanoi(int n) {\n        List<String> moves = new ArrayList<>();\n        hanoi(n, 'A', 'C', 'B', moves);\n        return moves;\n    }\n\n    private void hanoi(int n, char source, char destination, char auxiliary, List<String> moves) {\n        if (n == 1) {\n            moves.add(\"Move disk 1 from \" + source + \" to \" + destination);\n            return;\n        }\n        hanoi(n - 1, source, auxiliary, destination, moves);\n        moves.add(\"Move disk \" + n + \" from \" + source + \" to \" + destination);\n        hanoi(n - 1, auxiliary, destination, source, moves);\n    }\n}\n```",
+    "python": "And here's a Python solution to solve the Tower of Hanoi puzzle using recursion:\n\n```python\ndef tower_of_hanoi(n):\n    def hanoi(n, source, destination, auxiliary, moves):\n        if n == 1:\n            moves.append(f'Move disk 1 from {source} to {destination}')\n            return\n        hanoi(n - 1, source, auxiliary, destination, moves)\n        moves.append(f'Move disk {n} from {source} to {destination}')\n        hanoi(n - 1, auxiliary, destination, source, moves)\n\n    moves = []\n    hanoi(n, 'A', 'C', 'B', moves)\n    return moves\n```\nThis Python code provides a sequence of moves to solve the Tower of Hanoi puzzle using recursion."
+  },
+  "extras": {
+    "asked": "Solving the Tower of Hanoi puzzle using recursion is a classic problem that assesses your understanding of recursive algorithms and problem-solving strategies.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice recursion and problem decomposition.",
+    "relatedlinks": "Related Links:\n- [GeeksforGeeks Tower of Hanoi Article](https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/)\n- [HackerRank Tower of Hanoi Challenge](https://www.hackerrank.com/challenges/tower-of-hanoi/problem)"
+  }
+}

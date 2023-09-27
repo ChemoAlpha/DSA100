@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q82. Longest Increasing Subsequence using Dynamic Programming",
+    "problemdescription": "Given an unsorted array of integers, find the length of the longest increasing subsequence.",
+    "problemconstraint": "Constraints:\n- 0 <= nums.length <= 2500\n- -10^4 <= nums[i] <= 10^4",
+    "inputformat": "Input:\n- An integer array `nums`.",
+    "outputformat": "Output:\n- Return an integer representing the length of the longest increasing subsequence.",
+    "example": "Example:\n\n```python\nInput: [10, 9, 2, 5, 3, 7, 101, 18]\nOutput: 4\nExplanation: The longest increasing subsequence is [2, 3, 7, 101], which has a length of 4.\n```"
+  },
+  "solution_approach": {
+    "solution": "To find the length of the longest increasing subsequence, you can use dynamic programming. Create an array `dp` of the same length as `nums` to store the lengths of the longest increasing subsequences ending at each index. Initialize all elements of `dp` to 1 (since a single element is a valid subsequence). Then, iterate through the elements of `nums` and for each element, iterate through the previous elements to find the maximum `dp` value that can be extended by the current element. Update the `dp` value for the current element accordingly. Finally, return the maximum value in the `dp` array as the result.",
+    "hint": "You can optimize the time complexity by using a binary search to find the position to insert each element in the subsequence array, instead of iterating through all previous elements."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the length of the longest increasing subsequence using dynamic programming:\n\n```java\npublic int lengthOfLIS(int[] nums) {\n    int n = nums.length;\n    int[] dp = new int[n];\n    Arrays.fill(dp, 1);\n    int maxLength = 1;\n    for (int i = 1; i < n; i++) {\n        for (int j = 0; j < i; j++) {\n            if (nums[i] > nums[j]) {\n                dp[i] = Math.max(dp[i], dp[j] + 1);\n            }\n        }\n        maxLength = Math.max(maxLength, dp[i]);\n    }\n    return maxLength;\n}\n```",
+    "python": "And here's a Python solution to find the length of the longest increasing subsequence using dynamic programming:\n\n```python\ndef lengthOfLIS(nums):\n    n = len(nums)\n    dp = [1] * n\n    maxLength = 1\n    for i in range(1, n):\n        for j in range(i):\n            if nums[i] > nums[j]:\n                dp[i] = max(dp[i], dp[j] + 1)\n        maxLength = max(maxLength, dp[i])\n    return maxLength\n```"
+  },
+  "extras": {
+    "asked": "Finding the longest increasing subsequence is a common problem that assesses your understanding of dynamic programming and algorithmic optimization.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice dynamic programming techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode Longest Increasing Subsequence Problem](https://leetcode.com/problems/longest-increasing-subsequence/)\n- [GeeksforGeeks Longest Increasing Subsequence Article](https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/)\n- [HackerRank Longest Increasing Subsequence Challenge](https://www.hackerrank.com/challenges/longest-increasing-subsequence/)"
+  }
+}

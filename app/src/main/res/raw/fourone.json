@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q26. Longest Substring Without Repeating Characters",
+    "problemdescription": "Given a string s, find the length of the longest substring without repeating characters.",
+    "problemconstraint": "Constraints:\n- The input string may contain uppercase and lowercase English letters, digits, or special characters.",
+    "inputformat": "Input:\n- A string (s) consisting of any printable ASCII characters.",
+    "outputformat": "Output:\n- An integer, representing the length of the longest substring without repeating characters.",
+    "example": "Example:\n\nInput: s = \"abcabcbb\"\nOutput: 3\nExplanation: The longest substring without repeating characters is \"abc\", which has a length of 3."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem efficiently, you can use a sliding window approach. Maintain two pointers, left and right, to represent the current substring. Move the right pointer to expand the substring while checking for repeating characters in a hash set. If a repeating character is found, move the left pointer to shrink the substring and remove characters from the hash set until there are no repeats. Keep track of the maximum length of non-repeating substrings as you iterate through the string.",
+    "hint": "To find the longest substring without repeating characters, use a sliding window approach. Maintain a hash set to track characters in the current substring. Move the right pointer to expand the substring, and if you encounter a repeating character, move the left pointer to eliminate the repeat and continue."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding the length of the longest substring without repeating characters using a sliding window approach:\n\n```java\npublic int lengthOfLongestSubstring(String s) {\n    int n = s.length();\n    Set<Character> set = new HashSet<>();\n    int left = 0, right = 0, maxLength = 0;\n    while (right < n) {\n        if (!set.contains(s.charAt(right))) {\n            set.add(s.charAt(right++));\n            maxLength = Math.max(maxLength, right - left);\n        } else {\n            set.remove(s.charAt(left++));\n        }\n    }\n    return maxLength;\n}\n```\nThis Java code efficiently calculates the length of the longest substring without repeating characters.",
+    "python": "And here's a Python solution for finding the length of the longest substring without repeating characters using a sliding window approach:\n\n```python\ndef length_of_longest_substring(s):\n    n = len(s)\n    char_set = set()\n    left, right, max_length = 0, 0, 0\n    while right < n:\n        if s[right] not in char_set:\n            char_set.add(s[right])\n            right += 1\n            max_length = max(max_length, right - left)\n        else:\n            char_set.remove(s[left])\n            left += 1\n    return max_length\n```\nThis Python code works similarly to the Java solution and returns the length of the longest substring without repeating characters."
+  },
+  "extras": {
+    "asked": "The problem of finding the longest substring without repeating characters is frequently asked in coding interviews and is considered a fundamental problem in string manipulation and algorithms.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates improve their string manipulation and sliding window algorithm skills.",
+    "relatedlinks": "Related Links:\n- [LeetCode Longest Substring Without Repeating Characters Problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/)\n- [GeeksforGeeks Longest Substring Without Repeating Characters Article](https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/)\n- [HackerRank Longest Substring Without Repeating Characters Challenge](https://www.hackerrank.com/challenges/ctci-array-left-rotation)"
+  }
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,15 +11,31 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="scrollable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:tabGravity="fill"
-        app:tabTextColor="#00FF00"
-        app:tabIndicatorHeight="4dp"/>
+        app:tabIndicatorHeight="4dp"
+        app:tabMode="scrollable"
+        app:tabTextColor="#00FF00" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tabLayout" />
+        android:layout_height="655dp"
+        android:layout_below="@id/tabLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
 
-</RelativeLayout>
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mark As Done"
+        android:background="@drawable/square"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

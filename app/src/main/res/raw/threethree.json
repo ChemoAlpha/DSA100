@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q24. Bitwise AND of Numbers Range",
+    "problemdescription": "Given two integers, left and right, find the bitwise AND of all numbers in the range [left, right] (inclusive).",
+    "problemconstraint": "Constraints:\n- 0 ≤ left ≤ right ≤ 2^31 - 1",
+    "inputformat": "Input:\n- Two non-negative integers (left and right).",
+    "outputformat": "Output:\n- The bitwise AND of all numbers in the range [left, right].",
+    "example": "Example:\n\nInput: left = 5, right = 7\nOutput: 4\nExplanation: The bitwise AND of numbers in the range [5, 6, 7] is 4."
+  },
+  "solution_approach": {
+    "solution": "To find the bitwise AND of numbers in the given range, you can observe that the result will have common leftmost bits of left and right's binary representation. So, you can repeatedly right-shift both left and right until they become equal. Count the number of right shifts required and left-shift one of them by that count to get the result.",
+    "hint": "When trying to find the bitwise AND of numbers in a range, focus on the common leftmost bits of both numbers. Find the common prefix in their binary representations and left-shift it by the number of right shifts required to make left and right equal."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding the bitwise AND of numbers in a range:\n\n```java\npublic int rangeBitwiseAnd(int left, int right) {\n    int shifts = 0;\n    while (left < right) {\n        left >>= 1;\n        right >>= 1;\n        shifts++;\n    }\n    return left << shifts;\n}\n```\nThis Java code efficiently calculates the bitwise AND of numbers in the given range.",
+    "python": "And here's a Python solution for finding the bitwise AND of numbers in a range:\n\n```python\ndef range_bitwise_and(left, right):\n    shifts = 0\n    while left < right:\n        left >>= 1\n        right >>= 1\n        shifts += 1\n    return left << shifts\n```\nThis Python code efficiently calculates the bitwise AND of numbers in the given range."
+  },
+  "extras": {
+    "asked": "Finding the bitwise AND of numbers in a range is a commonly asked coding interview question, often encountered in interviews for software engineering and algorithmic roles.",
+    "sdesheet": "This problem is commonly included in coding practice sheets to help candidates practice bit manipulation techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode Bitwise AND of Numbers Range Problem](https://leetcode.com/problems/bitwise-and-of-numbers-range/)\n- [GeeksforGeeks Bitwise AND of Numbers Range Article](https://www.geeksforgeeks.org/bitwise-and-or-of-a-range/)"
+  }
+}

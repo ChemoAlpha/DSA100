@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q35. Modular Inverse",
+    "problemdescription": "Given two positive integers 'a' and 'm', find the modular inverse 'x' of 'a' modulo 'm' if it exists. The modular inverse 'x' satisfies the equation 'a * x ≡ 1 (mod m)'.",
+    "problemconstraint": "Constraints:\n- You can assume that both input numbers 'a' and 'm' are positive integers.",
+    "inputformat": "Input:\n- Two positive integers 'a' and 'm' where 1 <= a, m <= 10^9.",
+    "outputformat": "Output:\n- An integer 'x' representing the modular inverse of 'a' modulo 'm'. If no modular inverse exists, return -1.",
+    "example": "Example:\n\nInput: a = 3, m = 11\nOutput: 4\nExplanation: The modular inverse of 3 modulo 11 is 4 because (3 * 4) % 11 = 1."
+  },
+  "solution_approach": {
+    "solution": "To find the modular inverse 'x' of 'a' modulo 'm', you can use the Extended Euclidean Algorithm to find 'x' and ensure that it's a positive integer less than 'm'.",
+    "hint": "To find the modular inverse 'x' of 'a' modulo 'm', use the Extended Euclidean Algorithm to calculate 'x' and ensure it's a positive integer less than 'm'."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding the modular inverse 'x' of 'a' modulo 'm':\n\n```java\npublic int findModularInverse(int a, int m) {\n    int[] extendedGCD = extendedEuclidean(a, m);\n    int d = extendedGCD[0];\n    int x = extendedGCD[1];\n    if (d != 1) {\n        return -1; // Modular inverse does not exist\n    }\n    return (x % m + m) % m;\n}\n```\nThis Java code efficiently calculates the modular inverse 'x' of 'a' modulo 'm'.",
+    "python": "And here's a Python solution for finding the modular inverse 'x' of 'a' modulo 'm':\n\n```python\ndef find_modular_inverse(a, m):\n    d, x, y = extended_euclidean(a, m)\n    if d != 1:\n        return -1  # Modular inverse does not exist\n    return (x % m + m) % m\n```\nThis Python code effectively computes the modular inverse 'x' of 'a' modulo 'm' or returns -1 if no modular inverse exists."
+  },
+  "extras": {
+    "asked": "The problem of finding the modular inverse is important in number theory and cryptography. It is occasionally asked in coding interviews to assess candidates' understanding of modular arithmetic.",
+    "sdesheet": "This problem is included in some coding practice sheets to help candidates practice modular arithmetic and the Extended Euclidean Algorithm.",
+    "relatedlinks": "Related Links:\n- [Wikipedia - Modular Multiplicative Inverse](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse)\n- [GeeksforGeeks Modular Inverse Article](https://www.geeksforgeeks.org/multiplicative-inverse-under-modulo-m/)\n- [HackerRank Modular Inverse Challenge](https://www.hackerrank.com/challenges/functional-programming-warmups-in-recursion---gcd)"
+  }
+}

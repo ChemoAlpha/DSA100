@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q86. N-Queens Problem using Backtracking",
+    "problemdescription": "The N-Queens puzzle is the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal.",
+    "problemconstraint": "Constraints:\n- 1 <= N <= 15",
+    "inputformat": "Input:\n- An integer `N` representing the size of the chessboard (N×N).",
+    "outputformat": "Output:\n- Return a list of all possible solutions, where each solution is a list of strings representing the placement of queens on the chessboard. Each string should have 'Q' to represent a queen and '.' to represent an empty cell.",
+    "example": "Example for N = 4 (one possible solution):\n\nInput: N = 4\nOutput:\n```\n[\n ['.Q..',  // Solution 1\n  '...Q',\n  'Q...',\n  '..Q.'],\n\n ['..Q.',  // Solution 2\n  'Q...',\n  '...Q',\n  '.Q..']\n]\n```"
+  },
+  "solution_approach": {
+    "solution": "To solve the N-Queens problem using backtracking, you can implement a recursive algorithm. Start with an empty chessboard and try placing queens in each row one by one, ensuring that no two queens threaten each other. For each row, iterate through the columns and try placing a queen if it doesn't conflict with queens in the previous rows. Keep track of the current state of the chessboard as you go. If you successfully place queens in all rows without conflicts, add the current configuration to the list of solutions. Continue this process until all possible solutions are found.",
+    "hint": "You can optimize the checking for conflicts by maintaining sets or arrays for columns, diagonals, and reverse diagonals that indicate whether a cell is under threat."
+  },
+  "solution": {
+    "java": "Here's a Java solution to solve the N-Queens problem using backtracking:\n\n```java\npublic List<List<String>> solveNQueens(int N) {\n    List<List<String>> solutions = new ArrayList<>();\n    char[][] board = new char[N][N];\n    for (char[] row : board) {\n        Arrays.fill(row, '.');\n    }\n    solve(board, 0, solutions);\n    return solutions;\n}\n\nprivate void solve(char[][] board, int row, List<List<String>> solutions) {\n    if (row == board.length) {\n        List<String> solution = new ArrayList<>();\n        for (char[] rowArray : board) {\n            solution.add(new String(rowArray));\n        }\n        solutions.add(solution);\n        return;\n    }\n    for (int col = 0; col < board.length; col++) {\n        if (isValid(board, row, col)) {\n            board[row][col] = 'Q';\n            solve(board, row + 1, solutions);\n            board[row][col] = '.';\n        }\n    }\n}\n\nprivate boolean isValid(char[][] board, int row, int col) {\n    // Check if the current placement is valid and does not threaten other queens\n    // ... (Implementation of validation logic)\n}\n```",
+    "python": "And here's a Python solution to solve the N-Queens problem using backtracking:\n\n```python\ndef solveNQueens(N):\n    solutions = []\n    board = [['.' for _ in range(N)] for _ in range(N)]\n\n    def is_valid(board, row, col):\n        # Check if the current placement is valid and does not threaten other queens\n        # ... (Implementation of validation logic)\n\n    def solve(board, row):\n        if row == N:\n            solutions.append([''.join(row) for row in board])\n            return\n        for col in range(N):\n            if is_valid(board, row, col):\n                board[row][col] = 'Q'\n                solve(board, row + 1)\n                board[row][col] = '.'\n\n    solve(board, 0)\n    return solutions\n```"
+  },
+  "extras": {
+    "asked": "Solving the N-Queens problem is a classic backtracking problem that tests your ability to find solutions to constraint satisfaction problems.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice backtracking techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode N-Queens Problem](https://leetcode.com/problems/n-queens/)\n- [GeeksforGeeks N-Queens Problem Article](https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/)\n- [HackerRank N-Queens Challenge](https://www.hackerrank.com/challenges/queens-attack-2/)"
+  }
+}

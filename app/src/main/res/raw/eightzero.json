@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q45. Reverse a String",
+    "problemdescription": "Write a function that reverses a string. The input string is given as an array of characters 's'.",
+    "problemconstraint": "Constraints:\n- Do not use extra space for another array; you must do this by modifying the input array in place with O(1) extra memory.",
+    "inputformat": "Input:\n- An array of characters 's' (1 <= s.length <= 10^5).\n- The input array may contain uppercase and lowercase letters, as well as digits and special characters.",
+    "outputformat": "Output:\n- Reverse the input array of characters in-place.",
+    "example": "Example:\n\nInput: s = ['h', 'e', 'l', 'l', 'o']\nOutput: ['o', 'l', 'l', 'e', 'h']\nExplanation: The input string 'hello' is reversed to 'olleh' in-place."
+  },
+  "solution_approach": {
+    "solution": "To reverse a string in-place, you can use two pointers approach. Initialize two pointers, one at the beginning and another at the end of the string. Swap the characters at these pointers, and increment the start pointer while decrementing the end pointer until they meet in the middle of the string.",
+    "hint": "You can reverse a string in-place using the two pointers approach. Initialize two pointers, one at the beginning and another at the end of the string. Swap the characters at these pointers, and increment the start pointer while decrementing the end pointer until they meet in the middle of the string."
+  },
+  "solution": {
+    "java": "Here's a Java solution to reverse a string in-place using the two pointers approach:\n\n```java\npublic void reverseString(char[] s) {\n    int left = 0;\n    int right = s.length - 1;\n    while (left < right) {\n        char temp = s[left];\n        s[left] = s[right];\n        s[right] = temp;\n        left++;\n        right--;\n    }\n}\n```\nThis Java code efficiently reverses the input string in-place.",
+    "python": "And here's a Python solution to reverse a string in-place using the two pointers approach:\n\n```python\ndef reverseString(s):\n    left, right = 0, len(s) - 1\n    while left < right:\n        s[left], s[right] = s[right], s[left]\n        left += 1\n        right -= 1\n```\nThis Python code effectively reverses the input string in-place."
+  },
+  "extras": {
+    "asked": "Reversing a string in-place is a common coding interview question. It tests your understanding of string manipulation and two pointers techniques.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice string manipulation and in-place algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Reverse String Problem](https://leetcode.com/problems/reverse-string/)\n- [GeeksforGeeks Reverse a String Article](https://www.geeksforgeeks.org/reverse-a-string-in-java/)\n- [HackerRank Reverse a String Challenge](https://www.hackerrank.com/challenges/reverse-a-string)"
+  }
+}

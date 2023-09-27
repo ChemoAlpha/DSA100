@@ -1,1 +1,24 @@
 
+{
+  "problem_statement": {
+    "title": "Q31. Find GCD of Two Numbers",
+    "problemdescription": "Given two integers, find the greatest common divisor (GCD) of the two numbers.",
+    "problemconstraint": "Constraints:\n- You can assume that both input numbers are positive integers.",
+    "inputformat": "Input:\n- Two positive integers a and b where 1 <= a, b <= 10^9.",
+    "outputformat": "Output:\n- The greatest common divisor (GCD) of a and b.",
+    "example": "Example:\n\nInput: a = 12, b = 18\nOutput: 6\nExplanation: The GCD of 12 and 18 is 6."
+  },
+  "solution_approach": {
+    "solution": "To find the GCD of two numbers a and b, you can use the Euclidean algorithm. The algorithm repeatedly takes the remainder of the larger number divided by the smaller number and replaces the larger number with the smaller number and the smaller number with the remainder until the smaller number becomes zero. The last non-zero remainder is the GCD of a and b.",
+    "hint": "The Euclidean algorithm is an efficient way to find the GCD of two numbers. Start by taking the remainder of the larger number divided by the smaller number, then replace the larger number with the smaller number and the smaller number with the remainder. Repeat this process until the smaller number becomes zero."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding the GCD of two numbers using the Euclidean algorithm:\n\n```java\npublic int findGCD(int a, int b) {\n    while (b != 0) {\n        int temp = b;\n        b = a % b;\n        a = temp;\n    }\n    return a;\n}\n```\nThis Java code efficiently computes the GCD of two integers.",
+    "python": "And here's a Python solution for finding the GCD of two numbers using the Euclidean algorithm:\n\n```python\ndef find_gcd(a, b):\n    while b != 0:\n        a, b = b, a % b\n    return a\n```\nThis Python code effectively calculates the GCD of two positive integers."
+  },
+  "extras": {
+    "asked": "The problem of finding the GCD of two numbers is a common mathematical problem and is sometimes asked in coding interviews to test mathematical and algorithmic skills.",
+    "sdesheet": "This problem is occasionally included in coding practice sheets to provide candidates with mathematical problem-solving practice.",
+    "relatedlinks": "Related Links:\n- [Wikipedia - Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)\n- [GeeksforGeeks GCD of Two Numbers Article](https://www.geeksforgeeks.org/c-program-find-gcd-hcf-two-numbers/)\n- [HackerRank GCD of Two Numbers Challenge](https://www.hackerrank.com/challenges/functional-programming-warmups-in-recursion---gcd)"
+  }
+}

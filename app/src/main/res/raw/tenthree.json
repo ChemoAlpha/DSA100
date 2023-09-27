@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q58. Serialize and Deserialize Binary Tree",
+    "problemdescription": "Design an algorithm to serialize and deserialize a binary tree. Serialization is the process of converting a binary tree into a string representation so that it can be easily deserialized back into a binary tree structure.",
+    "problemconstraint": "Constraints:\n- You may serialize and deserialize the binary tree to/from a string of any structure or format you choose.",
+    "inputformat": "Input:\n- The root of a binary tree.",
+    "outputformat": "Output:\n- The serialized string representation of the binary tree.",
+    "example": "Example:\n\nInput: root = [1,2,3,null,null,4,5]\nOutput: \"1,2,3,null,null,4,5\"\nExplanation: The input binary tree can be serialized as \"1,2,3,null,null,4,5\"."
+  },
+  "solution_approach": {
+    "solution": "To serialize a binary tree, you can use a pre-order traversal (or any other traversal order of your choice). Serialize the values of the nodes into a string, including null values for empty nodes. To deserialize, split the string into values and reconstruct the binary tree using a recursive approach.",
+    "hint": "To serialize a binary tree, you can use a pre-order traversal (or any other traversal order of your choice). Serialize the values of the nodes into a string, including null values for empty nodes. To deserialize, split the string into values and reconstruct the binary tree using a recursive approach."
+  },
+  "solution": {
+    "java": "Here's a Java solution to serialize and deserialize a binary tree:\n\n```java\nimport java.util.Arrays;\nimport java.util.LinkedList;\nimport java.util.Queue;\n\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode(int x) { val = x; }\n}\n\nclass Codec {\n    // Encodes a tree to a single string.\n    public String serialize(TreeNode root) {\n        if (root == null) {\n            return \"null\";\n        }\n        return root.val + \",\" + serialize(root.left) + \",\" + serialize(root.right);\n    }\n\n    // Decodes your encoded data to tree.\n    public TreeNode deserialize(String data) {\n        String[] values = data.split(\",\");\n        Queue<String> queue = new LinkedList<>(Arrays.asList(values));\n        return buildTree(queue);\n    }\n\n    private TreeNode buildTree(Queue<String> queue) {\n        String value = queue.poll();\n        if (value.equals(\"null\")) {\n            return null;\n        }\n        TreeNode node = new TreeNode(Integer.parseInt(value));\n        node.left = buildTree(queue);\n        node.right = buildTree(queue);\n        return node;\n    }\n}\n```\nThis Java code efficiently serializes and deserializes a binary tree.",
+    "python": "And here's a Python solution to serialize and deserialize a binary tree:\n\n```python\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\nclass Codec:\n    def serialize(self, root: TreeNode) -> str:\n        def buildString(node):\n            if not node:\n                return 'null,'\n            serialized = str(node.val) + ','\n            serialized += buildString(node.left)\n            serialized += buildString(node.right)\n            return serialized\n        return buildString(root)\n\n    def deserialize(self, data: str) -> TreeNode:\n        def buildTree(queue):\n            value = queue.popleft()\n            if value == 'null':\n                return None\n            node = TreeNode(int(value))\n            node.left = buildTree(queue)\n            node.right = buildTree(queue)\n            return node\n        values = data.split(',')\n        return buildTree(deque(values))\n```\nThis Python code effectively serializes and deserializes a binary tree."
+  },
+  "extras": {
+    "asked": "Designing an algorithm to serialize and deserialize a binary tree is a common interview question that assesses your understanding of tree traversal and data serialization.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice tree-related algorithms and data serialization techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode Serialize and Deserialize Binary Tree Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)\n- [GeeksforGeeks Serialize and Deserialize Binary Tree Article](https://www.geeksforgeeks.org/serialize-deserialize-binary-tree/)\n- [HackerRank Serialize and Deserialize Binary Tree Challenge](https://www.hackerrank.com/challenges/ctci-linked-list-cycle)"
+  }
+}

@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q37. Merge Sort a Linked List",
+    "problemdescription": "Given a singly linked list, implement the Merge Sort algorithm to sort the linked list in ascending order.",
+    "problemconstraint": "Constraints:\n- You can assume that the linked list contains integers.",
+    "inputformat": "Input:\n- A singly linked list containing integers.",
+    "outputformat": "Output:\n- A singly linked list sorted in ascending order using the Merge Sort algorithm.",
+    "example": "Example:\n\nInput: 4 -> 2 -> 1 -> 3\nOutput: 1 -> 2 -> 3 -> 4\nExplanation: The linked list is sorted in ascending order."
+  },
+  "solution_approach": {
+    "solution": "To implement Merge Sort for a linked list, recursively split the linked list into two halves, sort each half separately using Merge Sort, and then merge the sorted halves back together.",
+    "hint": "Merge Sort for a linked list involves splitting the list into halves, sorting them, and then merging them back together. Use recursion for this."
+  },
+  "solution": {
+    "java": "Here's a Java implementation of Merge Sort for a singly linked list:\n\n```java\npublic ListNode mergeSort(ListNode head) {\n    if (head == null || head.next == null) {\n        return head;\n    }\n    ListNode middle = findMiddle(head);\n    ListNode nextToMiddle = middle.next;\n    middle.next = null;\n    ListNode left = mergeSort(head);\n    ListNode right = mergeSort(nextToMiddle);\n    return merge(left, right);\n}\n\npublic ListNode findMiddle(ListNode head) {\n    if (head == null) {\n        return null;\n    }\n    ListNode slow = head, fast = head;\n    while (fast.next != null && fast.next.next != null) {\n        slow = slow.next;\n        fast = fast.next.next;\n    }\n    return slow;\n}\n\npublic ListNode merge(ListNode left, ListNode right) {\n    if (left == null) {\n        return right;\n    }\n    if (right == null) {\n        return left;\n    }\n    if (left.val < right.val) {\n        left.next = merge(left.next, right);\n        return left;\n    } else {\n        right.next = merge(left, right.next);\n        return right;\n    }\n}\n```\nThis Java code demonstrates Merge Sort for a singly linked list.",
+    "python": "And here's a Python implementation of Merge Sort for a singly linked list:\n\n```python\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef merge_sort(head):\n    if not head or not head.next:\n        return head\n    middle = find_middle(head)\n    next_to_middle = middle.next\n    middle.next = None\n    left = merge_sort(head)\n    right = merge_sort(next_to_middle)\n    return merge(left, right)\n\ndef find_middle(head):\n    if not head:\n        return None\n    slow = head\n    fast = head\n    while fast.next and fast.next.next:\n        slow = slow.next\n        fast = fast.next.next\n    return slow\n\ndef merge(left, right):\n    if not left:\n        return right\n    if not right:\n        return left\n    if left.val < right.val:\n        left.next = merge(left.next, right)\n        return left\n    else:\n        right.next = merge(left, right.next)\n        return right\n```\nThis Python code demonstrates Merge Sort for a singly linked list."
+  },
+  "extras": {
+    "asked": "Implementing Merge Sort for a linked list is a common problem in coding interviews. It assesses your ability to work with linked data structures and sorting algorithms.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice sorting algorithms for linked lists.",
+    "relatedlinks": "Related Links:\n- [Wikipedia - Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)\n- [GeeksforGeeks Merge Sort for Singly Linked List](https://www.geeksforgeeks.org/merge-sort-for-linked-list/)\n- [HackerRank Merge Sort Tutorial](https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists)"
+  }
+}

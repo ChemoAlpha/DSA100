@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q41. Search in a Rotated Sorted Array",
+    "problemdescription": "Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. You are given a target value to search. If found in the array, return its index; otherwise, return -1.",
+    "problemconstraint": "Constraints:\n- The array is sorted in ascending order and then rotated.\n- You must implement binary search and not sequential search.",
+    "inputformat": "Input:\n- A rotated sorted array of integers (nums).\n- A target integer (target).",
+    "outputformat": "Output:\n- An integer representing the index of the target in the array (return -1 if not found).",
+    "example": "Example:\n\nInput: nums = [4, 5, 6, 7, 0, 1, 2], target = 0\nOutput: 4\nExplanation: The target '0' is found at index '4' in the rotated sorted array."
+  },
+  "solution_approach": {
+    "solution": "To search in a rotated sorted array, you can modify the binary search algorithm to handle the rotated nature of the array. Divide the array into two parts and determine which part is sorted, then perform binary search in that part.",
+    "hint": "In a rotated sorted array, one part will always be sorted. Use this information to decide which part of the array to search."
+  },
+  "solution": {
+    "java": "Here's a Java solution for searching in a rotated sorted array:\n\n```java\npublic int search(int[] nums, int target) {\n    int left = 0;\n    int right = nums.length - 1;\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        if (nums[mid] == target) {\n            return mid;\n        }\n        if (nums[left] <= nums[mid]) {\n            if (nums[left] <= target && target < nums[mid]) {\n                right = mid - 1;\n            } else {\n                left = mid + 1;\n            }\n        } else {\n            if (nums[mid] < target && target <= nums[right]) {\n                left = mid + 1;\n            } else {\n                right = mid - 1;\n            }\n        }\n    }\n    return -1; // Target not found\n}\n```\nThis Java code efficiently searches for the target in a rotated sorted array.",
+    "python": "And here's a Python solution for searching in a rotated sorted array:\n\n```python\ndef search(nums, target):\n    left, right = 0, len(nums) - 1\n    while left <= right:\n        mid = left + (right - left) // 2\n        if nums[mid] == target:\n            return mid\n        if nums[left] <= nums[mid]:\n            if nums[left] <= target < nums[mid]:\n                right = mid - 1\n            else:\n                left = mid + 1\n        else:\n            if nums[mid] < target <= nums[right]:\n                left = mid + 1\n            else:\n                right = mid - 1\n    return -1  # Target not found\n```\nThis Python code effectively searches for the target in a rotated sorted array."
+  },
+  "extras": {
+    "asked": "Searching in a rotated sorted array is a common coding interview question. It tests your problem-solving skills and understanding of binary search.",
+    "sdesheet": "This problem is frequently included in coding practice sheets to help candidates practice searching in non-standard arrays.",
+    "relatedlinks": "Related Links:\n- [LeetCode Search in Rotated Sorted Array Problem](https://leetcode.com/problems/search-in-rotated-sorted-array/)\n- [GeeksforGeeks Rotated Sorted Array Search Article](https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/)\n- [HackerRank Rotated Sorted Array Search Challenge](https://www.hackerrank.com/challenges/search-in-rotated-array)"
+  }
+}

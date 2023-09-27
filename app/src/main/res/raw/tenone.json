@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q57. Lowest Common Ancestor of a Binary Tree",
+    "problemdescription": "Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree. The LCA is defined as the lowest node in the tree that has both p and q as descendants (where we allow a node to be a descendant of itself).",
+    "problemconstraint": "Constraints:\n- The number of nodes in the tree is in the range [2, 10^5].\n- -10^9 <= Node.val <= 10^9.",
+    "inputformat": "Input:\n- The root of a binary tree.\n- Two distinct nodes p and q of the tree.",
+    "outputformat": "Output:\n- Return the LCA of p and q.",
+    "example": "Example:\n\nInput: [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1\nOutput: 3\nExplanation: The LCA of nodes 5 and 1 is node 3."
+  },
+  "solution_approach": {
+    "solution": "To find the lowest common ancestor (LCA) of two nodes in a binary tree, you can use a recursive approach. Start traversing the tree from the root node. If the current node is null or equal to either p or q, return it. Otherwise, recursively search for p and q in the left and right subtrees. If both p and q are found in different subtrees, the current node is the LCA. If they are both in the same subtree, continue the search in that subtree.",
+    "hint": "To find the lowest common ancestor (LCA) of two nodes in a binary tree, use a recursive approach. Start traversing the tree from the root node. If the current node is null or equal to either p or q, return it. Otherwise, recursively search for p and q in the left and right subtrees. If both p and q are found in different subtrees, the current node is the LCA. If they are both in the same subtree, continue the search in that subtree."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the lowest common ancestor of two nodes in a binary tree:\n\n```java\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode(int x) { val = x; }\n}\n\npublic class LowestCommonAncestor {\n    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {\n        if (root == null || root == p || root == q) {\n            return root;\n        }\n        TreeNode leftLCA = lowestCommonAncestor(root.left, p, q);\n        TreeNode rightLCA = lowestCommonAncestor(root.right, p, q);\n        if (leftLCA != null && rightLCA != null) {\n            return root;\n        } else if (leftLCA != null) {\n            return leftLCA;\n        } else {\n            return rightLCA;\n        }\n    }\n}\n```\nThis Java code efficiently finds the lowest common ancestor of two nodes in a binary tree.",
+    "python": "And here's a Python solution to find the lowest common ancestor of two nodes in a binary tree:\n\n```python\nclass TreeNode:\n    def __init__(self, x):\n        self.val = x\n        self.left = None\n        self.right = None\n\nclass Solution:\n    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:\n        if not root or root == p or root == q:\n            return root\n        left_lca = self.lowestCommonAncestor(root.left, p, q)\n        right_lca = self.lowestCommonAncestor(root.right, p, q)\n        if left_lca and right_lca:\n            return root\n        return left_lca if left_lca else right_lca\n```\nThis Python code effectively finds the lowest common ancestor of two nodes in a binary tree."
+  },
+  "extras": {
+    "asked": "Finding the lowest common ancestor of two nodes in a binary tree is a commonly asked coding interview question and is fundamental for tree-based algorithms and data structures.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice tree traversal and understanding of binary trees.",
+    "relatedlinks": "Related Links:\n- [LeetCode Lowest Common Ancestor of a Binary Tree Problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)\n- [GeeksforGeeks Lowest Common Ancestor Article](https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/)\n- [HackerRank Lowest Common Ancestor Challenge](https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor)"
+  }
+}

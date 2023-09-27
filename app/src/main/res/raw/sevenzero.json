@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q40. Implement Binary Search",
+    "problemdescription": "Given a sorted array of integers and a target value, implement binary search to find the target in the array. If the target exists in the array, return its index; otherwise, return -1.",
+    "problemconstraint": "Constraints:\n- You must implement binary search and not sequential search.\n- You can assume that the input array is sorted in ascending order.",
+    "inputformat": "Input:\n- A sorted array of integers (nums).\n- A target integer (target).",
+    "outputformat": "Output:\n- An integer representing the index of the target in the array (return -1 if not found).",
+    "example": "Example:\n\nInput: nums = [2, 5, 8, 12, 16, 23, 38, 42], target = 16\nOutput: 4\nExplanation: The target '16' is found at index '4' in the sorted array."
+  },
+  "solution_approach": {
+    "solution": "Binary search is an efficient algorithm to find an element in a sorted array. Start with the entire array, and repeatedly divide it in half until the target is found or the search space is empty.",
+    "hint": "Binary search involves dividing the array into two halves and narrowing down the search space based on whether the target is greater or smaller than the middle element."
+  },
+  "solution": {
+    "java": "Here's a Java solution for implementing binary search:\n\n```java\npublic int binarySearch(int[] nums, int target) {\n    int left = 0;\n    int right = nums.length - 1;\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        if (nums[mid] == target) {\n            return mid;\n        } else if (nums[mid] < target) {\n            left = mid + 1;\n        } else {\n            right = mid - 1;\n        }\n    }\n    return -1; // Target not found\n}\n```\nThis Java code implements binary search to find the target in a sorted array.",
+    "python": "And here's a Python solution for implementing binary search:\n\n```python\ndef binary_search(nums, target):\n    left, right = 0, len(nums) - 1\n    while left <= right:\n        mid = left + (right - left) // 2\n        if nums[mid] == target:\n            return mid\n        elif nums[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1  # Target not found\n```\nThis Python code efficiently implements binary search to find the target in a sorted array."
+  },
+  "extras": {
+    "asked": "Implementing binary search is a common coding interview question. It tests your understanding of efficient searching algorithms.",
+    "sdesheet": "This problem is frequently included in coding practice sheets to help candidates practice binary search.",
+    "relatedlinks": "Related Links:\n- [LeetCode Binary Search Problem](https://leetcode.com/problems/binary-search/)\n- [GeeksforGeeks Binary Search Article](https://www.geeksforgeeks.org/binary-search/)\n- [HackerRank Binary Search Challenges](https://www.hackerrank.com/domains/tutorials/10-days-of-javascript)"
+  }
+}

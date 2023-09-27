@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q28. Intersection of Two Arrays",
+    "problemdescription": "Given two arrays, write a function to compute their intersection.",
+    "problemconstraint": "Constraints:\n- Each element in the result must be unique.\n- The order of the result does not matter.",
+    "inputformat": "Input:\n- Two integer arrays, nums1 and nums2, where 1 <= nums1.length, nums2.length <= 104.",
+    "outputformat": "Output:\n- An array containing the distinct elements that are common to both input arrays.",
+    "example": "Example:\n\nInput: nums1 = [1, 2, 2, 1], nums2 = [2, 2]\nOutput: [2]\nExplanation: The intersection of the two arrays nums1 and nums2 is [2]."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem, you can use a hash set to store elements from one of the arrays (e.g., nums1). Then, iterate through the other array (nums2) and check if each element is present in the hash set. If it is, add it to the result array. This approach ensures that the result contains unique elements and does not require sorting.",
+    "hint": "A straightforward approach to find the intersection of two arrays is to use a hash set. Store all elements from one array in the hash set and then iterate through the other array to check for intersection."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the intersection of two arrays:\n\n```java\npublic int[] intersection(int[] nums1, int[] nums2) {\n    Set<Integer> set = new HashSet<>();\n    for (int num : nums1) {\n        set.add(num);\n    }\n    List<Integer> intersection = new ArrayList<>();\n    for (int num : nums2) {\n        if (set.contains(num)) {\n            intersection.add(num);\n            set.remove(num); // Ensure uniqueness\n        }\n    }\n    int[] result = new int[intersection.size()];\n    for (int i = 0; i < intersection.size(); i++) {\n        result[i] = intersection.get(i);\n    }\n    return result;\n}\n```\nThis Java code efficiently finds the intersection of two arrays.",
+    "python": "And here's a Python solution to find the intersection of two arrays:\n\n```python\ndef intersection(nums1, nums2):\n    set1 = set(nums1)\n    intersection = []\n    for num in nums2:\n        if num in set1:\n            intersection.append(num)\n            set1.remove(num)  # Ensure uniqueness\n    return intersection\n```\nThis Python code effectively finds the intersection of two arrays."
+  },
+  "extras": {
+    "asked": "The problem of finding the intersection of two arrays is commonly asked in coding interviews and tests a candidate's ability to work with sets and arrays.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice set manipulation and array operations.",
+    "relatedlinks": "Related Links:\n- [LeetCode Intersection of Two Arrays Problem](https://leetcode.com/problems/intersection-of-two-arrays/)\n- [GeeksforGeeks Intersection of Two Arrays Article](https://www.geeksforgeeks.org/find-union-and-intersection-of-two-unsorted-arrays/)\n- [HackerRank Intersection of Two Arrays Challenge](https://www.hackerrank.com/challenges/ctci-array-left-rotation)"
+  }
+}

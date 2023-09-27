@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q78. Subset Sum Problem using Recursion",
+    "problemdescription": "Given a set of positive integers and a target sum, write a recursive function to determine whether there is a subset of the integers that adds up to the target sum.",
+    "problemconstraint": "Constraints:\n- The set of integers can have duplicates, and the target sum is a positive integer not exceeding 200.",
+    "inputformat": "Input:\n- An array of positive integers (length <= 100) and a positive integer target sum (<= 200).",
+    "outputformat": "Output:\n- Return `true` if there is a subset that adds up to the target sum; otherwise, return `false`.",
+    "example": "Example:\n\n```python\nInput: nums = [1, 2, 3, 4, 5], target = 7\nOutput: true\nExplanation: There is a subset [3, 4] that adds up to the target sum 7.\n```"
+  },
+  "solution_approach": {
+    "solution": "To solve the Subset Sum Problem using recursion, you can define a recursive function that explores two possibilities at each step: including the current element in the subset or excluding it. If the target sum is reached by either including or excluding an element, return `true`. Otherwise, return `false` when no more elements are left to consider.",
+    "hint": "In the recursive solution, consider how to explore both possibilities of including and excluding elements in the subset and check if the target sum is reached."
+  },
+  "solution": {
+    "java": "Here's a Java solution to solve the Subset Sum Problem using recursion:\n\n```java\nimport java.util.Arrays;\n\nclass Solution {\n    public boolean subsetSum(int[] nums, int target) {\n        return canSum(nums, target, 0);\n    }\n\n    private boolean canSum(int[] nums, int target, int index) {\n        if (target == 0) {\n            return true;\n        }\n        if (index == nums.length) {\n            return false;\n        }\n        if (nums[index] <= target) {\n            if (canSum(nums, target - nums[index], index + 1)) {\n                return true;\n            }\n        }\n        return canSum(nums, target, index + 1);\n    }\n}\n```",
+    "python": "And here's a Python solution to solve the Subset Sum Problem using recursion:\n\n```python\ndef subset_sum(nums, target):\n    def can_sum(nums, target, index):\n        if target == 0:\n            return True\n        if index == len(nums):\n            return False\n        if nums[index] <= target:\n            if can_sum(nums, target - nums[index], index + 1):\n                return True\n        return can_sum(nums, target, index + 1)\n\n    return can_sum(nums, target, 0)\n```\nThis Python code determines whether there is a subset of positive integers that adds up to the target sum using recursion."
+  },
+  "extras": {
+    "asked": "Solving the Subset Sum Problem using recursion is a common interview question that assesses your understanding of recursive algorithms and dynamic programming principles.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice recursion and dynamic programming.",
+    "relatedlinks": "Related Links:\n- [GeeksforGeeks Subset Sum Problem Article](https://www.geeksforgeeks.org/subset-sum-problem-dp-25/)\n- [HackerRank Recursive Subset Sum Challenge](https://www.hackerrank.com/challenges/simplified-chess-engine/problem)"
+  }
+}

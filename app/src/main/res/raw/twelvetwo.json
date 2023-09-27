@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q73. Find the Kth Smallest Element in a Matrix using Min Heap",
+    "problemdescription": "Given an `n x n` matrix where each row and column are sorted in ascending order, find the `kth` smallest element in the matrix. Note that it is the `kth` smallest element in the sorted order, not the `kth` distinct element.",
+    "problemconstraint": "Constraints:\n- You may assume that `matrix` is a `n x n` matrix, `n` is positive, and `k` is positive and not larger than `n^2`.",
+    "inputformat": "Input:\n- An `n x n` matrix `matrix` where `matrix[i][j]` is the `(i, j)`-th element of the matrix.\n- An integer `k`.",
+    "outputformat": "Output:\n- Return the `kth` smallest element in the matrix as an integer.",
+    "example": "Example:\n\n```python\nInput: matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8\nOutput: 13\nExplanation: The matrix is as follows, and the 8th smallest number is 13:\n1  5  9\n10 11 13\n12 13 15\n```"
+  },
+  "solution_approach": {
+    "solution": "To find the `kth` smallest element in the matrix, you can use a Min Heap. Start by inserting the first element from each row into the Min Heap. Then, extract the minimum element from the heap `k` times. The `kth` extracted element will be the `kth` smallest element in the matrix.",
+    "hint": "Consider using a priority queue or a Min Heap to efficiently find the `kth` smallest element while avoiding the need to store all elements in memory."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the `kth` smallest element in a matrix using a Min Heap:\n\n```java\nimport java.util.PriorityQueue;\n\nclass Solution {\n    public int kthSmallest(int[][] matrix, int k) {\n        int n = matrix.length;\n        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> matrix[a[0]][a[1]] - matrix[b[0]][b[1]]);\n        for (int i = 0; i < n; i++) {\n            minHeap.offer(new int[]{i, 0});\n        }\n        for (int i = 0; i < k - 1; i++) {\n            int[] current = minHeap.poll();\n            int row = current[0];\n            int col = current[1];\n            if (col < n - 1) {\n                minHeap.offer(new int[]{row, col + 1});\n            }\n        }\n        int[] kthSmallest = minHeap.poll();\n        return matrix[kthSmallest[0]][kthSmallest[1]];\n    }\n}\n```",
+    "python": "And here's a Python solution to find the `kth` smallest element in a matrix using a Min Heap:\n\n```python\nclass Solution:\n    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:\n        n = len(matrix)\n        min_heap = [(matrix[i][0], i, 0) for i in range(n)]\n        heapq.heapify(min_heap)\n        for _ in range(k - 1):\n            _, row, col = heapq.heappop(min_heap)\n            if col + 1 < n:\n                heapq.heappush(min_heap, (matrix[row][col + 1], row, col + 1))\n        return min_heap[0][0]\n```\nThis Python code efficiently finds the `kth` smallest element in a matrix."
+  },
+  "extras": {
+    "asked": "Finding the `kth` smallest element in a matrix using a Min Heap is a common interview question that assesses your understanding of heap-based algorithms for finding the `kth` smallest element.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice heap-related algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Kth Smallest Element in a Sorted Matrix Problem](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/)\n- [GeeksforGeeks Kth Smallest Element in a Matrix Article](https://www.geeksforgeeks.org/kth-smallest-element-in-a-row-wise-and-column-wise-sorted-2d-array-set-1/)\n- [HackerRank Kth Smallest Element in a Matrix Challenge](https://www.hackerrank.com/challenges/kth-smallest-element-in-a-matrix)"
+  }
+}

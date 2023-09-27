@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q18. Container With Most Water",
+    "problemdescription": "Given n non-negative integers a1, a2, ..., an representing the heights of a set of vertical lines, choose two lines that together with the x-axis forms a container that can hold the most water. Return the maximum area of the container.",
+    "problemconstraint": "Constraints:\n- You must not bend the lines.\n- The width of the container should be a positive integer.",
+    "inputformat": "Input:\n- An array of non-negative integers (heights) representing the heights of the vertical lines.",
+    "outputformat": "Output:\n- A single integer, representing the maximum area that can be formed by the container.",
+    "example": "Example:\n\nInput: heights = [1,8,6,2,5,4,8,3,7]\nOutput: 49\nExplanation: The maximum area can be formed by selecting the second and ninth lines. The width between them is 8, and the minimum height is 7, resulting in an area of 8 * 7 = 56. However, the maximum width can only be 7, so the maximum area is 7 * 7 = 49."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem efficiently, you can use a Two Pointers approach. Initialize two pointers, one at the beginning of the array and the other at the end. Calculate the area formed by the lines at these pointers. Then, move the pointer with the shorter line inward, as this might lead to a higher line that can increase the area. Keep track of the maximum area encountered during the process and return it as the result.",
+    "hint": "When using the Two Pointers approach, start with the widest possible container (the two outermost lines). Then, move the pointer pointing to the shorter line inward, as this might lead to a higher line that can form a larger area. Continue this process until the pointers meet."
+  },
+  "solution": {
+    "java": "Here's a Java solution for the Container With Most Water problem:\n\n```java\npublic int maxArea(int[] heights) {\n    int left = 0;\n    int right = heights.length - 1;\n    int maxArea = 0;\n\n    while (left < right) {\n        int minHeight = Math.min(heights[left], heights[right]);\n        int width = right - left;\n        int area = minHeight * width;\n        maxArea = Math.max(maxArea, area);\n\n        if (heights[left] < heights[right]) {\n            left++;\n        } else {\n            right--;\n        }\n    }\n\n    return maxArea;\n}\n```\nThis Java code efficiently calculates the maximum area that can be formed by the container.",
+    "python": "And here's a Python solution for the Container With Most Water problem using the Two Pointers approach:\n\n```python\ndef max_area(heights):\n    left = 0\n    right = len(heights) - 1\n    max_area = 0\n\n    while left < right:\n        min_height = min(heights[left], heights[right])\n        width = right - left\n        area = min_height * width\n        max_area = max(max_area, area)\n\n        if heights[left] < heights[right]:\n            left += 1\n        else:\n            right -= 1\n\n    return max_area\n```\nThis Python code efficiently calculates the maximum area that can be formed by the container."
+  },
+  "extras": {
+    "asked": "The Container With Most Water problem with a Two Pointers approach is a common coding interview question that assesses candidates' understanding of array manipulation and optimization techniques. It is often encountered in technical interviews.",
+    "sdesheet": "The Container With Most Water problem is frequently included in coding practice sheets and is used to teach the concept of optimizing solutions using Two Pointers.",
+    "relatedlinks": "Related Links:\n- [LeetCode Container With Most Water Problem](https://leetcode.com/problems/container-with-most-water/)\n- [GeeksforGeeks Container With Most Water Article](https://www.geeksforgeeks.org/container-with-most-water/)\n- [HackerRank Container With Most Water Challenge](https://www.hackerrank.com/challenges/container-with-most-water)"
+  }
+}

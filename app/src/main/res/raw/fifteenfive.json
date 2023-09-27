@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q97. Topological Sort of a Directed Acyclic Graph (DAG)",
+    "problemdescription": "Given a directed acyclic graph (DAG), perform a topological sort and return a list of vertices in topological order.",
+    "problemconstraint": "Constraints:\n- You are given a directed acyclic graph (DAG) as an adjacency list.\n- The graph contains at most 10^5 vertices and 10^6 edges.\n- There may be multiple valid topological orders; return any of them.",
+    "inputformat": "Input:\n- An integer `n` representing the number of vertices in the graph.\n- A list `graph` where `graph[i]` is a list of integers representing the vertices that vertex `i` has outgoing edges to.",
+    "outputformat": "Output:\n- Return a list of integers representing the vertices in topological order.",
+    "example": "Example:\n\n```\nInput:\nn = 6\ngraph = [[1, 2], [2, 3], [3, 4], [2, 5], [5, 6]]\n\nOutput: [1, 2, 3, 5, 4, 6]\nExplanation: A valid topological order of the given DAG is [1, 2, 3, 5, 4, 6].\n```"
+  },
+  "solution_approach": {
+    "solution": "Topological sorting is a linear ordering of the vertices of a directed acyclic graph (DAG) such that for every directed edge `u -> v`, vertex `u` comes before `v` in the ordering. Here's an algorithmic approach:\n\n1. Perform a depth-first search (DFS) traversal of the graph.\n2. During the DFS traversal, keep track of visited vertices and a stack to store the topological order.\n3. When visiting a vertex `v`, recursively visit all unvisited neighbors of `v`.\n4. After visiting all neighbors, push vertex `v` onto the stack.\n5. Once the DFS traversal is complete, the topological order is the reverse order of elements in the stack.\n6. Return the topological order as the result.",
+    "hint": "You can use a recursive or iterative approach for DFS traversal to find the topological order."
+  },
+  "solution": {
+    "java": "Here's a Java solution to perform topological sort of a directed acyclic graph (DAG):\n\n```java\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.Stack;\n\nclass TopologicalSort {\n    private int n;\n    private List<List<Integer>> graph;\n\n    public TopologicalSort(int n, List<List<Integer>> graph) {\n        this.n = n;\n        this.graph = graph;\n    }\n\n    public List<Integer> topologicalSort() {\n        boolean[] visited = new boolean[n];\n        Stack<Integer> stack = new Stack<>();\n\n        for (int i = 0; i < n; i++) {\n            if (!visited[i]) {\n                dfs(i, visited, stack);\n            }\n        }\n\n        List<Integer> result = new ArrayList<>();\n        while (!stack.isEmpty()) {\n            result.add(stack.pop());\n        }\n        return result;\n    }\n\n    private void dfs(int node, boolean[] visited, Stack<Integer> stack) {\n        visited[node] = true;\n        for (int neighbor : graph.get(node)) {\n            if (!visited[neighbor]) {\n                dfs(neighbor, visited, stack);\n            }\n        }\n        stack.push(node);\n    }\n}\n```",
+    "python": "And here's a Python solution to perform topological sort of a directed acyclic graph (DAG):\n\n```python\nclass TopologicalSort:\n    def __init__(self, n, graph):\n        self.n = n\n        self.graph = graph\n\n    def topological_sort(self):\n        visited = [False] * self.n\n        stack = []\n\n        def dfs(node):\n            visited[node] = True\n            for neighbor in self.graph[node]:\n                if not visited[neighbor]:\n                    dfs(neighbor)\n            stack.append(node)\n\n        for i in range(self.n):\n            if not visited[i]:\n                dfs(i)\n\n        return stack[::-1]\n```"
+  },
+  "extras": {
+    "asked": "Implementing topological sort of a directed acyclic graph (DAG) is a common coding problem that assesses your understanding of graph algorithms and their applications.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice graph algorithms and topological sorting.",
+    "relatedlinks": "Related Links:\n- [Topological Sort on GeeksforGeeks](https://www.geeksforgeeks.org/topological-sorting/)\n- [Kahn's Algorithm for Topological Sort on GeeksforGeeks](https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/)\n- [HackerRank Topological Sort Challenge](https://www.hackerrank.com/challenges/ctci-bfs-shortest-reach/problem)"
+  }
+}

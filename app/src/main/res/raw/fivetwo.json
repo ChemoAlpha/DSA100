@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q33. Check if a Number is Prime (Using MOD)",
+    "problemdescription": "Given a positive integer 'n', determine whether it's a prime number or not using the MOD operation.",
+    "problemconstraint": "Constraints:\n- You can assume that 'n' is a positive integer less than or equal to 10^9.",
+    "inputformat": "Input:\n- A positive integer 'n' where 1 <= n <= 10^9.",
+    "outputformat": "Output:\n- Return 'true' if 'n' is prime, 'false' otherwise.",
+    "example": "Example:\n\nInput: n = 17\nOutput: true\nExplanation: 17 is a prime number."
+  },
+  "solution_approach": {
+    "solution": "To check if a number 'n' is prime using the MOD operation, you can iterate from 2 to the square root of 'n' and check if 'n' is divisible by any of these numbers. If it's divisible by any number in this range, it's not prime; otherwise, it's prime.",
+    "hint": "One efficient way to check if a number 'n' is prime is to iterate from 2 to the square root of 'n' and check for divisibility. If 'n' is divisible by any number in this range, it's not prime."
+  },
+  "solution": {
+    "java": "Here's a Java solution for checking if a number 'n' is prime using the MOD operation:\n\n```java\npublic boolean isPrime(int n) {\n    if (n <= 1) {\n        return false;\n    }\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            return false;\n        }\n    }\n    return true;\n}\n```\nThis Java code efficiently checks if a number is prime.",
+    "python": "And here's a Python solution for checking if a number 'n' is prime using the MOD operation:\n\n```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n```\nThis Python code effectively determines if a number is prime or not."
+  },
+  "extras": {
+    "asked": "Checking if a number is prime is a fundamental problem in number theory and is commonly asked in coding interviews to test mathematical and algorithmic skills.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice prime number checking and optimization techniques.",
+    "relatedlinks": "Related Links:\n- [Wikipedia - Primality Test](https://en.wikipedia.org/wiki/Primality_test)\n- [GeeksforGeeks Primality Testing Article](https://www.geeksforgeeks.org/primality-test-set-1-introduction-and-school-method/)\n- [HackerRank Primality Test Challenge](https://www.hackerrank.com/challenges/functional-programming-warmups-in-recursion---gcd)"
+  }
+}

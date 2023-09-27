@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q53. Intersection of Two Linked Lists",
+    "problemdescription": "Given the heads of two singly linked lists, 'headA' and 'headB', find the node at which the two lists intersect. If there is no intersection point, return 'null'.",
+    "problemconstraint": "Constraints:\n- The number of nodes in 'headA' is in the range [0, 10^4].\n- The number of nodes in 'headB' is in the range [0, 10^4].\n- -10^5 <= Node.val <= 10^5\n- It is guaranteed that there are no cycles anywhere in the entire linked structure.",
+    "inputformat": "Input:\n- The heads of two linked lists, 'headA' and 'headB'.",
+    "outputformat": "Output:\n- The node where the two lists intersect, or 'null' if they do not intersect.",
+    "example": "Example:\n\nInput: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3\nOutput: Reference of the node with value = 8\nExplanation: The intersected node's value is 8 and is in the intersection point of both linked lists."
+  },
+  "solution_approach": {
+    "solution": "To find the intersection of two linked lists, you can use the two-pointer approach. Initialize two pointers, 'pA' and 'pB', initially pointing to 'headA' and 'headB', respectively. Traverse both lists simultaneously. When 'pA' reaches the end of 'headA', reset it to 'headB'. When 'pB' reaches the end of 'headB', reset it to 'headA'. If there is an intersection, 'pA' and 'pB' will meet at the intersection point.",
+    "hint": "You can find the intersection of two linked lists using the two-pointer approach. Initialize two pointers, 'pA' and 'pB', initially pointing to 'headA' and 'headB', respectively. Traverse both lists simultaneously. When 'pA' reaches the end of 'headA', reset it to 'headB'. When 'pB' reaches the end of 'headB', reset it to 'headA'. If there is an intersection, 'pA' and 'pB' will meet at the intersection point."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the intersection of two linked lists:\n\n```java\npublic ListNode getIntersectionNode(ListNode headA, ListNode headB) {\n    if (headA == null || headB == null) {\n        return null;\n    }\n    ListNode pA = headA;\n    ListNode pB = headB;\n    while (pA != pB) {\n        pA = (pA == null) ? headB : pA.next;\n        pB = (pB == null) ? headA : pB.next;\n    }\n    return pA;\n}\n```\nThis Java code efficiently finds the intersection of two linked lists.",
+    "python": "And here's a Python solution to find the intersection of two linked lists:\n\n```python\nclass ListNode:\n    def getIntersectionNode(self, headA, headB):\n        if not headA or not headB:\n            return None\n        pA = headA\n        pB = headB\n        while pA != pB:\n            pA = headB if not pA else pA.next\n            pB = headA if not pB else pB.next\n        return pA\n```\nThis Python code effectively finds the intersection of two linked lists."
+  },
+  "extras": {
+    "asked": "Finding the intersection of two linked lists is a common coding interview question. It tests your understanding of linked list traversal and pointer manipulation.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice linked list intersection techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode Intersection of Two Linked Lists Problem](https://leetcode.com/problems/intersection-of-two-linked-lists/)\n- [GeeksforGeeks Intersection of Two Linked Lists Article](https://www.geeksforgeeks.org/intersection-of-two-linked-lists/)\n- [HackerRank Intersection of Two Linked Lists Challenge](https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists)"
+  }
+}

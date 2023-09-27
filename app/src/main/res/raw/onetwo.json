@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q13. Implement a Queue using two Stacks",
+    "problemdescription": "Implement a queue data structure using two stacks. Your queue should support standard queue operations like push (enqueue), pop (dequeue), and peek (get the front element).",
+    "problemconstraint": "Constraints:\n- You must implement the queue using two stacks (stack1 and stack2).\n- All operations (push, pop, peek) should be efficient (O(1) time complexity for push and pop).\n",
+    "inputformat": "Input:\n- The input consists of a sequence of operations, where each operation is either push, pop, or peek.",
+    "outputformat": "Output:\n- For the peek operation, return the front element of the queue. For the pop operation, return the dequeued element.",
+    "example": "Example:\n\nInput: push(1), push(2), push(3), peek(), pop(), peek()\nOutput: [1, 1]"
+  },
+  "solution_approach": {
+    "solution": "To implement a queue using two stacks, maintain two stacks: stack1 and stack2. When pushing elements, push them onto stack1. When popping or peeking, if stack2 is empty, transfer all elements from stack1 to stack2 in reverse order, effectively reversing the elements. Then, you can efficiently pop or peek from stack2.",
+    "hint": "To implement a queue using two stacks efficiently, maintain two stacks: stack1 and stack2. When pushing elements, push them onto stack1. When popping or peeking, if stack2 is empty, transfer all elements from stack1 to stack2 in reverse order, effectively reversing the elements. Then, you can efficiently pop or peek from stack2."
+  },
+  "solution": {
+    "java": "Here's a Java solution for implementing a queue using two stacks:\n\n```java\nclass MyQueue {\n    Stack<Integer> stack1;\n    Stack<Integer> stack2;\n\n    public MyQueue() {\n        stack1 = new Stack<>();\n        stack2 = new Stack<>();\n    }\n\n    public void push(int x) {\n        stack1.push(x);\n    }\n\n    public int pop() {\n        if (stack2.isEmpty()) {\n            transferElements();\n        }\n        return stack2.pop();\n    }\n\n    public int peek() {\n        if (stack2.isEmpty()) {\n            transferElements();\n        }\n        return stack2.peek();\n    }\n\n    private void transferElements() {\n        while (!stack1.isEmpty()) {\n            stack2.push(stack1.pop());\n        }\n    }\n}\n```\nThis Java code efficiently implements a queue using two stacks with O(1) time complexity for push, pop, and peek operations.",
+    "python": "And here's a Python solution for implementing a queue using two stacks:\n\n```python\nclass MyQueue:\n    def __init__(self):\n        self.stack1 = []\n        self.stack2 = []\n\n    def push(self, x: int) -> None:\n        self.stack1.append(x)\n\n    def pop(self) -> int:\n        if not self.stack2:\n            self.transfer_elements()\n        return self.stack2.pop()\n\n    def peek(self) -> int:\n        if not self.stack2:\n            self.transfer_elements()\n        return self.stack2[-1]\n\n    def transfer_elements(self):\n        while self.stack1:\n            self.stack2.append(self.stack1.pop())\n```\nThis Python code efficiently implements a queue using two stacks with O(1) time complexity for push, pop, and peek operations."
+  },
+  "extras": {
+    "asked": "Implementing a queue using two stacks is a frequently asked coding interview question and is commonly used to test a candidate's understanding of data structures and algorithmic design.",
+    "sdesheet": "This problem is often included in coding practice sheets to reinforce the understanding of stack and queue data structures and their applications.",
+    "relatedlinks": "Related Links:\n- [LeetCode Implement Queue using Stacks Problem](https://leetcode.com/problems/implement-queue-using-stacks/)\n- [GeeksforGeeks Queue using Two Stacks Article](https://www.geeksforgeeks.org/queue-using-stacks/)\n- [HackerRank Implement Queue using Stacks Challenge](https://www.hackerrank.com/challenges/queue-using-two-stacks)"
+  }
+}

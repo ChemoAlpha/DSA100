@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q74. Calculate Factorial of a Number using Recursion",
+    "problemdescription": "Write a recursive function to calculate the factorial of a given non-negative integer `n`. The factorial of `n`, denoted as `n!`, is the product of all positive integers less than or equal to `n`.",
+    "problemconstraint": "Constraints:\n- `0 <= n <= 10`",
+    "inputformat": "Input:\n- An integer `n` where `0 <= n <= 10`.",
+    "outputformat": "Output:\n- Return the factorial of `n` as an integer.",
+    "example": "Example:\n\n```python\nInput: n = 5\nOutput: 120\nExplanation: 5! = 5 x 4 x 3 x 2 x 1 = 120\n```"
+  },
+  "solution_approach": {
+    "solution": "To calculate the factorial of a number `n` using recursion, you can define a recursive function that multiplies `n` by the factorial of `n-1`. The base case is when `n` is 0 or 1, in which case the factorial is 1. Otherwise, recursively compute `n!` as `n * (n-1)!`.",
+    "hint": "In the recursive solution, remember to define the base case where `n` is 0 or 1, as the factorial of 0 and 1 is 1."
+  },
+  "solution": {
+    "java": "Here's a Java solution to calculate the factorial of a number using recursion:\n\n```java\nclass Solution {\n    public int factorial(int n) {\n        if (n <= 1) {\n            return 1;\n        }\n        return n * factorial(n - 1);\n    }\n}\n```",
+    "python": "And here's a Python solution to calculate the factorial of a number using recursion:\n\n```python\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n```\nThis Python code calculates the factorial of a number `n` using recursion."
+  },
+  "extras": {
+    "asked": "Calculating the factorial of a number using recursion is a common interview question that assesses your understanding of recursive algorithms and problem-solving skills.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice recursion and factorial computation.",
+    "relatedlinks": "Related Links:\n- [GeeksforGeeks Factorial Using Recursion Article](https://www.geeksforgeeks.org/recursion/)\n- [HackerRank Recursive Factorial Challenge](https://www.hackerrank.com/challenges/30-recursion/problem)"
+  }
+}

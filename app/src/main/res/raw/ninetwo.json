@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q52. Merge Two Sorted Linked Lists",
+    "problemdescription": "Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.",
+    "problemconstraint": "Constraints:\n- The number of nodes in both lists is in the range [0, 50].\n- -100 <= Node.val <= 100\n- Both lists are sorted in non-decreasing order.",
+    "inputformat": "Input:\n- Two sorted linked lists, 'l1' and 'l2'.",
+    "outputformat": "Output:\n- The head of a sorted linked list after merging.",
+    "example": "Example:\n\nInput: l1 = [1,2,4], l2 = [1,3,4]\nOutput: [1,1,2,3,4,4]\nExplanation: The merged list is sorted."
+  },
+  "solution_approach": {
+    "solution": "To merge two sorted linked lists, you can use a recursive or iterative approach. In the recursive approach, compare the values of the current nodes of 'l1' and 'l2'. Set the node with the smaller value as the current node of the result list and call the merge function for the next nodes. In the iterative approach, use a dummy node as the result list's head and traverse 'l1' and 'l2' while comparing values. Append the smaller node to the result list and move to the next node of that list.",
+    "hint": "You can merge two sorted linked lists by comparing their node values. Initialize a dummy node as the head of the result list. Traverse 'l1' and 'l2' while comparing values. Append the smaller node to the result list and move to the next node of that list."
+  },
+  "solution": {
+    "java": "Here's a Java solution to merge two sorted linked lists iteratively:\n\n```java\npublic ListNode mergeTwoLists(ListNode l1, ListNode l2) {\n    ListNode dummy = new ListNode(-1);\n    ListNode current = dummy;\n    while (l1 != null && l2 != null) {\n        if (l1.val < l2.val) {\n            current.next = l1;\n            l1 = l1.next;\n        } else {\n            current.next = l2;\n            l2 = l2.next;\n        }\n        current = current.next;\n    }\n    current.next = (l1 != null) ? l1 : l2;\n    return dummy.next;\n}\n```\nThis Java code efficiently merges two sorted linked lists.",
+    "python": "And here's a Python solution to merge two sorted linked lists iteratively:\n\n```python\nclass ListNode:\n    def mergeTwoLists(self, l1, l2):\n        dummy = ListNode(-1)\n        current = dummy\n        while l1 and l2:\n            if l1.val < l2.val:\n                current.next = l1\n                l1 = l1.next\n            else:\n                current.next = l2\n                l2 = l2.next\n            current = current.next\n        current.next = l1 if l1 else l2\n        return dummy.next\n```\nThis Python code effectively merges two sorted linked lists."
+  },
+  "extras": {
+    "asked": "Merging two sorted linked lists is a commonly asked coding interview question. It evaluates your ability to work with linked lists and merge sorted data structures.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice linked list merging techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode Merge Two Sorted Lists Problem](https://leetcode.com/problems/merge-two-sorted-lists/)\n- [GeeksforGeeks Merge Two Sorted Lists Article](https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/)\n- [HackerRank Merge Two Sorted Linked Lists Challenge](https://www.hackerrank.com/challenges/merge-two-sorted-linked-lists)"
+  }
+}

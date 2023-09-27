@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q30. Minimum Window Substring",
+    "problemdescription": "Given two strings, S and T, find the minimum window in S that will contain all the characters in T.",
+    "problemconstraint": "Constraints:\n- If there is no such window in S that covers all characters in T, return an empty string.\n- If there are multiple such windows, you can return any valid window.\n- The input strings consist of uppercase and lowercase English letters.",
+    "inputformat": "Input:\n- Two strings, S and T, where 1 <= |S|, |T| <= 10^5.",
+    "outputformat": "Output:\n- The minimum window substring of S that contains all the characters in T. If no such window exists, return an empty string.",
+    "example": "Example:\n\nInput: S = \"ADOBECODEBANC\", T = \"ABC\"\nOutput: \"BANC\"\nExplanation: The minimum window substring \"BANC\" contains all characters from T (\"ABC\") in the minimum length."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem, you can use the sliding window technique with two pointers. Initialize two pointers, left and right, to the start of the string S. Expand the window to the right until you find a valid window (contains all characters of T). Then, contract the window from the left to find the minimum window. Keep track of the minimum window length and its starting index.",
+    "hint": "Start with a brute force approach and try to optimize it. Use two pointers to keep track of the window. Expand the right pointer until you have a valid window. Then, contract the left pointer to find the minimum window. Keep track of character frequencies using a hash map."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding the minimum window substring:\n\n```java\npublic String minWindow(String s, String t) {\n    int[] tCount = new int[128];\n    for (char c : t.toCharArray()) {\n        tCount[c]++;\n    }\n\n    int left = 0, right = 0, minLen = Integer.MAX_VALUE, minStart = 0, count = t.length();\n\n    while (right < s.length()) {\n        char rightChar = s.charAt(right);\n        if (tCount[rightChar] > 0) {\n            count--;\n        }\n        tCount[rightChar]--;\n        right++;\n\n        while (count == 0) {\n            if (right - left < minLen) {\n                minLen = right - left;\n                minStart = left;\n            }\n\n            char leftChar = s.charAt(left);\n            tCount[leftChar]++;\n            if (tCount[leftChar] > 0) {\n                count++;\n            }\n            left++;\n        }\n    }\n\n    return minLen == Integer.MAX_VALUE ? \"\" : s.substring(minStart, minStart + minLen + 1);\n}\n```\nThis Java code finds the minimum window substring in S that contains all characters from T.",
+    "python": "And here's a Python solution for finding the minimum window substring:\n\n```python\ndef min_window(s, t):\n    t_count = collections.Counter(t)\n    left = 0\n    right = 0\n    min_len = float('inf')\n    min_start = 0\n    count = len(t)\n\n    while right < len(s):\n        if t_count[s[right]] > 0:\n            count -= 1\n        t_count[s[right]] -= 1\n        right += 1\n\n        while count == 0:\n            if right - left < min_len:\n                min_len = right - left\n                min_start = left\n\n            if t_count[s[left]] == 0:\n                count += 1\n            t_count[s[left]] += 1\n            left += 1\n\n    return '' if min_len == float('inf') else s[min_start:min_start + min_len + 1]\n```\nThis Python code efficiently finds the minimum window substring."
+  },
+  "extras": {
+    "asked": "The Minimum Window Substring problem is a challenging problem often asked in coding interviews. It tests your knowledge of string manipulation and the sliding window technique.",
+    "sdesheet": "This problem is commonly included in coding practice sheets and is used to teach the sliding window technique.",
+    "relatedlinks": "Related Links:\n- [LeetCode Minimum Window Substring Problem](https://leetcode.com/problems/minimum-window-substring/)\n- [GeeksforGeeks Minimum Window Substring Article](https://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/)\n- [HackerRank Minimum Window Substring Challenge](https://www.hackerrank.com/challenges/minimum-window-substring)"
+  }
+}

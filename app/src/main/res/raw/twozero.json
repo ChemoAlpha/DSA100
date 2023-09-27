@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q17. Two Sum (Two Pointers Approach)",
+    "problemdescription": "Given an array of integers, find two numbers such that they add up to a specific target sum. Return the indices of these two numbers in the array. You may assume that each input would have exactly one solution, and you may not use the same element twice.",
+    "problemconstraint": "Constraints:\n- The solution must be a unique pair of indices.\n- You can't use the same element twice.\n- The input array is not sorted.",
+    "inputformat": "Input:\n- An array of integers (nums).\n- A target integer (target).",
+    "outputformat": "Output:\n- An array of two integers, representing the indices of the two numbers from the input array that add up to the target.",
+    "example": "Example:\n\nInput: nums = [2, 7, 11, 15], target = 9\nOutput: [0, 1]\nExplanation: nums[0] + nums[1] = 2 + 7 = 9, so the output is [0, 1]."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem using a Two Pointers approach, first sort the input array. Initialize two pointers, one at the beginning and the other at the end of the sorted array. Compare the sum of elements at these pointers with the target. If the sum is equal to the target, return the indices of the elements. If the sum is less than the target, move the left pointer to the right. If the sum is greater than the target, move the right pointer to the left. Repeat this process until the pointers meet or the sum is found.",
+    "hint": "To efficiently solve this problem with Two Pointers, start by sorting the array. Then, initialize two pointers, one at the beginning and the other at the end. Check the sum of elements at these pointers. If it's equal to the target, return the indices. If it's less, move the left pointer to the right. If it's greater, move the right pointer to the left. Continue until you find the sum or the pointers meet."
+  },
+  "solution": {
+    "java": "Here's a Java solution using the Two Pointers approach:\n\n```java\npublic int[] twoSum(int[] nums, int target) {\n    int[] sortedNums = Arrays.copyOf(nums, nums.length);\n    Arrays.sort(sortedNums);\n    int left = 0;\n    int right = sortedNums.length - 1;\n\n    while (left < right) {\n        int sum = sortedNums[left] + sortedNums[right];\n        if (sum == target) {\n            return findIndices(nums, sortedNums[left], sortedNums[right]);\n        } else if (sum < target) {\n            left++;\n        } else {\n            right--;\n        }\n    }\n    return new int[0];\n}\n\nprivate int[] findIndices(int[] nums, int num1, int num2) {\n    int index1 = -1;\n    int index2 = -1;\n\n    for (int i = 0; i < nums.length; i++) {\n        if (nums[i] == num1 && index1 == -1) {\n            index1 = i;\n        } else if (nums[i] == num2) {\n            index2 = i;\n        }\n    }\n\n    return new int[]{index1, index2};\n}\n```\nThis Java code efficiently finds the indices of the two numbers that add up to the target value.",
+    "python": "And here's a Python solution using the Two Pointers approach:\n\n```python\ndef two_sum(nums, target):\n    sorted_nums = sorted(enumerate(nums), key=lambda x: x[1])\n    left = 0\n    right = len(nums) - 1\n\n    while left < right:\n        sum = sorted_nums[left][1] + sorted_nums[right][1]\n        if sum == target:\n            return [sorted_nums[left][0], sorted_nums[right][0]]\n        elif sum < target:\n            left += 1\n        else:\n            right -= 1\n    return []\n```\nThis Python code efficiently finds the indices of the two numbers that sum to the target."
+  },
+  "extras": {
+    "asked": "The Two Sum problem with a Two Pointers approach is frequently asked in coding interviews, especially for roles that require a strong understanding of array manipulation and efficient algorithms.",
+    "sdesheet": "The Two Sum (Two Pointers Approach) problem is commonly included in coding practice sheets, particularly those focused on array manipulation and searching algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Two Sum Problem](https://leetcode.com/problems/two-sum/)\n- [GeeksforGeeks Two Sum Article](https://www.geeksforgeeks.org/two-sum-problem/)\n- [HackerRank Two Sum Challenge](https://www.hackerrank.com/challenges/ctci-array-left-rotation)"
+  }
+}

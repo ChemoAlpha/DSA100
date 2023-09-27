@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q80. Find All Paths in a Grid using Recursion",
+    "problemdescription": "Given a 2D grid of `m x n` dimensions, where each cell can either be blocked ('1') or empty ('0'), write a recursive function to find all possible paths from the top-left corner (0, 0) to the bottom-right corner (`m-1`, `n-1`). You can move horizontally or vertically from one cell to another, but not diagonally.",
+    "problemconstraint": "Constraints:\n- The grid has dimensions `m x n` (1 <= `m`, `n` <= 20).\n- The top-left and bottom-right cells are always empty ('0').",
+    "inputformat": "Input:\n- A 2D grid represented as a list of lists, where '1' represents a blocked cell and '0' represents an empty cell.",
+    "outputformat": "Output:\n- Return a list of all possible paths from the top-left corner to the bottom-right corner. Each path should be represented as a list of cell coordinates, where each coordinate is a tuple (row, column).",
+    "example": "Example:\n\n```python\nInput:\n[\n  ['0', '0', '0'],\n  ['0', '1', '0'],\n  ['0', '0', '0']\n]\nOutput:\n[\n  [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2)],\n  [(0, 0), (0, 1), (1, 1), (1, 2), (2, 2)],\n  [(0, 0), (1, 0), (1, 1), (1, 2), (2, 2)],\n  [(0, 0), (1, 0), (2, 0), (2, 1), (2, 2)]\n]\n```"
+  },
+  "solution_approach": {
+    "solution": "To find all paths in a grid using recursion, you can define a recursive function that explores all possible paths from the current cell to the destination cell while avoiding blocked cells. At each step, you can try moving in all four possible directions (up, down, left, right) and recursively explore each direction. The base case is when you reach the destination cell.",
+    "hint": "In the recursive solution, consider how to explore all four directions from the current cell while avoiding blocked cells and keeping track of the path."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find all paths in a grid using recursion:\n\n```java\nimport java.util.ArrayList;\nimport java.util.List;\n\nclass Solution {\n    public List<List<int[]>> findAllPaths(char[][] grid) {\n        List<List<int[]>> paths = new ArrayList<>();\n        List<int[]> path = new ArrayList<>();\n        findPaths(grid, 0, 0, paths, path);\n        return paths;\n    }\n\n    private void findPaths(char[][] grid, int row, int col, List<List<int[]>> paths, List<int[]> path) {\n        int m = grid.length;\n        int n = grid[0].length;\n        if (row == m - 1 && col == n - 1) {\n            paths.add(new ArrayList<>(path));\n            return;\n        }\n        if (row < 0 || row >= m || col < 0 || col >= n || grid[row][col] == '1') {\n            return;\n        }\n        path.add(new int[] {row, col});\n        grid[row][col] = '1';\n        findPaths(grid, row + 1, col, paths, path);\n        findPaths(grid, row - 1, col, paths, path);\n        findPaths(grid, row, col + 1, paths, path);\n        findPaths(grid, row, col - 1, paths, path);\n        path.remove(path.size() - 1);\n        grid[row][col] = '0';\n    }\n}\n```",
+    "python": "And here's a Python solution to find all paths in a grid using recursion:\n\n```python\ndef find_all_paths(grid):\n    def find_paths(row, col, path):\n        m, n = len(grid), len(grid[0])\n        if row == m - 1 and col == n - 1:\n            paths.append(path[:])\n            return\n        if row < 0 or row >= m or col < 0 or col >= n or grid[row][col] == '1':\n            return\n        path.append((row, col))\n        grid[row][col] = '1'\n        find_paths(row + 1, col, path)\n        find_paths(row - 1, col, path)\n        find_paths(row, col + 1, path)\n        find_paths(row, col - 1, path)\n        path.pop()\n        grid[row][col] = '0'\n\n    paths = []\n    find_paths(0, 0, [])\n    return paths\n```\nThis Python code finds all possible paths in a grid using recursion while avoiding blocked cells."
+  },
+  "extras": {
+    "asked": "Finding all paths in a grid using recursion is a common interview question that assesses your understanding of recursive algorithms and problem-solving skills.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice recursion and grid traversal.",
+    "relatedlinks": "Related Links:\n- [GeeksforGeeks Rat in a Maze Problem Article](https://www.geeksforgeeks.org/rat-in-a-maze-backtracking-2/)\n- [LeetCode Unique Paths Problem](https://leetcode.com/problems/unique-paths/)"
+  }
+}

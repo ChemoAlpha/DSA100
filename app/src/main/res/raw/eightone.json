@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q46. Longest Palindromic Substring",
+    "problemdescription": "Given a string 's', find the longest palindromic substring in 's'.",
+    "problemconstraint": "Constraints:\n- 1 <= s.length <= 1000\n- 's' consists of only lowercase English letters.",
+    "inputformat": "Input:\n- A string 's'.",
+    "outputformat": "Output:\n- A string representing the longest palindromic substring in 's'.",
+    "example": "Example:\n\nInput: s = 'babad'\nOutput: 'bab'\nExplanation: 'bab' is a palindrome within 'babad', and it is the longest."
+  },
+  "solution_approach": {
+    "solution": "To find the longest palindromic substring, you can use dynamic programming. Create a table to track whether substrings are palindromic. Start by considering single characters as palindromes and expand to longer substrings. Keep track of the longest palindrome encountered.",
+    "hint": "You can use dynamic programming to find the longest palindromic substring. Create a table to track whether substrings are palindromic. Start by considering single characters as palindromes and expand to longer substrings. Keep track of the longest palindrome encountered."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the longest palindromic substring using dynamic programming:\n\n```java\npublic String longestPalindrome(String s) {\n    int n = s.length();\n    boolean[][] dp = new boolean[n][n];\n    int start = 0;\n    int maxLength = 1;\n\n    for (int i = 0; i < n; i++) {\n        dp[i][i] = true;\n    }\n\n    for (int length = 2; length <= n; length++) {\n        for (int i = 0; i < n - length + 1; i++) {\n            int j = i + length - 1;\n            if (s.charAt(i) == s.charAt(j)) {\n                if (length == 2 || dp[i + 1][j - 1]) {\n                    dp[i][j] = true;\n                    if (length > maxLength) {\n                        maxLength = length;\n                        start = i;\n                    }\n                }\n            }\n        }\n    }\n\n    return s.substring(start, start + maxLength);\n}\n```\nThis Java code efficiently finds the longest palindromic substring in the input string 's'.",
+    "python": "And here's a Python solution to find the longest palindromic substring using dynamic programming:\n\n```python\ndef longestPalindrome(s):\n    n = len(s)\n    dp = [[False] * n for _ in range(n)]\n    start = 0\n    maxLength = 1\n\n    for i in range(n):\n        dp[i][i] = True\n\n    for length in range(2, n + 1):\n        for i in range(n - length + 1):\n            j = i + length - 1\n            if s[i] == s[j]:\n                if length == 2 or dp[i + 1][j - 1]:\n                    dp[i][j] = True\n                    if length > maxLength:\n                        maxLength = length\n                        start = i\n\n    return s[start:start + maxLength]\n```\nThis Python code effectively finds the longest palindromic substring in the input string 's'."
+  },
+  "extras": {
+    "asked": "Finding the longest palindromic substring is a common coding interview question. It assesses your problem-solving skills and dynamic programming knowledge.",
+    "sdesheet": "This problem is frequently included in coding practice sheets to help candidates practice dynamic programming for strings.",
+    "relatedlinks": "Related Links:\n- [LeetCode Longest Palindromic Substring Problem](https://leetcode.com/problems/longest-palindromic-substring/)\n- [GeeksforGeeks Longest Palindromic Substring Article](https://www.geeksforgeeks.org/longest-palindrome-substring-set-1/)\n- [HackerRank Longest Palindromic Substring Challenge](https://www.hackerrank.com/challenges/longest-palindromic-substring)"
+  }
+}

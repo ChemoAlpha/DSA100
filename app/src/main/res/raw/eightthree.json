@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q48. Group Anagrams",
+    "problemdescription": "Given an array of strings, group the anagrams together.",
+    "problemconstraint": "Constraints:\n- All inputs will be in lowercase English letters.\n- The order of output does not matter.",
+    "inputformat": "Input:\n- An array of strings (strs) where 1 <= strs.length <= 104 and 1 <= strs[i].length <= 100.",
+    "outputformat": "Output:\n- A list of groups where each group contains all the anagrams together. The order of groups and the order of strings within each group does not matter.",
+    "example": "Example:\n\nInput: strs = ['eat','tea','tan','ate','nat','bat']\nOutput: [['eat','tea','ate'],['tan','nat'],['bat']]\nExplanation: The input strings can be grouped into three groups of anagrams: 'eat', 'tea', and 'ate' are anagrams of each other; 'tan' and 'nat' are anagrams of each other; 'bat' has no anagrams."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem, you can use a hash map where the keys are sorted representations of the strings, and the values are lists of strings that are anagrams of each other. Iterate through the input strings, sort each string, and use the sorted string as the key to group anagrams together in the hash map. After processing all strings, the hash map will contain groups of anagrams as values.",
+    "hint": "An efficient way to group anagrams is to use a hash map. Iterate through the input strings, sort each string, and use the sorted string as the key in the hash map. Append the original string to the list of values for that key. After processing all strings, the hash map will contain groups of anagrams."
+  },
+  "solution": {
+    "java": "Here's a Java solution for grouping anagrams from an array of strings:\n\n```java\npublic List<List<String>> groupAnagrams(String[] strs) {\n    Map<String, List<String>> anagramGroups = new HashMap<>();\n    for (String str : strs) {\n        char[] charArray = str.toCharArray();\n        Arrays.sort(charArray);\n        String sortedStr = new String(charArray);\n        anagramGroups.computeIfAbsent(sortedStr, k -> new ArrayList<>()).add(str);\n    }\n    return new ArrayList<>(anagramGroups.values());\n}\n```\nThis Java code groups anagrams efficiently using a hash map.",
+    "python": "And here's a Python solution for grouping anagrams from an array of strings:\n\n```python\ndef groupAnagrams(strs):\n    anagramGroups = collections.defaultdict(list)\n    for str in strs:\n        sortedStr = ''.join(sorted(str))\n        anagramGroups[sortedStr].append(str)\n    return list(anagramGroups.values())\n```\nThis Python code works effectively to group anagrams using a default dictionary."
+  },
+  "extras": {
+    "asked": "The problem of grouping anagrams is commonly asked in coding interviews and tests a candidate's ability to work with strings and data structures efficiently.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice string manipulation and hash map usage.",
+    "relatedlinks": "Related Links:\n- [LeetCode Group Anagrams Problem](https://leetcode.com/problems/group-anagrams/)\n- [GeeksforGeeks Group Anagrams Article](https://www.geeksforgeeks.org/given-a-sequence-of-words-print-all-anagrams-together/)\n- [HackerRank Group Anagrams Challenge](https://www.hackerrank.com/challenges/ctci-array-left-rotation)"
+  }
+}

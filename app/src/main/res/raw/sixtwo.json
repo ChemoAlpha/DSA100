@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q38. Find Kth Largest Element in an Array",
+    "problemdescription": "Given an integer array 'nums' and an integer 'k', find the 'kth' largest element in the array. Note that it is the 'kth' largest element in the sorted order, not the 'kth' distinct element.",
+    "problemconstraint": "Constraints:\n- You can assume that 1 <= k <= nums.length <= 10^4 and that the elements in 'nums' are distinct integers.",
+    "inputformat": "Input:\n- An array of distinct integers 'nums'.\n- An integer 'k' where 1 <= k <= nums.length.",
+    "outputformat": "Output:\n- An integer representing the 'kth' largest element in 'nums' when sorted in descending order.",
+    "example": "Example:\n\nInput: nums = [3, 2, 1, 5, 6, 4], k = 2\nOutput: 5\nExplanation: The 'kth' largest element is 5, which is the second largest in the sorted order."
+  },
+  "solution_approach": {
+    "solution": "One efficient approach to finding the 'kth' largest element is to use a min-heap (priority queue). Create a min-heap and maintain its size as 'k'. Initially, add the first 'k' elements of 'nums' to the heap. For the remaining elements in 'nums', if an element is larger than the smallest element in the heap (the 'kth' largest so far), remove the smallest element from the heap and insert the current element. The top element in the heap will be the 'kth' largest element.",
+    "hint": "Consider using a min-heap (priority queue) to find the 'kth' largest element efficiently. Keep the size of the heap as 'k' to track the 'kth' largest element."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the 'kth' largest element in an array:\n\n```java\npublic int findKthLargest(int[] nums, int k) {\n    PriorityQueue<Integer> minHeap = new PriorityQueue<>(k);\n    for (int num : nums) {\n        if (minHeap.size() < k) {\n            minHeap.offer(num);\n        } else if (num > minHeap.peek()) {\n            minHeap.poll();\n            minHeap.offer(num);\n        }\n    }\n    return minHeap.peek();\n}\n```\nThis Java code efficiently finds the 'kth' largest element using a min-heap.",
+    "python": "Here's a Python solution to find the 'kth' largest element in an array:\n\n```python\ndef findKthLargest(nums, k):\n    min_heap = nums[:k]\n    heapq.heapify(min_heap)\n    for num in nums[k:]:\n        if num > min_heap[0]:\n            heapq.heappop(min_heap)\n            heapq.heappush(min_heap, num)\n    return min_heap[0]\n```\nThis Python code efficiently finds the 'kth' largest element using a min-heap."
+  },
+  "extras": {
+    "asked": "Finding the 'kth' largest element in an array is a frequently asked coding interview question. It tests your understanding of data structures and efficient algorithms.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice heap data structure and efficient element retrieval.",
+    "relatedlinks": "Related Links:\n- [LeetCode Kth Largest Element in an Array Problem](https://leetcode.com/problems/kth-largest-element-in-an-array/)\n- [GeeksforGeeks Kth Largest Element in an Array Article](https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/)\n- [HackerRank Kth Largest Element Challenge](https://www.hackerrank.com/challenges/find-the-median)"
+  }
+}

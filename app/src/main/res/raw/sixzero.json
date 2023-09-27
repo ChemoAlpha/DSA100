@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q36. Implement Quicksort Algorithm",
+    "problemdescription": "Implement the Quicksort algorithm to sort an array of integers in ascending order.",
+    "problemconstraint": "Constraints:\n- You can assume that the input array contains integers.",
+    "inputformat": "Input:\n- An array of integers.",
+    "outputformat": "Output:\n- An array of integers sorted in ascending order using the Quicksort algorithm.",
+    "example": "Example:\n\nInput: [5, 1, 9, 3, 7]\nOutput: [1, 3, 5, 7, 9]\nExplanation: The input array is sorted in ascending order."
+  },
+  "solution_approach": {
+    "solution": "To implement the Quicksort algorithm, choose a 'pivot' element from the array and partition the array into two subarrays - elements less than the pivot and elements greater than the pivot. Recursively apply Quicksort to both subarrays until the entire array is sorted.",
+    "hint": "Quicksort is a divide-and-conquer sorting algorithm. Choose a pivot, partition the array, and recursively apply Quicksort to the partitions."
+  },
+  "solution": {
+    "java": "Here's a Java implementation of the Quicksort algorithm:\n\n```java\npublic void quickSort(int[] arr, int low, int high) {\n    if (low < high) {\n        int pivotIndex = partition(arr, low, high);\n        quickSort(arr, low, pivotIndex - 1);\n        quickSort(arr, pivotIndex + 1, high);\n    }\n}\n\npublic int partition(int[] arr, int low, int high) {\n    int pivot = arr[high];\n    int i = low - 1;\n    for (int j = low; j < high; j++) {\n        if (arr[j] < pivot) {\n            i++;\n            int temp = arr[i];\n            arr[i] = arr[j];\n            arr[j] = temp;\n        }\n    }\n    int temp = arr[i + 1];\n    arr[i + 1] = arr[high];\n    arr[high] = temp;\n    return i + 1;\n}\n```\nThis Java code implements the Quicksort algorithm to sort an integer array.",
+    "python": "And here's a Python implementation of the Quicksort algorithm:\n\n```python\ndef quick_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quick_sort(left) + middle + quick_sort(right)\n```\nThis Python code demonstrates the Quicksort algorithm for sorting a list of integers."
+  },
+  "extras": {
+    "asked": "Implementing the Quicksort algorithm is a common task in coding interviews and is a fundamental sorting algorithm used in practice.",
+    "sdesheet": "This problem is frequently included in coding practice sheets to help candidates practice sorting algorithms.",
+    "relatedlinks": "Related Links:\n- [Wikipedia - Quicksort](https://en.wikipedia.org/wiki/Quicksort)\n- [GeeksforGeeks Quicksort Article](https://www.geeksforgeeks.org/quick-sort/)\n- [HackerRank Quicksort Tutorial](https://www.hackerrank.com/challenges/quicksort1)"
+  }
+}

@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q64. Count of Smaller Numbers After Self in an Array",
+    "problemdescription": "You are given an integer array `nums` and you need to return a new `counts` array. The `counts` array has the same length as `nums` and counts[i] is the number of smaller elements to the right of `nums[i]`.",
+    "problemconstraint": "Constraints:\n- 1 <= `nums.length` <= 10^5\n- -10^4 <= `nums[i]` <= 10^4",
+    "inputformat": "Input:\n- An integer array `nums`.",
+    "outputformat": "Output:\n- A new integer array `counts` where counts[i] is the number of smaller elements to the right of `nums[i]`.",
+    "example": "Example:\n\nInput: nums = [5,2,6,1]\nOutput: [2,1,1,0]\nExplanation: To the right of 5, there are 2 smaller elements (2 and 1). To the right of 2, there is 1 smaller element (1). To the right of 6, there is 1 smaller element (1). To the right of 1, there are 0 smaller elements."
+  },
+  "solution_approach": {
+    "solution": "To count the number of smaller elements to the right of each element in the array, you can use a Binary Search Tree (BST) to maintain a sorted order of elements encountered so far. Start from the right end of the array and insert elements into the BST while counting the elements smaller than the current element. This process will give you the count of smaller elements to the right for each element in the original array.",
+    "hint": "Use a Binary Search Tree (BST) data structure to efficiently maintain the count of smaller elements to the right of each element."
+  },
+  "solution": {
+    "java": "Here's a Java solution to count smaller numbers after self in an array using a Binary Search Tree (BST):\n\n```java\nimport java.util.ArrayList;\nimport java.util.List;\n\nclass TreeNode {\n    int val, leftCount, dupCount;\n    TreeNode left, right;\n    public TreeNode(int val) {\n        this.val = val;\n        this.leftCount = 0;\n        this.dupCount = 1;\n        this.left = this.right = null;\n    }\n}\n\nclass Solution {\n    public List<Integer> countSmaller(int[] nums) {\n        List<Integer> result = new ArrayList<>();\n        if (nums == null || nums.length == 0) {\n            return result;\n        }\n        TreeNode root = null;\n        for (int i = nums.length - 1; i >= 0; i--) {\n            root = insert(root, nums[i], result, 0);\n        }\n        return result;\n    }\n\n    private TreeNode insert(TreeNode node, int num, List<Integer> result, int preSum) {\n        if (node == null) {\n            node = new TreeNode(num);\n            result.add(0, preSum);\n        } else if (num == node.val) {\n            node.dupCount++;\n            result.add(0, preSum + node.leftCount);\n        } else if (num < node.val) {\n            node.leftCount++;\n            node.left = insert(node.left, num, result, preSum);\n        } else {\n            node.right = insert(node.right, num, result, preSum + node.leftCount + node.dupCount);\n        }\n        return node;\n    }\n}\n```",
+    "python": "And here's a Python solution to count smaller numbers after self in an array using a Binary Indexed Tree (BIT):\n\n```python\nclass Solution:\n    def countSmaller(self, nums):\n        n = len(nums)\n        if n == 0:\n            return []\n\n        bit = [0] * (n + 1)\n        nums = {val: i for i, val in enumerate(sorted(nums))}\n\n        def update(index):\n            while index <= n:\n                bit[index] += 1\n                index += index & -index\n\n        def query(index):\n            count = 0\n            while index > 0:\n                count += bit[index]\n                index -= index & -index\n            return count\n\n        result = [0] * n\n        for i in range(n - 1, -1, -1):\n            result[i] = query(nums[nums[i]])\n            update(nums[nums[i]] + 1)\n        return result\n```\nThis Python code effectively counts smaller numbers after each element in the array using a Binary Indexed Tree (BIT)."
+  },
+  "extras": {
+    "asked": "Counting smaller numbers after self in an array is a challenging problem that tests your understanding of data structures like Binary Search Trees (BST) or Binary Indexed Trees (BIT).",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice tree-related algorithms and counting techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode Count of Smaller Numbers After Self Problem](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)\n- [GeeksforGeeks Count of Smaller Numbers After Self Article](https://www.geeksforgeeks.org/count-smaller-elements-on-right-side/)"
+  }
+}

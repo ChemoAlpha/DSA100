@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q89. Rod Cutting Problem using Dynamic Programming",
+    "problemdescription": "Given a rod of length `n` inches and a list of prices for different rod lengths, determine the maximum value obtainable by cutting up the rod and selling the pieces. You can cut the rod into various lengths, and each length has an associated price. Determine the maximum value that can be obtained by cutting and selling the rod pieces.",
+    "problemconstraint": "Constraints:\n- 1 <= n <= 1000\n- 1 <= price[i] <= 1000",
+    "inputformat": "Input:\n- An integer `n` representing the length of the rod.\n- An array `price` of size `n`, where `price[i]` represents the price of a rod piece of length `i+1`.",
+    "outputformat": "Output:\n- Return an integer representing the maximum value that can be obtained by cutting and selling the rod pieces.",
+    "example": "Example:\n\n```python\nInput: n = 8, price = [1, 5, 8, 9, 10, 17, 17, 20]\nOutput: 22\nExplanation: By cutting the rod into two pieces of length 2 and 6, a total value of 22 can be obtained (price[1] + price[6] = 5 + 17 = 22).\n```"
+  },
+  "solution_approach": {
+    "solution": "To solve the Rod Cutting Problem using dynamic programming, you can create an array `dp` of size `n+1`, where `dp[i]` represents the maximum value obtainable for a rod of length `i`. Initialize `dp[0]` as 0 since there's no value for a rod of length 0. Then, iterate through the rod lengths from 1 to `n` and for each length `i`, iterate through all possible cuts from 1 to `i`. For each cut `j`, calculate the maximum value by considering the value of cutting the rod at length `j` and adding the maximum value for the remaining length `i-j`. Update `dp[i]` with the maximum value found. Finally, `dp[n]` will contain the maximum value obtainable for the entire rod.",
+    "hint": "Consider using a nested loop to iterate through rod lengths and cuts. Calculate the maximum value for each cut, and update `dp[i]` with the maximum found. This dynamic programming approach ensures that you consider all possible combinations of cuts to find the maximum value."
+  },
+  "solution": {
+    "java": "Here's a Java solution to solve the Rod Cutting Problem using dynamic programming:\n\n```java\npublic int maxProfit(int n, int[] price) {\n    int[] dp = new int[n + 1];\n    for (int i = 1; i <= n; i++) {\n        int max = Integer.MIN_VALUE;\n        for (int j = 0; j < i; j++) {\n            max = Math.max(max, price[j] + dp[i - j - 1]);\n        }\n        dp[i] = max;\n    }\n    return dp[n];\n}\n```",
+    "python": "And here's a Python solution to solve the Rod Cutting Problem using dynamic programming:\n\n```python\ndef max_profit(n, price):\n    dp = [0] * (n + 1)\n    for i in range(1, n + 1):\n        max_val = float('-inf')\n        for j in range(i):\n            max_val = max(max_val, price[j] + dp[i - j - 1])\n        dp[i] = max_val\n    return dp[n]\n```"
+  },
+  "extras": {
+    "asked": "Solving the Rod Cutting Problem using Dynamic Programming is a classic algorithmic problem that assesses your understanding of dynamic programming techniques and optimization.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice dynamic programming and optimization strategies.",
+    "relatedlinks": "Related Links:\n- [GeeksforGeeks Rod Cutting Problem](https://www.geeksforgeeks.org/cutting-a-rod-dp-13/)\n- [HackerRank Rod Cutting Challenge](https://www.hackerrank.com/challenges/maximum-cost-cut/problem)"
+  }
+}

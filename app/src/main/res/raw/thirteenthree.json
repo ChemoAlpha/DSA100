@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q77. Generate All Permutations of a String using Recursion",
+    "problemdescription": "Write a recursive function to generate all permutations of a given string. A permutation is an arrangement of characters in a specific order.",
+    "problemconstraint": "Constraints:\n- The input string contains only lowercase English letters, and its length does not exceed 9 characters.",
+    "inputformat": "Input:\n- A string containing only lowercase English letters (length <= 9).",
+    "outputformat": "Output:\n- Return a list of all permutations of the input string. The order of permutations in the list does not matter.",
+    "example": "Example:\n\n```python\nInput: 'abc'\nOutput: ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']\nExplanation: All possible permutations of 'abc' are ['abc', 'acb', 'bac', 'bca', 'cab', 'cba'].\n```"
+  },
+  "solution_approach": {
+    "solution": "To generate all permutations of a string using recursion, you can define a recursive function that takes a prefix (initially empty) and a remaining string. In each step, you choose a character from the remaining string, add it to the prefix, and recursively generate permutations for the remaining characters. The base case is when the remaining string is empty, in which case you've generated a permutation.",
+    "hint": "In the recursive solution, consider how to choose a character from the remaining string, add it to the prefix, and generate permutations for the remaining characters."
+  },
+  "solution": {
+    "java": "Here's a Java solution to generate all permutations of a string using recursion:\n\n```java\nimport java.util.ArrayList;\nimport java.util.List;\n\nclass Solution {\n    public List<String> generatePermutations(String s) {\n        List<String> result = new ArrayList<>();\n        generate(s, \"\", result);\n        return result;\n    }\n\n    private void generate(String s, String prefix, List<String> result) {\n        int n = s.length();\n        if (n == 0) {\n            result.add(prefix);\n        }\n        for (int i = 0; i < n; i++) {\n            generate(s.substring(0, i) + s.substring(i + 1), prefix + s.charAt(i), result);\n        }\n    }\n}\n```",
+    "python": "And here's a Python solution to generate all permutations of a string using recursion:\n\n```python\ndef generate_permutations(s):\n    def generate(s, prefix, result):\n        if not s:\n            result.append(prefix)\n            return\n        for i in range(len(s)):\n            generate(s[:i] + s[i + 1:], prefix + s[i], result)\n\n    result = []\n    generate(s, '', result)\n    return result\n```\nThis Python code generates all permutations of a string using recursion."
+  },
+  "extras": {
+    "asked": "Generating all permutations of a string using recursion is a common interview question that assesses your understanding of recursive algorithms and string manipulation.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice recursion and string manipulation.",
+    "relatedlinks": "Related Links:\n- [GeeksforGeeks Permutations Using Recursion Article](https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/)\n- [HackerRank Recursive Permutations Challenge](https://www.hackerrank.com/challenges/permutations-of-a-string/problem)"
+  }
+}

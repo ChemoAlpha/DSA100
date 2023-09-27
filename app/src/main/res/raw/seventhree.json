@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q43. Search in a Sorted Array of Unknown Size",
+    "problemdescription": "Given an integer array sorted in ascending order, write a function to search target in nums. If target exists, then return its index, otherwise, return -1. However, the array size is unknown to you. You may only access the array using an ArrayReader interface, where ArrayReader.get(k) returns the element of the array at index k (0-indexed).",
+    "problemconstraint": "Constraints:\n- You must implement binary search and not sequential search.",
+    "inputformat": "Input:\n- An ArrayReader interface for accessing elements of the array.\n- An integer target.",
+    "outputformat": "Output:\n- An integer representing the index of the target in the array (return -1 if not found).",
+    "example": "Example:\n\nInput: nums = [-1,0,3,5,9,12], target = 9\nOutput: 4\nExplanation: The target '9' is found at index '4' in the sorted array."
+  },
+  "solution_approach": {
+    "solution": "To search in a sorted array of unknown size, you can start with a small window and keep doubling its size until you find a window that contains the target or goes beyond it. Then, perform binary search within that window.",
+    "hint": "Start with a small window and double its size until you find the right window to perform binary search."
+  },
+  "solution": {
+    "java": "Here's a Java solution for searching in a sorted array of unknown size using an ArrayReader interface:\n\n```java\npublic int search(ArrayReader reader, int target) {\n    int left = 0;\n    int right = 1;\n    while (reader.get(right) < target) {\n        left = right;\n        right *= 2;\n    }\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        int num = reader.get(mid);\n        if (num == target) {\n            return mid;\n        } else if (num < target) {\n            left = mid + 1;\n        } else {\n            right = mid - 1;\n        }\n    }\n    return -1; // Target not found\n}\n```\nThis Java code efficiently searches for the target in a sorted array of unknown size using the ArrayReader interface.",
+    "python": "And here's a Python solution for searching in a sorted array of unknown size using an ArrayReader interface:\n\n```python\ndef search(reader, target):\n    left, right = 0, 1\n    while reader.get(right) < target:\n        left = right\n        right *= 2\n    while left <= right:\n        mid = left + (right - left) // 2\n        num = reader.get(mid)\n        if num == target:\n            return mid\n        elif num < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1  # Target not found\n```\nThis Python code effectively searches for the target in a sorted array of unknown size using the ArrayReader interface."
+  },
+  "extras": {
+    "asked": "Searching in a sorted array of unknown size using an interface is a common coding interview question. It tests your ability to adapt binary search to unconventional situations.",
+    "sdesheet": "This problem is frequently included in coding practice sheets to help candidates practice binary search and working with interfaces.",
+    "relatedlinks": "Related Links:\n- [LeetCode Search in Sorted Array of Unknown Size Problem](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)\n- [GeeksforGeeks Search in Sorted Array of Unknown Size Article](https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/)\n- [HackerRank Search in Sorted Array of Unknown Size Challenge](https://www.hackerrank.com/challenges/search-in-rotated-array)"
+  }
+}

@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q39. Sort Colors (Dutch National Flag Problem)",
+    "problemdescription": "Given an array 'nums' containing only 3 distinct colors (red, white, and blue), sort them in ascending order (red, white, blue) in-place using the Dutch National Flag algorithm.",
+    "problemconstraint": "Constraints:\n- You can assume that 'nums' only contains the values 0, 1, and 2 representing the colors red, white, and blue, respectively. You must not use any extra space.",
+    "inputformat": "Input:\n- An array 'nums' containing only values 0, 1, and 2.",
+    "outputformat": "Output:\n- The same array 'nums' sorted in ascending order using the Dutch National Flag algorithm.",
+    "example": "Example:\n\nInput: nums = [2, 0, 2, 1, 1, 0]\nOutput: [0, 0, 1, 1, 2, 2]\nExplanation: The input array is sorted in ascending order."
+  },
+  "solution_approach": {
+    "solution": "The Dutch National Flag problem can be solved in linear time complexity using a two-pass algorithm. In the first pass, count the occurrences of each color. In the second pass, overwrite the original array with the sorted colors based on the counts.",
+    "hint": "The Dutch National Flag problem can be efficiently solved using a two-pass algorithm. First, count the occurrences of each color, and then rewrite the array based on the counts."
+  },
+  "solution": {
+    "java": "Here's a Java solution for sorting colors using the Dutch National Flag algorithm:\n\n```java\npublic void sortColors(int[] nums) {\n    int[] count = new int[3]; // Count occurrences of 0, 1, and 2\n    for (int num : nums) {\n        count[num]++;\n    }\n    int index = 0;\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < count[i]; j++) {\n            nums[index++] = i;\n        }\n    }\n}\n```\nThis Java code sorts the colors in-place using the Dutch National Flag algorithm.",
+    "python": "And here's a Python solution for sorting colors using the Dutch National Flag algorithm:\n\n```python\ndef sortColors(nums):\n    count = [0, 0, 0] # Count occurrences of 0, 1, and 2\n    for num in nums:\n        count[num] += 1\n    index = 0\n    for i in range(3):\n        for j in range(count[i]):\n            nums[index] = i\n            index += 1\n```\nThis Python code efficiently sorts the colors in-place using the Dutch National Flag algorithm."
+  },
+  "extras": {
+    "asked": "The Dutch National Flag problem is a classic problem frequently asked in coding interviews. It assesses your ability to perform an in-place sort efficiently.",
+    "sdesheet": "This problem is commonly included in coding practice sheets to help candidates practice in-place sorting algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Sort Colors Problem](https://leetcode.com/problems/sort-colors/)\n- [GeeksforGeeks Dutch National Flag Problem Article](https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/)\n- [HackerRank Dutch National Flag Challenge](https://www.hackerrank.com/challenges/dnf-sort/problem)"
+  }
+}

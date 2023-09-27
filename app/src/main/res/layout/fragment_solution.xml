@@ -30,7 +30,7 @@
             android:textStyle="bold"
             android:text="Java"
             />
-        <TextView
+        <com.example.dsa100.CodeTextView
             android:id="@+id/java"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="10dp"

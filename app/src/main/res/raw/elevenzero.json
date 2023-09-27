@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q65. Implement Queue using Arrays",
+    "problemdescription": "Implement a basic queue using arrays with the following operations:\n\n1. `MyQueue()`: Initializes an empty queue.\n2. `push(x)`: Adds an element `x` to the back of the queue.\n3. `pop()`: Removes the element from the front of the queue and returns it.\n4. `peek()`: Returns the element at the front of the queue without removing it.\n5. `empty()`: Returns `true` if the queue is empty, `false` otherwise.",
+    "problemconstraint": "Constraints:\n- You must use only standard operations of a stack (i.e., only push to back, pop from front, peek at front, size, and is empty operations are valid).",
+    "inputformat": "Input:\n- The operations will be given as a list of strings, where each string is one of the supported operations.",
+    "outputformat": "Output:\n- For each `pop()` and `peek()` operation, return the element at the front of the queue or -1 if the queue is empty.",
+    "example": "Example:\n\nInput:\n[\"MyQueue\",\"push\",\"push\",\"peek\",\"pop\",\"empty\"]\n[[],[1],[2],[],[],[]]\nOutput:\n[null,null,null,1,1,false]\nExplanation:\nMyQueue myQueue = new MyQueue();\nmyQueue.push(1); // queue is [1]\nmyQueue.push(2); // queue is [1,2]\nmyQueue.peek(); // return 1\nmyQueue.pop(); // return 1, queue is [2]\nmyQueue.empty(); // return false"
+  },
+  "solution_approach": {
+    "solution": "To implement a queue using arrays, you can use two stacks. One stack will be used to enqueue elements, and the other stack will be used to dequeue elements. When a dequeue operation is requested and the dequeue stack is empty, you can transfer all elements from the enqueue stack to the dequeue stack to maintain the correct order of elements.",
+    "hint": "Consider using two stacks to simulate the behavior of a queue, and perform the necessary transfers between the stacks when needed."
+  },
+  "solution": {
+    "java": "Here's a Java solution to implement a queue using arrays:\n\n```java\nimport java.util.Stack;\n\nclass MyQueue {\n    private Stack<Integer> enqueueStack;\n    private Stack<Integer> dequeueStack;\n\n    public MyQueue() {\n        enqueueStack = new Stack<>();\n        dequeueStack = new Stack<>();\n    }\n\n    public void push(int x) {\n        enqueueStack.push(x);\n    }\n\n    public int pop() {\n        if (dequeueStack.isEmpty()) {\n            transferElements();\n        }\n        return dequeueStack.pop();\n    }\n\n    public int peek() {\n        if (dequeueStack.isEmpty()) {\n            transferElements();\n        }\n        return dequeueStack.peek();\n    }\n\n    public boolean empty() {\n        return enqueueStack.isEmpty() && dequeueStack.isEmpty();\n    }\n\n    private void transferElements() {\n        while (!enqueueStack.isEmpty()) {\n            dequeueStack.push(enqueueStack.pop());\n        }\n    }\n}\n```",
+    "python": "And here's a Python solution to implement a queue using arrays:\n\n```python\nclass MyQueue:\n    def __init__(self):\n        self.enqueue_stack = []\n        self.dequeue_stack = []\n\n    def push(self, x: int) -> None:\n        self.enqueue_stack.append(x)\n\n    def pop(self) -> int:\n        if not self.dequeue_stack:\n            self.transfer_elements()\n        return self.dequeue_stack.pop()\n\n    def peek(self) -> int:\n        if not self.dequeue_stack:\n            self.transfer_elements()\n        return self.dequeue_stack[-1]\n\n    def empty(self) -> bool:\n        return not self.enqueue_stack and not self.dequeue_stack\n\n    def transfer_elements(self) -> None:\n        while self.enqueue_stack:\n            self.dequeue_stack.append(self.enqueue_stack.pop())\n```"
+  },
+  "extras": {
+    "asked": "Implementing a queue using arrays is a common interview question that assesses your understanding of data structures and stack operations.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice queue and stack-related algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Implement Queue using Stacks Problem](https://leetcode.com/problems/implement-queue-using-stacks/)\n- [GeeksforGeeks Queue Data Structure Article](https://www.geeksforgeeks.org/queue-data-structure/)"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "problem_statement": {
+    "title": "Q22. Reverse Bits",
+    "problemdescription": "Reverse bits of a given 32-bit unsigned integer.",
+    "problemconstraint": "Constraints:\n- You must return a 32-bit unsigned integer, representing the reversed bits of the input.\n- You may assume that the input is a 32-bit unsigned integer.",
+    "inputformat": "Input:\n- A 32-bit unsigned integer (n).",
+    "outputformat": "Output:\n- A 32-bit unsigned integer, representing the reversed bits of the input.",
+    "example": "Example:\n\nInput: n = 43261596\nOutput: 964176192\nExplanation: The input binary representation '00000010100101000001111010011100' is reversed to '00111001011110000010100101000000,' which is the binary representation of 964176192."
+  },
+  "solution_approach": {
+    "solution": "To reverse the bits of a 32-bit unsigned integer, you can use a bit manipulation approach. Initialize a result variable to 0. Iterate through each bit of the input integer. For each bit, left-shift the result by one position and add the current bit from the input to the result. Repeat this process for all 32 bits.",
+    "hint": "When reversing the bits of a 32-bit unsigned integer, you can iterate through each bit and use bitwise operations to build the reversed integer. Use left-shift to make space for the next bit and bitwise OR to add the current bit to the result."
+  },
+  "solution": {
+    "java": "Here's a Java solution for reversing the bits of a 32-bit unsigned integer:\n\n```java\npublic int reverseBits(int n) {\n    int result = 0;\n    for (int i = 0; i < 32; i++) {\n        result <<= 1; // Left-shift result by one position\n        result |= (n & 1); // Add the current bit to result\n        n >>= 1; // Right-shift input by one position\n    }\n    return result;\n}\n```\nThis Java code efficiently reverses the bits of the input integer.",
+    "python": "And here's a Python solution for reversing the bits of a 32-bit unsigned integer:\n\n```python\ndef reverse_bits(n):\n    result = 0\n    for i in range(32):\n        result <<= 1 # Left-shift result by one position\n        result |= (n & 1) # Add the current bit to result\n        n >>= 1 # Right-shift input by one position\n    return result\n```\nThis Python code efficiently reverses the bits of the input integer."
+  },
+  "extras": {
+    "asked": "Reversing the bits of a 32-bit unsigned integer is a commonly asked coding interview question, especially in interviews for software engineering and embedded systems roles.",
+    "sdesheet": "The problem of reversing bits is often included in coding practice sheets to help candidates practice bit manipulation techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode Reverse Bits Problem](https://leetcode.com/problems/reverse-bits/)\n- [GeeksforGeeks Reverse Bits Article](https://www.geeksforgeeks.org/reverse-bits/)"
+
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q23. Counting Bits (Dynamic Programming)",
+    "problemdescription": "Given a non-negative integer num, for every number i in the range 0 ≤ i ≤ num, calculate the number of 1's in their binary representation and return them as an array.",
+    "problemconstraint": "Constraints:\n- You must use dynamic programming to solve this problem.\n- Follow up: Could you solve it in O(n) time complexity?",
+    "inputformat": "Input:\n- A non-negative integer (num).",
+    "outputformat": "Output:\n- An array of integers representing the count of 1's in the binary representation of numbers from 0 to num (inclusive).",
+    "example": "Example:\n\nInput: num = 5\nOutput: [0, 1, 1, 2, 1, 2]\nExplanation: For each number from 0 to 5, the count of 1's in their binary representation is [0, 1, 1, 2, 1, 2]."
+  },
+  "solution_approach": {
+    "solution": "To solve this problem efficiently, you can use dynamic programming. Initialize an array to store the count of 1's for each number from 0 to num. Start with the base cases (0 and 1), and then use the previously calculated counts to build the counts for larger numbers. Use bitwise operations to find patterns and calculate the counts for each number.",
+    "hint": "When using dynamic programming to count bits, notice that for every even number, the count of 1's is the same as for that number divided by 2. For every odd number, the count of 1's is one more than the count for the previous even number."
+  },
+  "solution": {
+    "java": "Here's a Java solution for counting bits using dynamic programming:\n\n```java\npublic int[] countBits(int num) {\n    int[] result = new int[num + 1];\n    for (int i = 1; i <= num; i++) {\n        result[i] = result[i >> 1] + (i & 1);\n    }\n    return result;\n}\n```\nThis Java code efficiently calculates the count of 1's in the binary representation of numbers from 0 to num.",
+    "python": "And here's a Python solution for counting bits using dynamic programming:\n\n```python\ndef count_bits(num):\n    result = [0] * (num + 1)\n    for i in range(1, num + 1):\n        result[i] = result[i >> 1] + (i & 1)\n    return result\n```\nThis Python code efficiently calculates the count of 1's in the binary representation of numbers from 0 to num."
+  },
+  "extras": {
+    "asked": "Counting Bits using dynamic programming is a frequently asked coding interview question, particularly in interviews for software engineering and algorithm development roles.",
+    "sdesheet": "The problem of counting bits is commonly included in coding practice sheets to help candidates practice dynamic programming techniques.",
+    "relatedlinks": "Related Links:\n- [LeetCode Counting Bits Problem](https://leetcode.com/problems/counting-bits/)\n- [GeeksforGeeks Counting Bits Article](https://www.geeksforgeeks.org/count-set-bits-in-an-integer/)"
+  }
+}

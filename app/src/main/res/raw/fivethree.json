@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q34. Extended Euclidean Algorithm",
+    "problemdescription": "Given two integers 'a' and 'b', find their greatest common divisor (GCD) 'd' and two integers 'x' and 'y' such that 'ax + by = d'.",
+    "problemconstraint": "Constraints:\n- You can assume that both input numbers 'a' and 'b' are positive integers.",
+    "inputformat": "Input:\n- Two positive integers 'a' and 'b' where 1 <= a, b <= 10^9.",
+    "outputformat": "Output:\n- Three integers 'd', 'x', and 'y' separated by spaces, where 'd' is the GCD of 'a' and 'b', and 'ax + by = d'.",
+    "example": "Example:\n\nInput: a = 30, b = 20\nOutput: 10 1 -1\nExplanation: The GCD of 30 and 20 is 10, and '30*1 + 20*(-1) = 10'."
+  },
+  "solution_approach": {
+    "solution": "To find the GCD 'd' and coefficients 'x' and 'y' using the Extended Euclidean Algorithm, you can implement the algorithm iteratively. It involves finding the GCD of 'a' and 'b' and maintaining intermediate results to compute 'x' and 'y'.",
+    "hint": "The Extended Euclidean Algorithm is a technique to find the GCD 'd' and coefficients 'x' and 'y' for the equation 'ax + by = d'. Implement the algorithm iteratively, maintaining intermediate results."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding the GCD 'd' and coefficients 'x' and 'y' using the Extended Euclidean Algorithm:\n\n```java\npublic int[] extendedEuclidean(int a, int b) {\n    if (b == 0) {\n        return new int[]{a, 1, 0};\n    }\n    int[] result = extendedEuclidean(b, a % b);\n    int d = result[0];\n    int x = result[2];\n    int y = result[1] - (a / b) * result[2];\n    return new int[]{d, x, y};\n}\n```\nThis Java code efficiently finds the GCD 'd' and coefficients 'x' and 'y' for the equation 'ax + by = d'.",
+    "python": "And here's a Python solution for finding the GCD 'd' and coefficients 'x' and 'y' using the Extended Euclidean Algorithm:\n\n```python\ndef extended_euclidean(a, b):\n    if b == 0:\n        return a, 1, 0\n    d, x, y = extended_euclidean(b, a % b)\n    return d, y, x - (a // b) * y\n```\nThis Python code effectively computes the GCD 'd' and coefficients 'x' and 'y' for the equation 'ax + by = d'."
+  },
+  "extras": {
+    "asked": "The Extended Euclidean Algorithm is a fundamental algorithm in number theory and is sometimes asked in coding interviews to test mathematical and algorithmic skills.",
+    "sdesheet": "This problem is occasionally included in coding practice sheets to provide candidates with practice in implementing the Extended Euclidean Algorithm.",
+    "relatedlinks": "Related Links:\n- [Wikipedia - Extended Euclidean Algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)\n- [GeeksforGeeks Extended Euclidean Algorithm Article](https://www.geeksforgeeks.org/euclidean-algorithms-basic-and-extended/)\n- [HackerRank Extended Euclidean Algorithm Challenge](https://www.hackerrank.com/challenges/functional-programming-warmups-in-recursion---gcd)"
+  }
+}

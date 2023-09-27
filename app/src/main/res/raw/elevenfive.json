@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q70. Shortest Path in Binary Matrix",
+    "problemdescription": "In an `n x n` binary matrix `grid`, the `1`s represent obstacles, and the `0` represents an empty space. You need to find the shortest path from the top-left corner `(0, 0)` to the bottom-right corner `(n-1, n-1)` that avoids obstacles. If the path is not found, return `-1`.",
+    "problemconstraint": "Constraints:\n- `n` == `grid.length`\n- `n` == `grid[i].length`\n- `1 <= n <= 40`\n- `grid[i][j]` is either `0` or `1`.",
+    "inputformat": "Input:\n- A 2D binary matrix `grid` of size `n x n`.",
+    "outputformat": "Output:\n- Return the length of the shortest path or `-1` if no such path exists.",
+    "example": "Example:\n\nInput: grid = [[0,0,0],[1,1,0],[1,1,0]]\nOutput: 4\nExplanation:\nThe shortest path is (0,0) -> (0,1) -> (0,2) -> (1,2) -> (2,2)."
+  },
+  "solution_approach": {
+    "solution": "To find the shortest path in a binary matrix, you can use breadth-first search (BFS) starting from the top-left corner. You can traverse in eight possible directions (up, down, left, right, and diagonals) while checking for obstacles and maintaining the distance to each cell. Keep track of visited cells to avoid revisiting them.",
+    "hint": "Use BFS to explore possible paths while avoiding obstacles and maintaining the distance to each cell."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the shortest path in a binary matrix:\n\n```java\nimport java.util.LinkedList;\nimport java.util.Queue;\n\nclass Solution {\n    public int shortestPathBinaryMatrix(int[][] grid) {\n        int n = grid.length;\n        if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1) {\n            return -1; // Start or end cell is blocked\n        }\n        int[][] directions = {{1, 0}, {0, 1}, {1, 1}, {-1, 0}, {0, -1}, {-1, -1}, {1, -1}, {-1, 1}};\n        Queue<int[]> queue = new LinkedList<>();\n        queue.offer(new int[]{0, 0});\n        int steps = 0;\n        while (!queue.isEmpty()) {\n            int size = queue.size();\n            for (int i = 0; i < size; i++) {\n                int[] curr = queue.poll();\n                int x = curr[0];\n                int y = curr[1];\n                if (x == n - 1 && y == n - 1) {\n                    return steps + 1;\n                }\n                for (int[] dir : directions) {\n                    int newX = x + dir[0];\n                    int newY = y + dir[1];\n                    if (newX >= 0 && newX < n && newY >= 0 && newY < n && grid[newX][newY] == 0) {\n                        queue.offer(new int[]{newX, newY});\n                        grid[newX][newY] = 1; // Mark cell as visited\n                    }\n                }\n            }\n            steps++;\n        }\n        return -1; // No path found\n    }\n}\n```",
+    "python": "And here's a Python solution to find the shortest path in a binary matrix:\n\n```python\nclass Solution:\n    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:\n        n = len(grid)\n        if grid[0][0] == 1 or grid[n - 1][n - 1] == 1:\n            return -1  # Start or end cell is blocked\n        directions = [(1, 0), (0, 1), (1, 1), (-1, 0), (0, -1), (-1, -1), (1, -1), (-1, 1)]\n        queue = deque([(0, 0)])\n        steps = 0\n        while queue:\n            size = len(queue)\n            for _ in range(size):\n                x, y = queue.popleft()\n                if x == n - 1 and y == n - 1:\n                    return steps + 1\n                for dx, dy in directions:\n                    new_x, new_y = x + dx, y + dy\n                    if 0 <= new_x < n and 0 <= new_y < n and grid[new_x][new_y] == 0:\n                        queue.append((new_x, new_y))\n                        grid[new_x][new_y] = 1  # Mark cell as visited\n            steps += 1\n        return -1  # No path found\n```\nThis Python code uses BFS to find the shortest path in the binary matrix."
+  },
+  "extras": {
+    "asked": "Finding the shortest path in a binary matrix is a common interview question that assesses your problem-solving and graph traversal skills.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice graph traversal algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Shortest Path in Binary Matrix Problem](https://leetcode.com/problems/shortest-path-in-binary-matrix/)\n- [GeeksforGeeks Shortest Path in Binary Matrix Article](https://www.geeksforgeeks.org/shortest-path-in-a-binary-maze/)"
+  }
+}

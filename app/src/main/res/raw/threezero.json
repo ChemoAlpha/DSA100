@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q21. Single Number (XOR Operation)",
+    "problemdescription": "Given a non-empty array of integers, every element appears twice except for one. Find that single element.",
+    "problemconstraint": "Constraints:\n- Your solution should have a linear runtime complexity (O(n)).\n- You must use XOR operation to solve this problem.",
+    "inputformat": "Input:\n- An array of integers (nums) where every element appears twice except for one.",
+    "outputformat": "Output:\n- The integer that appears only once in the array.",
+    "example": "Example:\n\nInput: nums = [4, 1, 2, 1, 2]\nOutput: 4\nExplanation: In the given array, all elements appear twice except for 4, which appears only once."
+  },
+  "solution_approach": {
+    "solution": "To find the single number in the array using XOR operation, you can XOR all the elements in the array. XORing two identical numbers results in 0, so only the single number will remain in the end.",
+    "hint": "When using XOR operation to find the single number in the array, XOR all the elements together. The XOR operation is both commutative and associative, meaning the order of XORing elements does not matter."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding the single number in the array using XOR operation:\n\n```java\npublic int singleNumber(int[] nums) {\n    int result = 0;\n    for (int num : nums) {\n        result ^= num;\n    }\n    return result;\n}\n```\nThis Java code efficiently finds the integer that appears only once in the array using XOR operation.",
+    "python": "And here's a Python solution for finding the single number in the array using XOR operation:\n\n```python\ndef single_number(nums):\n    result = 0\n    for num in nums:\n        result ^= num\n    return result\n```\nThis Python code efficiently finds the integer that appears only once in the array using XOR operation."
+  },
+  "extras": {
+    "asked": "Finding the single number in an array using XOR operation is a frequently asked coding interview question. It is commonly used to assess candidates' understanding of bitwise operations and their ability to solve problems efficiently.",
+    "sdesheet": "The problem of finding the single number using XOR operation is often included in coding practice sheets to help candidates practice bitwise manipulation.",
+    "relatedlinks": "Related Links:\n- [LeetCode Single Number Problem](https://leetcode.com/problems/single-number/)\n- [GeeksforGeeks Single Number Article](https://www.geeksforgeeks.org/find-element-appears-array-every-element-appears-twice/)\n- [HackerRank Single Number Challenge](https://www.hackerrank.com/challenges/ctci-array-left-rotation)"
+  }
+}

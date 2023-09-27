@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q75. Fibonacci Sequence using Recursion",
+    "problemdescription": "Write a recursive function to calculate the `n`-th term of the Fibonacci sequence. The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones, usually starting with 0 and 1.",
+    "problemconstraint": "Constraints:\n- `0 <= n <= 30`",
+    "inputformat": "Input:\n- An integer `n` where `0 <= n <= 30`.",
+    "outputformat": "Output:\n- Return the `n`-th term of the Fibonacci sequence as an integer.",
+    "example": "Example:\n\n```python\nInput: n = 6\nOutput: 8\nExplanation: The Fibonacci sequence starts with 0 and 1, and the 6th term is 8 (0, 1, 1, 2, 3, 5, 8).\n```"
+  },
+  "solution_approach": {
+    "solution": "To calculate the `n`-th term of the Fibonacci sequence using recursion, you can define a recursive function that computes the sum of the `(n-1)`-th and `(n-2)`-th terms. The base case is when `n` is 0 or 1, in which case the term is `n` itself.",
+    "hint": "In the recursive solution, remember to define the base case where `n` is 0 or 1, as the Fibonacci sequence starts with 0 and 1."
+  },
+  "solution": {
+    "java": "Here's a Java solution to calculate the `n`-th term of the Fibonacci sequence using recursion:\n\n```java\nclass Solution {\n    public int fibonacci(int n) {\n        if (n <= 1) {\n            return n;\n        }\n        return fibonacci(n - 1) + fibonacci(n - 2);\n    }\n}\n```",
+    "python": "And here's a Python solution to calculate the `n`-th term of the Fibonacci sequence using recursion:\n\n```python\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n - 1) + fibonacci(n - 2)\n```\nThis Python code calculates the `n`-th term of the Fibonacci sequence using recursion."
+  },
+  "extras": {
+    "asked": "Calculating the `n`-th term of the Fibonacci sequence using recursion is a common interview question that assesses your understanding of recursive algorithms and mathematical sequences.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice recursion and Fibonacci sequence computation.",
+    "relatedlinks": "Related Links:\n- [GeeksforGeeks Fibonacci Sequence Using Recursion Article](https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/)\n- [HackerRank Recursive Fibonacci Challenge](https://www.hackerrank.com/challenges/30-recursion-tutorial/problem)"
+  }
+}

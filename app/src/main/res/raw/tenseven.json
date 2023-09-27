@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q62. Validate Binary Search Tree",
+    "problemdescription": "Given the root of a binary tree, determine if it is a valid binary search tree (BST).",
+    "problemconstraint": "Constraints:\n- The number of nodes in the tree is in the range [1, 10^4].\n- -2^31 <= Node.val <= 2^31 - 1",
+    "inputformat": "Input:\n- The root of a binary tree.",
+    "outputformat": "Output:\n- Return `true` if the binary tree is a valid BST, and `false` otherwise.",
+    "example": "Example:\n\nInput: root = [2,1,3]\nOutput: true\nExplanation: The binary tree [2,1,3] is a valid BST."
+  },
+  "solution_approach": {
+    "solution": "To validate whether a binary tree is a valid BST, you can perform an in-order traversal of the tree. During the traversal, check if the values are in ascending order. If any value violates the order, return `false`. Otherwise, return `true` after the traversal is complete.",
+    "hint": "In an in-order traversal of a BST, the values should appear in ascending order. You can use this property to check if the tree is valid."
+  },
+  "solution": {
+    "java": "Here's a Java solution to validate whether a binary tree is a valid BST:\n\n```java\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode(int x) { val = x; }\n}\n\npublic boolean isValidBST(TreeNode root) {\n    return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);\n}\n\nprivate boolean isValidBST(TreeNode node, long min, long max) {\n    if (node == null) {\n        return true;\n    }\n    if (node.val <= min || node.val >= max) {\n        return false;\n    }\n    return isValidBST(node.left, min, node.val) && isValidBST(node.right, node.val, max);\n}\n```\nThis Java code efficiently validates whether a binary tree is a valid BST.",
+    "python": "And here's a Python solution to validate whether a binary tree is a valid BST:\n\n```python\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper(node, lower=float('-inf'), upper=float('inf')):\n        if not node:\n            return True\n        val = node.val\n        if val <= lower or val >= upper:\n            return False\n        if not helper(node.right, val, upper):\n            return False\n        if not helper(node.left, lower, val):\n            return False\n        return True\n\n    return helper(root)\n```\nThis Python code effectively validates whether a binary tree is a valid BST."
+  },
+  "extras": {
+    "asked": "Validating whether a binary tree is a valid BST is a common interview question that assesses your understanding of binary trees and tree traversal.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice tree-related algorithms and data structures.",
+    "relatedlinks": "Related Links:\n- [LeetCode Validate Binary Search Tree Problem](https://leetcode.com/problems/validate-binary-search-tree/)\n- [GeeksforGeeks Validate Binary Search Tree Article](https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/)"
+  }
+}

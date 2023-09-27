@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q60. Maximum XOR of Two Numbers in an Array",
+    "problemdescription": "Given an integer array `nums`, find the maximum result of `nums[i] XOR nums[j]`, where `0 <= i <= j < n`.",
+    "problemconstraint": "Constraints:\n- 1 <= nums.length <= 2 * 10^4\n- 0 <= nums[i] <= 2^31 - 1",
+    "inputformat": "Input:\n- An integer array `nums`.",
+    "outputformat": "Output:\n- Return the maximum result of `nums[i] XOR nums[j]`.",
+    "example": "Example:\n\nInput: nums = [3, 10, 5, 25, 2, 8]\nOutput: 28\nExplanation: The maximum XOR value can be obtained by XORing 5 and 25, resulting in 28."
+  },
+  "solution_approach": {
+    "solution": "To find the maximum XOR of two numbers in an array, you can use a Trie data structure to efficiently search for the best XOR pairs. For each number in the array, insert its binary representation into the Trie. Then, for each number, search for a number that maximizes the XOR value by flipping bits in the Trie. Keep track of the maximum XOR value found.",
+    "hint": "To efficiently find the best XOR pair for a number using a Trie, try to flip the bits such that you move towards the opposite bit as much as possible."
+  },
+  "solution": {
+    "java": "Here's a Java solution to find the maximum XOR of two numbers in an array:\n\n```java\nclass TrieNode {\n    TrieNode[] children;\n\n    public TrieNode() {\n        children = new TrieNode[2];\n    }\n}\n\nclass Trie {\n    TrieNode root;\n\n    public Trie() {\n        root = new TrieNode();\n    }\n\n    public void insert(int num) {\n        TrieNode node = root;\n        for (int i = 31; i >= 0; i--) {\n            int bit = (num >> i) & 1;\n            if (node.children[bit] == null) {\n                node.children[bit] = new TrieNode();\n            }\n            node = node.children[bit];\n        }\n    }\n\n    public int findMaxXOR(int num) {\n        TrieNode node = root;\n        int maxXOR = 0;\n        for (int i = 31; i >= 0; i--) {\n            int bit = (num >> i) & 1;\n            int flipBit = 1 - bit;\n            if (node.children[flipBit] != null) {\n                maxXOR |= (1 << i);\n                node = node.children[flipBit];\n            } else {\n                node = node.children[bit];\n            }\n        }\n        return maxXOR;\n    }\n}\n\npublic int findMaximumXOR(int[] nums) {\n    Trie trie = new Trie();\n    int maxXOR = 0;\n    for (int num : nums) {\n        trie.insert(num);\n        maxXOR = Math.max(maxXOR, trie.findMaxXOR(num));\n    }\n    return maxXOR;\n}\n```\nThis Java code efficiently finds the maximum XOR of two numbers in an array.",
+    "python": "And here's a Python solution to find the maximum XOR of two numbers in an array:\n\n```python\nclass TrieNode:\n    def __init__(self):\n        self.children = [None, None]\n\nclass Trie:\n    def __init__(self):\n        self.root = TrieNode()\n\n    def insert(self, num):\n        node = self.root\n        for i in range(31, -1, -1):\n            bit = (num >> i) & 1\n            if not node.children[bit]:\n                node.children[bit] = TrieNode()\n            node = node.children[bit]\n\n    def findMaxXOR(self, num):\n        node = self.root\n        maxXOR = 0\n        for i in range(31, -1, -1):\n            bit = (num >> i) & 1\n            flipBit = 1 - bit\n            if node.children[flipBit]:\n                maxXOR |= (1 << i)\n                node = node.children[flipBit]\n            else:\n                node = node.children[bit]\n        return maxXOR\n\n\ndef findMaximumXOR(nums):\n    trie = Trie()\n    maxXOR = 0\n    for num in nums:\n        trie.insert(num)\n        maxXOR = max(maxXOR, trie.findMaxXOR(num))\n    return maxXOR\n```\nThis Python code effectively finds the maximum XOR of two numbers in an array."
+  },
+  "extras": {
+    "asked": "Finding the maximum XOR of two numbers in an array is a challenging problem that requires understanding of bitwise operations and Trie data structures.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice bitwise manipulation and data structure concepts.",
+    "relatedlinks": "Related Links:\n- [LeetCode Maximum XOR of Two Numbers in an Array Problem](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/)\n- [GeeksforGeeks Maximum XOR of Two Numbers in an Array Article](https://www.geeksforgeeks.org/maximum-xor-of-two-numbers-in-an-array/)"
+  }
+}

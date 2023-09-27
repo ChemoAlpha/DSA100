@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q47. Implement strStr() (Substring Search)",
+    "problemdescription": "Implement strStr() to find the index of the first occurrence of one string 'needle' in another string 'haystack'. If 'needle' is not part of 'haystack', return -1.",
+    "problemconstraint": "Constraints:\n- Both 'haystack' and 'needle' consist of only lowercase English letters.",
+    "inputformat": "Input:\n- Two strings, 'haystack' and 'needle'.",
+    "outputformat": "Output:\n- An integer representing the index of the first occurrence of 'needle' in 'haystack'. Return -1 if 'needle' is not found.",
+    "example": "Example:\n\nInput: haystack = 'hello', needle = 'll'\nOutput: 2\nExplanation: The first occurrence of 'll' in 'hello' starts at index 2."
+  },
+  "solution_approach": {
+    "solution": "To implement strStr(), you can use a sliding window approach. Iterate through 'haystack' and slide a window of the same length as 'needle'. Check if the substring in the window matches 'needle'. If it does, return the starting index of the window.",
+    "hint": "You can implement strStr() efficiently using a sliding window approach. Iterate through 'haystack' and slide a window of the same length as 'needle'. Check if the substring in the window matches 'needle'. If it does, return the starting index of the window."
+  },
+  "solution": {
+    "java": "Here's a Java solution to implement strStr() using a sliding window approach:\n\n```java\npublic int strStr(String haystack, String needle) {\n    int n = haystack.length();\n    int m = needle.length();\n    if (m == 0) return 0;\n    for (int i = 0; i <= n - m; i++) {\n        if (haystack.substring(i, i + m).equals(needle)) {\n            return i;\n        }\n    }\n    return -1;\n}\n```\nThis Java code efficiently finds the index of the first occurrence of 'needle' in 'haystack'.",
+    "python": "And here's a Python solution to implement strStr() using a sliding window approach:\n\n```python\ndef strStr(haystack, needle):\n    n = len(haystack)\n    m = len(needle)\n    if m == 0:\n        return 0\n    for i in range(n - m + 1):\n        if haystack[i:i + m] == needle:\n            return i\n    return -1\n```\nThis Python code effectively finds the index of the first occurrence of 'needle' in 'haystack'."
+  },
+  "extras": {
+    "asked": "Implementing strStr() is a common coding interview question that assesses your string manipulation and substring search skills.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice substring search algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Implement strStr() Problem](https://leetcode.com/problems/implement-strstr/)\n- [GeeksforGeeks Implement strStr() Article](https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/)\n- [HackerRank Implement strStr() Challenge](https://www.hackerrank.com/challenges/implement-strstr)"
+  }
+}

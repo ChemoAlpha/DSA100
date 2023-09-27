@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q85. Regular Expression Matching using Dynamic Programming",
+    "problemdescription": "Implement regular expression matching with the following special characters:\n\n- `.` (period): Matches any single character.\n- `*` (asterisk): Matches zero or more of the preceding element.\n\nThe matching should cover the entire input string, not partial.",
+    "problemconstraint": "Constraints:\n- The input string `s` and pattern `p` consist of lowercase English letters and characters `.` and `*`.\n- `p` does not contain consecutive `*` characters.",
+    "inputformat": "Input:\n- Two strings, `s` (the input string) and `p` (the regular expression pattern).",
+    "outputformat": "Output:\n- Return `true` if the input string matches the pattern, and `false` otherwise.",
+    "example": "Example:\n\n```python\nInput: s = 'aa', p = 'a*'\nOutput: true\nExplanation: 'a*' means zero or more 'a's, so it matches 'aa'.\n```"
+  },
+  "solution_approach": {
+    "solution": "To implement regular expression matching using dynamic programming, you can create a two-dimensional array `dp` where `dp[i][j]` represents whether the first `i` characters of `s` match the first `j` characters of `p`. Initialize the `dp` array with `False` values. Then, iterate through the characters of `s` and `p` and fill in the `dp` array based on the following rules:\n- If `p[j-1]` is a regular character or a period (`.`) and matches `s[i-1]`, set `dp[i][j]` to the value of `dp[i-1][j-1]`.\n- If `p[j-1]` is an asterisk (`*`), you have two choices: (1) use the preceding character of `p[j-2]` zero times (skip it) by setting `dp[i][j]` to `dp[i][j-2]`, or (2) use the preceding character of `p[j-2]` at least once and match it with `s[i-1]` by setting `dp[i][j]` to `dp[i-1][j]` if `p[j-2]` matches `s[i-1]` or `dp[i][j-2]` if `p[j-2]` is a period (`.`).\nFinally, return `dp[m][n]` as the result, where `m` is the length of `s`, and `n` is the length of `p`.",
+    "hint": "You can optimize the space complexity by using a one-dimensional array to store only the previous row of the `dp` array."
+  },
+  "solution": {
+    "java": "Here's a Java solution to implement regular expression matching using dynamic programming:\n\n```java\npublic boolean isMatch(String s, String p) {\n    int m = s.length();\n    int n = p.length();\n    boolean[][] dp = new boolean[m + 1][n + 1];\n    dp[0][0] = true;\n    for (int i = 0; i <= m; i++) {\n        for (int j = 1; j <= n; j++) {\n            if (p.charAt(j - 1) != '*') {\n                dp[i][j] = i > 0 && (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '.') && dp[i - 1][j - 1];\n            } else {\n                dp[i][j] = dp[i][j - 2] || (i > 0 && (s.charAt(i - 1) == p.charAt(j - 2) || p.charAt(j - 2) == '.') && dp[i - 1][j]);\n            }\n        }\n    }\n    return dp[m][n];\n}\n```",
+    "python": "And here's a Python solution to implement regular expression matching using dynamic programming:\n\n```python\ndef isMatch(s, p):\n    m, n = len(s), len(p)\n    dp = [[False] * (n + 1) for _ in range(m + 1)]\n    dp[0][0] = True\n    for i in range(m + 1):\n        for j in range(1, n + 1):\n            if p[j - 1] != '*':\n                dp[i][j] = i > 0 and (s[i - 1] == p[j - 1] or p[j - 1] == '.') and dp[i - 1][j - 1]\n            else:\n                dp[i][j] = dp[i][j - 2] or (i > 0 and (s[i - 1] == p[j - 2] or p[j - 2] == '.') and dp[i - 1][j])\n    return dp[m][n]\n```"
+  },
+  "extras": {
+    "asked": "Implementing regular expression matching is a common coding problem that tests your understanding of dynamic programming and string manipulation.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice regular expression pattern matching.",
+    "relatedlinks": "Related Links:\n- [LeetCode Regular Expression Matching Problem](https://leetcode.com/problems/regular-expression-matching/)\n- [GeeksforGeeks Regular Expression Matching Article](https://www.geeksforgeeks.org/program-to-implement-regular-expression-matching/)\n- [HackerRank Regular Expression Matching Challenge](https://www.hackerrank.com/challenges/regex-matching)"
+  }
+}

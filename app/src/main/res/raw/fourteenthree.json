@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q84. Sudoku Solver using Backtracking",
+    "problemdescription": "Write a program to solve a Sudoku puzzle by filling the empty cells. A Sudoku puzzle is a 9x9 grid where each row, column, and 3x3 subgrid (or box) must contain all digits from 1 to 9 without repetition.",
+    "problemconstraint": "Constraints:\n- The given puzzle board `board` consists of digits '1' to '9' and the character '.' to represent empty cells.\n- You may assume that there will be only one unique solution.",
+    "inputformat": "Input:\n- A 9x9 2D array `board` representing the Sudoku puzzle. The input board is modified in place.",
+    "outputformat": "Output:\n- The solved Sudoku puzzle. The output board is the same as the input board after solving the puzzle.",
+    "example": "Example:\n\nInput (part of the puzzle):\n['5', '3', '.', '.', '7', '.', '.', '.', '.'],\n['6', '.', '.', '1', '9', '5', '.', '.', '.'],\n['.', '9', '8', '.', '.', '.', '.', '6', '.'],\n['8', '.', '.', '.', '6', '.', '.', '.', '3'],\n['4', '.', '.', '8', '.', '3', '.', '.', '1'],\n['7', '.', '.', '.', '2', '.', '.', '.', '6'],\n['.', '6', '.', '.', '.', '.', '2', '8', '.'],\n['.', '.', '.', '4', '1', '9', '.', '.', '5'],\n['.', '.', '.', '.', '8', '.', '.', '7', '9']\n Output (solved puzzle):\n['5', '3', '4', '6', '7', '8', '9', '1', '2'],\n['6', '7', '2', '1', '9', '5', '3', '4', '8'],\n['1', '9', '8', '3', '4', '2', '5', '6', '7'],\n['8', '5', '9', '7', '6', '4', '1', '2', '3'],\n['4', '2', '6', '8', '5', '3', '7', '9', '1'],\n['7', '1', '3', '9', '2', '4', '8', '5', '6'],\n['9', '6', '1', '5', '3', '7', '2', '8', '4'],\n['2', '8', '7', '4', '1', '9', '6', '3', '5'],\n['3', '4', '5', '2', '8', '6', '4', '7', '9']"
+  },
+    "solution_approach": {
+"solution": "To solve the Sudoku puzzle using backtracking, you can implement a recursive algorithm. Start by finding an empty cell (a cell with a '.'), and try filling it with digits from '1' to '9'. For each digit, check if it's a valid placement by verifying that the digit doesn't violate the Sudoku rules in the current row, column, or 3x3 subgrid. If it's a valid placement, recursively move to the next empty cell. If at any point you find that there are no valid digits to place, backtrack to the previous cell and try the next digit. Continue this process until the entire puzzle is solved.",
+"hint": "You can optimize the checking of valid placements by using three 2D arrays to keep track of the digits already used in rows, columns, and subgrids."
+},
+"solution": {
+"java": "Here's a Java solution to solve the Sudoku puzzle using backtracking:\n\n```java\npublic void solveSudoku(char[][] board) {\n    solve(board);\n}\n\nprivate boolean solve(char[][] board) {\n    for (int i = 0; i < 9; i++) {\n        for (int j = 0; j < 9; j++) {\n            if (board[i][j] == '.') {\n                for (char c = '1'; c <= '9'; c++) {\n                    if (isValid(board, i, j, c)) {\n                        board[i][j] = c;\n                        if (solve(board)) {\n                            return true;\n                        }\n                        board[i][j] = '.';\n                    }\n                }\n                return false;\n            }\n        }\n    }\n    return true;\n}\n\nprivate boolean isValid(char[][] board, int row, int col, char c) {\n    // Check if c is not already in current row, current column, and current 3x3 subgrid\n    // ... (Implementation of validation logic)\n}\n```",
+"python": "And here's a Python solution to solve the Sudoku puzzle using backtracking:\n\n```python\ndef solveSudoku(board):\n    def solve():\n        for i in range(9):\n            for j in range(9):\n                if board[i][j] == '.':\n                    for c in map(str, range(1, 10)):\n                        if is_valid(i, j, c):\n                            board[i][j] = c\n                            if solve():\n                                return True\n                            board[i][j] = '.'\n                    return False\n        return True\n\n    def is_valid(row, col, c):\n        # Check if c is not already in current row, current column, and current 3x3 subgrid\n        # ... (Implementation of validation logic)\n\n    solve()\n```"
+},
+"extras": {
+"asked": "Solving the Sudoku puzzle using backtracking is a classic problem that assesses your understanding of recursive algorithms and constraint satisfaction problems.",
+"sdesheet": "This problem is often included in coding practice sheets to help candidates practice backtracking and problem-solving techniques.",
+"relatedlinks": "Related Links:\n- [LeetCode Sudoku Solver Problem](https://leetcode.com/problems/sudoku-solver/)\n- [GeeksforGeeks Sudoku Solving Article](https://www.geeksforgeeks.org/sudoku-backtracking-7/)\n- [HackerRank Sudoku Solver Challenge](https://www.hackerrank.com/challenges/sudoku-solver/)"
+}
+}

@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q20. Find Pair with Given Sum in Sorted Array",
+    "problemdescription": "Given a sorted array of integers and a target sum, find a pair of elements in the array that add up to the target sum. Return the indices of these elements. If no such pair exists, return an empty array.",
+    "problemconstraint": "Constraints:\n- You must return the indices of the elements as a 0-based index array.\n- You may not use the same element twice.\n- The input array is sorted in ascending order.",
+    "inputformat": "Input:\n- A sorted array of integers (nums).\n- A target integer (target).",
+    "outputformat": "Output:\n- An array of two integers, representing the indices of the two elements from the input array that add up to the target.",
+    "example": "Example:\n\nInput: nums = [2, 7, 11, 15], target = 9\nOutput: [0, 1]\nExplanation: The elements at indices 0 and 1 (2 and 7) add up to the target 9."
+  },
+  "solution_approach": {
+    "solution": "To find a pair with a given sum in a sorted array, you can use a Two Pointers approach. Initialize two pointers, one at the beginning of the array and the other at the end. Calculate the sum of elements at these pointers. If the sum is equal to the target, return the indices of these elements. If the sum is less than the target, move the left pointer to the right. If the sum is greater than the target, move the right pointer to the left. Repeat this process until the pointers meet or the target sum is found.",
+    "hint": "When using the Two Pointers approach to find a pair with a given sum in a sorted array, start with one pointer at the beginning and the other at the end. Calculate the sum of elements at these pointers and adjust the pointers based on whether the sum is greater or less than the target. Continue this process until you find the pair or the pointers meet."
+  },
+  "solution": {
+    "java": "Here's a Java solution for finding a pair with a given sum in a sorted array using the Two Pointers approach:\n\n```java\npublic int[] findPair(int[] nums, int target) {\n    int left = 0;\n    int right = nums.length - 1;\n\n    while (left < right) {\n        int sum = nums[left] + nums[right];\n        if (sum == target) {\n            return new int[] {left, right};\n        } else if (sum < target) {\n            left++;\n        } else {\n            right--;\n        }\n    }\n\n    return new int[0]; // Pair not found\n}\n```\nThis Java code efficiently finds the indices of the pair of elements that add up to the target sum.",
+    "python": "And here's a Python solution for finding a pair with a given sum in a sorted array using the Two Pointers approach:\n\n```python\ndef find_pair(nums, target):\n    left = 0\n    right = len(nums) - 1\n\n    while left < right:\n        total = nums[left] + nums[right]\n        if total == target:\n            return [left, right]\n        elif total < target:\n            left += 1\n        else:\n            right -= 1\n\n    return [] # Pair not found\n```\nThis Python code efficiently finds the indices of the pair of elements that add up to the target sum."
+  },
+  "extras": {
+    "asked": "Finding a pair with a given sum in a sorted array using the Two Pointers approach is a common coding interview question. It is often encountered in technical interviews to assess candidates' problem-solving skills and ability to work with sorted data.",
+    "sdesheet": "The problem of finding a pair with a given sum in a sorted array is frequently included in coding practice sheets. It helps candidates practice efficient array manipulation.",
+    "relatedlinks": "Related Links:\n- [LeetCode Two Sum II - Input array is sorted Problem](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)\n- [GeeksforGeeks Pair with Given Sum in Sorted Array Article](https://www.geeksforgeeks.org/two-pointers-technique/)\n- [HackerRank Pair with Given Sum in Sorted Array Challenge](https://www.hackerrank.com/challenges/ctci-array-left-rotation)"
+  }
+}

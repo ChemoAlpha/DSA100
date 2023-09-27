@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q67. Implement Stack using Queues",
+    "problemdescription": "Implement a stack using queues with the following operations:\n\n1. `MyStack()`: Initializes an empty stack.\n2. `push(x)`: Pushes an element `x` onto the stack.\n3. `pop()`: Removes the element on the top of the stack and returns it.\n4. `top()`: Gets the element on the top of the stack without removing it.\n5. `empty()`: Returns `true` if the stack is empty, `false` otherwise.",
+    "problemconstraint": "Constraints:\n- You must use only standard operations of a queue (i.e., only push to back, peek/pop from front, size, and is empty operations are valid).",
+    "inputformat": "Input:\n- The operations will be given as a list of strings, where each string is one of the supported operations.",
+    "outputformat": "Output:\n- For each `pop()` and `top()` operation, return the element at the top of the stack or -1 if the stack is empty.",
+    "example": "Example:\n\nInput:\n[\"MyStack\",\"push\",\"push\",\"top\",\"pop\",\"empty\"]\n[[],[1],[2],[],[],[]]\nOutput:\n[null,null,null,2,2,false]\nExplanation:\nMyStack myStack = new MyStack();\nmyStack.push(1); // stack is [1]\nmyStack.push(2); // stack is [1,2]\nmyStack.top();   // return 2\nmyStack.pop();   // return 2, stack is [1]\nmyStack.empty(); // return false"
+  },
+  "solution_approach": {
+    "solution": "To implement a stack using queues, you can use two queues. One queue will be used for push operations, and the other queue will be used for pop operations. Implement the required operations accordingly.",
+    "hint": "Use two queues to simulate the behavior of a stack and maintain the elements in the correct order."
+  },
+  "solution": {
+    "java": "Here's a Java solution to implement a stack using queues:\n\n```java\nimport java.util.LinkedList;\nimport java.util.Queue;\n\nclass MyStack {\n    private Queue<Integer> queue1;\n    private Queue<Integer> queue2;\n\n    public MyStack() {\n        queue1 = new LinkedList<>();\n        queue2 = new LinkedList<>();\n    }\n\n    public void push(int x) {\n        queue2.add(x);\n        while (!queue1.isEmpty()) {\n            queue2.add(queue1.poll());\n        }\n        Queue<Integer> temp = queue1;\n        queue1 = queue2;\n        queue2 = temp;\n    }\n\n    public int pop() {\n        return queue1.poll();\n    }\n\n    public int top() {\n        return queue1.peek();\n    }\n\n    public boolean empty() {\n        return queue1.isEmpty();\n    }\n}\n```",
+    "python": "And here's a Python solution to implement a stack using queues:\n\n```python\nclass MyStack:\n    def __init__(self):\n        self.queue1 = []\n        self.queue2 = []\n\n    def push(self, x: int) -> None:\n        self.queue2.append(x)\n        while self.queue1:\n            self.queue2.append(self.queue1.pop(0))\n        self.queue1, self.queue2 = self.queue2, self.queue1\n\n    def pop(self) -> int:\n        return self.queue1.pop(0)\n\n    def top(self) -> int:\n        return self.queue1[0]\n\n    def empty(self) -> bool:\n        return not self.queue1\n```"
+  },
+  "extras": {
+    "asked": "Implementing a stack using queues is a common interview question that assesses your understanding of data structures and queue operations.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice stack and queue-related algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Implement Stack using Queues Problem](https://leetcode.com/problems/implement-stack-using-queues/)\n- [GeeksforGeeks Stack Data Structure Article](https://www.geeksforgeeks.org/stack-data-structure/)"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q14. Design a Stack with Support for Min",
+    "problemdescription": "Design a stack data structure that supports push, pop, top, and retrieving the minimum element in constant time (O(1)). You must implement these methods efficiently without compromising the overall performance.",
+    "problemconstraint": "Constraints:\n- All operations (push, pop, top, getMin) should be efficient (O(1) time complexity for getMin).\n",
+    "inputformat": "Input:\n- The input consists of a sequence of operations, where each operation is either push, pop, top, or getMin.",
+    "outputformat": "Output:\n- For the top operation, return the top element of the stack. For the getMin operation, return the minimum element of the stack.",
+    "example": "Example:\n\nInput: push(2), push(0), push(3), push(0), getMin(), pop(), getMin(), pop(), getMin()\nOutput: [0, 0, 2]"
+  },
+  "solution_approach": {
+    "solution": "To design a stack that supports constant-time retrieval of the minimum element, you can use an additional stack (minStack) to keep track of the minimum values at each level of the main stack. Whenever you push an element onto the main stack, check if it's smaller than or equal to the current minimum (peek of minStack). If yes, push it onto minStack as well. When you pop an element from the main stack, check if it's equal to the current minimum (peek of minStack). If yes, pop from minStack as well.",
+    "hint": "To design a stack that efficiently supports the retrieval of the minimum element in constant time, consider using an additional stack (minStack) to keep track of the minimum values at each level of the main stack. Whenever you push an element onto the main stack, check if it's smaller than or equal to the current minimum (peek of minStack). If yes, push it onto minStack as well. When you pop an element from the main stack, check if it's equal to the current minimum (peek of minStack). If yes, pop from minStack as well."
+  },
+  "solution": {
+    "java": "Here's a Java solution for designing a stack with support for the minimum element in constant time:\n\n```java\nclass MinStack {\n    private Stack<Integer> mainStack;\n    private Stack<Integer> minStack;\n\n    public MinStack() {\n        mainStack = new Stack<>();\n        minStack = new Stack<>();\n    }\n\n    public void push(int x) {\n        mainStack.push(x);\n        if (minStack.isEmpty() || x <= minStack.peek()) {\n            minStack.push(x);\n        }\n    }\n\n    public void pop() {\n        if (mainStack.isEmpty()) {\n            return;\n        }\n        if (mainStack.peek().equals(minStack.peek())) {\n            minStack.pop();\n        }\n        mainStack.pop();\n    }\n\n    public int top() {\n        return mainStack.peek();\n    }\n\n    public int getMin() {\n        return minStack.peek();\n    }\n}\n```\nThis Java code efficiently implements a stack with support for push, pop, top, and retrieving the minimum element in constant time.",
+    "python": "And here's a Python solution for designing a stack with support for the minimum element in constant time:\n\n```python\nclass MinStack:\n    def __init__(self):\n        self.mainStack = []\n        self.minStack = []\n\n    def push(self, x: int) -> None:\n        self.mainStack.append(x)\n        if not self.minStack or x <= self.minStack[-1]:\n            self.minStack.append(x)\n\n    def pop(self) -> None:\n        if not self.mainStack:\n            return\n        if self.mainStack[-1] == self.minStack[-1]:\n            self.minStack.pop()\n        self.mainStack.pop()\n\n    def top(self) -> int:\n        return self.mainStack[-1]\n\n    def getMin(self) -> int:\n        return self.minStack[-1]\n```\nThis Python code efficiently implements a stack with support for push, pop, top, and retrieving the minimum element in constant time."
+  },
+  "extras": {
+    "asked": "Designing a stack that supports constant-time retrieval of the minimum element is a challenging and frequently asked coding interview question, especially in technical interviews for software development roles.",
+    "sdesheet": "This problem is often included in coding practice sheets to test candidates' understanding of data structures and algorithmic design.",
+    "relatedlinks": "Related Links:\n- [LeetCode Min Stack Problem](https://leetcode.com/problems/min-stack/)\n- [GeeksforGeeks Min Stack Article](https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/)\n- [HackerRank Min Stack Challenge](https://www.hackerrank.com/challenges/ctci-find-the-running-median)"
+  }
+}

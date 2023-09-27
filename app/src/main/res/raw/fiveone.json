@@ -1,1 +1,24 @@
 
+{
+  "problem_statement": {
+    "title": "Q32. Calculate Power Modulo M",
+    "problemdescription": "Given three integers 'x', 'y', and 'm', calculate (x^y) % m where '^' represents exponentiation.",
+    "problemconstraint": "Constraints:\n- You can assume that all integers are non-negative.",
+    "inputformat": "Input:\n- Three non-negative integers 'x', 'y', and 'm' where 0 <= x, y, m <= 10^9.",
+    "outputformat": "Output:\n- An integer representing the result of (x^y) % m.",
+    "example": "Example:\n\nInput: x = 2, y = 5, m = 1000\nOutput: 32\nExplanation: (2^5) % 1000 = 32."
+  },
+  "solution_approach": {
+    "solution": "To calculate (x^y) % m efficiently, you can use the modular exponentiation technique. This technique reduces the number of multiplications by breaking down the exponent 'y' into its binary representation and computing powers of 'x' accordingly.",
+    "hint": "Modular exponentiation is an efficient way to calculate (x^y) % m. Break down 'y' into its binary representation and calculate powers of 'x' accordingly, reducing the number of multiplications."
+  },
+  "solution": {
+    "java": "Here's a Java solution for calculating (x^y) % m using modular exponentiation:\n\n```java\npublic int calculatePowerModuloM(int x, int y, int m) {\n    long result = 1;\n    long base = x % m;\n    while (y > 0) {\n        if (y % 2 == 1) {\n            result = (result * base) % m;\n        }\n        base = (base * base) % m;\n        y /= 2;\n    }\n    return (int) result;\n}\n```\nThis Java code efficiently calculates (x^y) % m.",
+    "python": "And here's a Python solution for calculating (x^y) % m using modular exponentiation:\n\n```python\ndef calculate_power_modulo_m(x, y, m):\n    result = 1\n    base = x % m\n    while y > 0:\n        if y % 2 == 1:\n            result = (result * base) % m\n        base = (base * base) % m\n        y //= 2\n    return result\n```\nThis Python code effectively computes (x^y) % m."
+  },
+  "extras": {
+    "asked": "The problem of calculating power modulo M is commonly encountered in computer science and number theory. It has applications in cryptography and algorithms that involve large numbers and modular arithmetic.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice modular arithmetic and efficient exponentiation techniques.",
+    "relatedlinks": "Related Links:\n- [Wikipedia - Modular Exponentiation](https://en.wikipedia.org/wiki/Modular_exponentiation)\n- [GeeksforGeeks Modular Exponentiation Article](https://www.geeksforgeeks.org/modular-exponentiation-recursive/)\n- [HackerRank Modular Exponentiation Challenge](https://www.hackerrank.com/challenges/functional-programming-warmups-in-recursion---gcd)"
+  }
+}

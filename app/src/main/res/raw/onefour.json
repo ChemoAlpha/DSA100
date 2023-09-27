@@ -1,0 +1,23 @@
+{
+  "problem_statement": {
+    "title": "Q15. Evaluate Reverse Polish Notation",
+    "problemdescription": "Evaluate the value of an arithmetic expression in Reverse Polish Notation (RPN). The expression is given as a list of numbers and operators, where the operators follow their operands. Each operator may be an addition (+), subtraction (-), multiplication (*), or division (/).",
+    "problemconstraint": "Constraints:\n- The list of tokens is a valid RPN expression, where each token is a string consisting of either an integer or one of the four operators: +, -, *, or /.\n- The division between two integers should truncate toward zero (e.g., 7 / 3 = 2).\n- You do not need to worry about the validity of the input expression.",
+    "inputformat": "Input:\n- A list of strings representing an RPN expression.",
+    "outputformat": "Output:\n- An integer, the result of evaluating the RPN expression.",
+    "example": "Example:\n\nInput: [\"2\", \"1\", \"+\", \"3\", \"*\"]\nOutput: 9\nExplanation: ((2 + 1) * 3) = 9"
+  },
+  "solution_approach": {
+    "solution": "To evaluate an RPN expression, you can use a stack to keep track of numbers as you encounter them. When you encounter an operator, pop the top two numbers from the stack, apply the operator, and push the result back onto the stack. Continue this process until you've processed all tokens in the expression. The final result will be the only number left on the stack.",
+    "hint": "To evaluate an RPN expression efficiently, use a stack to keep track of numbers as you encounter them. When you encounter an operator, pop the top two numbers from the stack, apply the operator, and push the result back onto the stack. Continue this process until you've processed all tokens in the expression. The final result will be the only number left on the stack."
+  },
+  "solution": {
+    "java": "Here's a Java solution for evaluating an expression in Reverse Polish Notation (RPN):\n\n```java\npublic int evalRPN(String[] tokens) {\n    Stack<Integer> stack = new Stack<>();\n    for (String token : tokens) {\n        if (token.matches(\"[+-]?\\d+\")) {\n            stack.push(Integer.parseInt(token));\n        } else {\n            int num2 = stack.pop();\n            int num1 = stack.pop();\n            switch (token) {\n                case \"+\":\n                    stack.push(num1 + num2);\n                    break;\n                case \"-\":\n                    stack.push(num1 - num2);\n                    break;\n                case \"*\":\n                    stack.push(num1 * num2);\n                    break;\n                case \"/\":\n                    stack.push(num1 / num2);\n                    break;\n            }\n        }\n    }\n    return stack.pop();\n}\n```\nThis Java code efficiently evaluates an RPN expression and returns the result as an integer.",
+    "python": "And here's a Python solution for evaluating an expression in Reverse Polish Notation (RPN):\n\n```python\ndef evalRPN(tokens):\n    stack = []\n    for token in tokens:\n        if token.lstrip('-').isdigit():\n            stack.append(int(token))\n        else:\n            num2 = stack.pop()\n            num1 = stack.pop()\n            if token == '+':\n                stack.append(num1 + num2)\n            elif token == '-':\n                stack.append(num1 - num2)\n            elif token == '*':\n                stack.append(num1 * num2)\n            elif token == '/':\n                stack.append(int(num1 / num2))\n    return stack[0]\n```\nThis Python code efficiently evaluates an RPN expression and returns the result as an integer."
+  },
+  "extras": {
+    "asked": "Evaluating an expression in Reverse Polish Notation is a common coding interview question, often used to test candidates' understanding of stack data structures and arithmetic operations.",
+    "sdesheet": "This problem is commonly included in coding practice sheets and is a valuable exercise for learning stack-based algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Evaluate Reverse Polish Notation Problem](https://leetcode.com/problems/evaluate-reverse-polish-notation/)\n- [GeeksforGeeks RPN Evaluation Article](https://www.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/)\n- [HackerRank RPN Calculator Challenge](https://www.hackerrank.com/challenges/rpn-calculator)"
+  }
+}

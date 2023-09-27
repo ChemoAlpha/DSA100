@@ -1,1 +1,23 @@
-ECHO is on.
+{
+  "problem_statement": {
+    "title": "Q54. Palindrome Linked List",
+    "problemdescription": "Given the head of a singly linked list, determine if it is a palindrome.",
+    "problemconstraint": "Constraints:\n- The number of nodes in the list is in the range [0, 10^5].\n- -10^9 <= Node.val <= 10^9",
+    "inputformat": "Input:\n- The head of a singly linked list.",
+    "outputformat": "Output:\n- Return true if the linked list is a palindrome; otherwise, return false.",
+    "example": "Example:\n\nInput: head = [1,2,2,1]\nOutput: true\nExplanation: The linked list is a palindrome."
+  },
+  "solution_approach": {
+    "solution": "To check if a linked list is a palindrome, you can reverse the second half of the list and compare it with the first half. To find the middle of the list, you can use the two-pointer approach. Reverse the second half in place and compare each node's value. If all values match, it's a palindrome.",
+    "hint": "To check if a linked list is a palindrome, reverse the second half of the list and compare it with the first half. Use the two-pointer approach to find the middle of the list and reverse the second half in place. Then, compare each node's value. If all values match, it's a palindrome."
+  },
+  "solution": {
+    "java": "Here's a Java solution to check if a linked list is a palindrome:\n\n```java\npublic boolean isPalindrome(ListNode head) {\n    if (head == null || head.next == null) {\n        return true;\n    }\n    ListNode slow = head;\n    ListNode fast = head;\n    // Find the middle of the list\n    while (fast != null && fast.next != null) {\n        slow = slow.next;\n        fast = fast.next.next;\n    }\n    // Reverse the second half\n    ListNode prev = null;\n    while (slow != null) {\n        ListNode next = slow.next;\n        slow.next = prev;\n        prev = slow;\n        slow = next;\n    }\n    // Compare both halves\n    while (prev != null) {\n        if (head.val != prev.val) {\n            return false;\n        }\n        head = head.next;\n        prev = prev.next;\n    }\n    return true;\n}\n```\nThis Java code efficiently checks if a linked list is a palindrome.",
+    "python": "And here's a Python solution to check if a linked list is a palindrome:\n\n```python\nclass ListNode:\n    def isPalindrome(self, head):\n        if not head or not head.next:\n            return True\n        slow = head\n        fast = head\n        # Find the middle of the list\n        while fast and fast.next:\n            slow = slow.next\n            fast = fast.next.next\n        # Reverse the second half\n        prev = None\n        while slow:\n            next_node = slow.next\n            slow.next = prev\n            prev = slow\n            slow = next_node\n        # Compare both halves\n        while prev:\n            if head.val != prev.val:\n                return False\n            head = head.next\n            prev = prev.next\n        return True\n```\nThis Python code effectively checks if a linked list is a palindrome."
+  },
+  "extras": {
+    "asked": "Checking if a linked list is a palindrome is a commonly asked coding interview question. It assesses your knowledge of linked list manipulation and palindrome detection.",
+    "sdesheet": "This problem is often included in coding practice sheets to help candidates practice linked list and palindrome-related algorithms.",
+    "relatedlinks": "Related Links:\n- [LeetCode Palindrome Linked List Problem](https://leetcode.com/problems/palindrome-linked-list/)\n- [GeeksforGeeks Palindrome Linked List Article](https://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/)\n- [HackerRank Palindrome Linked List Challenge](https://www.hackerrank.com/challenges/is-linked-list-palindromic)"
+  }
+}
